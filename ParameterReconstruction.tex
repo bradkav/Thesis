@@ -1,0 +1,27 @@
+\chapter{Parameter Reconstruction}
+
+\section{Posterior distribution}
+
+Using the above techniques, we can obtain an estimate of the posterior distribution, or likelihood, for the \(N\) model parameters \(\mathcal{L}(\textbf{D}|\{\theta_i\})\).
+
+It is sometimes necessary to calculate or plot the posterior distribution as a function of only a subset of parameters - say 1 or 2. While the full N-dimensional likelihood is unambiguous, the likelihood as a function of 1 or 2 parameters can be obtained in several ways, each of which encode different information. We discuss some of these ways below for the case of constructing a k-dimensional likelihood from the full N-dimensional parameter space.
+
+\begin{description}
+\item[Profile likelihood (PL)] The profile likelihood is obtained by taking a k-dimensional slice of the full N-D likelihood. The choice of slice is somewhat arbitrary, but typically we choose to maximise the likelihood along the \(N-k\) remaining dimensions:
+\begin{equation}
+\mathcal{L}_{\textrm{PL}}(\theta_1,\theta_2,...,\theta_k) = \max_{k+1,...,N} \mathcal{L}(\theta_1,\theta_2,...,\theta_k,\theta_{k+1},...,\theta_N)\,.
+\end{equation}
+\item[Marginalised posterior] The marginalised likelihood, or marginalised posterior,\(\mathcal{L}_{\textrm{M}}\) is obtained by integrating the full likelihood over the remaining \(N-k\) dimensions.
+\begin{equation}
+\mathcal{L}_\textrm{M}(\theta_1,\theta_2,...,\theta_k) = \int \mathcal{L}(\theta_1,\theta_2,...,\theta_k,\theta_{k+1},...,\theta_N) \, \textrm{d}\theta_{k+1} ... \textrm{d}\theta_N \,.
+\end{equation}
+\end{description}
+
+\section{Parameter estimates}
+
+While the entire posterior distribution is required to assess the fit of a single point, it can be helpful to report as single value for a given parameter as a measure of the location of the distribution. As before, reduction from one to zero dimensions can be ambiguous and we describe several possible options below.
+
+\begin{description}
+\item[Best fit] The best fit parameter, or maximum likelihood estimator, is the parameter value which gives the largest likelihood over the entire parameter range.
+
+\end{description}
