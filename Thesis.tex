@@ -1,14 +1,19 @@
 \documentclass[a4paper, 12pt, openany]{memoir}
 
-
 \usepackage{multirow}
 \usepackage{tabulary}
+
 \usepackage[sort&compress,numbers]{natbib}
-\bibliographystyle{my-apsrev}
-\usepackage{doi}
+
+%\usepackage{doi}%<----------
+
 \usepackage{hyperref}
+\usepackage{memhfixc}
+\hypersetup{final}
 \usepackage{color}
 \usepackage{graphicx}
+\usepackage{nomencl}
+\usepackage{paralist}
 
 
 \newcommand{\note}[1]{\textcolor{red}{\textbf{#1}}}
@@ -17,10 +22,15 @@
 
 
 
+\newcommand{\etal}{et al.\ }
+\newcommand{\LCDM}{$\Lambda$CDM }
+
+\makenomenclature
+\input{nomenclature.tex}
 
 \begin{document}
 
-\DoubleSpacing
+\OnehalfSpacing
 
 \input{Title.tex}
 
@@ -45,6 +55,10 @@
 \listoftables
 \newpage
 
+\newpage
+\printnomenclature
+\newpage
+
 \pagenumbering{arabic}
 \input{Introduction.tex}
 
@@ -63,6 +77,15 @@
 \input{Conclusions.tex}
 
 
+%%%Problems with the style file: I've edited
+%     pages empty$ {
+%      doi output
+%      } 'skip$ if$
+%in the article FUNCTION to remove doi - it was adding it if other fields were missing, we don't want that...
+%I've also removed some extra spaces which were messing with the hrefs...
+
+
+\bibliographystyle{my-apsrev4-1}
 \bibliography{Thesis}
 
 \end{document}

@@ -1342,7 +1342,7 @@ FUNCTION {archiv.prefix.base}
 
 FUNCTION {eprint.command}
 {
-  "\Eprint "
+  "\Eprint"
 }
 
 FUNCTION {format.eprint}
@@ -1805,7 +1805,7 @@ FUNCTION {noop.command}
 
 FUNCTION {href.command}
 {
-  "\href "
+  "\href"
 }
 
 FUNCTION {link.tag.open}
@@ -2624,7 +2624,6 @@ FUNCTION {article}
       eid.or.pages
       format.date.output.check
       pages empty$ {
-      %doi output
       } 'skip$ if$
       link.shut
     }{
