@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt, openany]{memoir}
+\documentclass[a4paper, 12pt, openany, oneside]{memoir}
 
 \usepackage{multirow}
 \usepackage{tabulary}
@@ -6,6 +6,8 @@
 \usepackage[sort&compress,numbers]{natbib}
 
 %\usepackage{doi}%<----------
+
+
 
 \usepackage{hyperref}
 \usepackage{memhfixc}
@@ -15,13 +17,26 @@
 \usepackage{nomencl}
 \usepackage{paralist}
 \usepackage{feynmp}
+%\usepackage{feynmp-auto}
+\newsubfloat{figure}
+%\usepackage{caption}
+%\usepackage{subcaption}
+
+\setlrmarginsandblock{2in}{1in}{*}
+\setulmarginsandblock{1.25in}{1.25in}{*}
+\checkandfixthelayout
+
+%MAY NEED TO SPECIFY THE CAPTION FONTS!!!
+\changecaptionwidth
+\captionwidth{0.9\textwidth}
 
 \DeclareGraphicsRule{*}{mps}{*}{}
+
+\setsecnumdepth{subsection}
 
 \newcommand{\note}[1]{\textcolor{red}{\textbf{#1}}}
 
 \newcommand{\todo}[1]{\textcolor{blue}{\textit{#1}}}
-
 
 
 \newcommand{\etal}{et al.\ }
