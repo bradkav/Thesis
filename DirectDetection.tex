@@ -1,1 +1,58 @@
 \chapter{Direct detection of dark matter}
+
+\section{Introduction}
+
+The idea that particle dark matter (DM) may be observed in terrestrial detectors was first proposed by Goodman and Witten in 1985 \cite{Goodman:1985} and by Drukier, Freese and Spergel in 1986 \cite{Drukier:1986}. If DM can interact with particles of the Standard Model, the flux of DM from the halo of the Milky Way should be large enough to cause measureable scattering from nuclei. If the subsequent recoils can be detected and their energy spectrum measured, it should be possible to infer some properties of the DM particles.
+
+However, the expected event rate for keV-scale recoils at such a detector would be of the order of $10^{-10}$ events per kg of detector material per day per keV recoil energy \cite{Cerdeno:2010}. With such a low event rate, it is imperative that backgrounds can be reduced as much as possible. In addition, detectors should be as large as possible and sensitive to as wide a range of recoil energies as possible, in order to maximise the total number of events observed. Thus, specialised detectors are required to shield the active detector material from backgrounds and to discriminate between these backgrounds and signal events.
+
+There exist at present a wide range of detectors using a variety of different sophisticated techniques for detecting such a weak signal against ubiquitous backgrounds, each probing a slightly different range of DM parameter space. Several of these experiments - such as DAMA/LIBRA \cite{Bernabei:2010}, CoGeNT \cite{Aalseth:2011a, Aalseth:2011b} and CRESST-II \cite{Stodolsky:2012} - claim to have observed a signal indicative of a WIMP with mass $\sim 10$ GeV. However, a number of other experiments have reported null results creating tension for a dark matter interpretation of these tentative signals. It remains to be seen whether this discrepancy is an experimental effect or physically meaningful result. 
+
+There remain a number of uncertainties in the direct detection of dark matter. These come from a variety of sources and can be approximately partitioned into experimental, nuclear, particle and astrophysical uncertainties. Understanding these uncertainties is imperative for properly interpreting the results of direct detection experiments and understanding whether a coherent picture can emerge from a number of different experimental efforts.
+
+In this chapter, I will review the formalism for direct detection which was introduced by Goodman, Witten, Drukier, Freese and Spergel in the 1980s (and subsequently refined). I will then briefly discuss some of the experimental techniques which are used to achieve the required sensitivity for DM searches, as well as summarising current experimental constraints and results. I will outline some of the uncertainties which afflict the interpretation of direct detection data.
+
+I will focus on astrophysical uncertainties in direct detection. In particular, I will discuss the local density and distribution of dark matter impacts the direct detection event rate, how well we understand these different factors and review approaches which have been developed in the past to mitigate these uncertainties.
+
+\section{Direct detection formalism}
+
+\todo{Make sure I get the right citations and stuff in here...}
+\todo{Generalise to many nuclei etc...}
+\note{Make the distinction NOW about f1 or f or f3 and what I mean by that...}
+
+\note{ELASTIC SCATTERING - what about the alternatives? Form factor DM, higher order stuff, effective operator, inelastic?}
+
+\note{This only applies to fermionic dark matter!!!}
+
+\note{Introduce the term WIMPs}
+
+We wish to obtain the rate of nuclear recoils per unit detector mass. The differential event rate $R$ can be written straightforwardly as
+
+\begin{equation}
+\dbd{R}{E_R} = N_T \Phi_\chi \dbd{\sigma}{E_R}\,,
+\end{equation}
+for recoils of energy $E_R$, $N_T$ target particles, a DM flux of $\Phi_\chi$ and a differential scattering cross section of $\dbd{\sigma}{E_R}$. Per unit detector mass, the number of target particles is simply $N_T = 1/m_N$, for nuclei of mass $m_N$. The DM flux for particles with speed in the range $v \rightarrow v + \mathrm{d}v$ is $\Phi_\chi = n_\chi v f(v) \,\mathrm{d}v$. Here, $n_\chi$ is the number density of dark matter particles $\chi$ and $f(v)$ is the speed distribution for the dark matter. This distribution function describes the fraction of DM particles having a given speed. Finally, we can convert from the number density to the mass density $\rho_0$ by dividing by DM particle mass $m_\chi$: $n_\chi = \rho_0/m_\chi$. By integrating over all DM speeds, we therefore obtain
+
+\begin{equation}
+\dbd{R}{E_R} =  \frac{\rho_0}{m_N m_\chi} \int_{0}^{\infty} v f(v) \dbd{\sigma}{E_R} \, \mathrm{d}v\,.
+\end{equation}
+
+The differential scattering cross section is obtained from interaction terms in the lagrangian between the DM particle and quarks. This will depend on the particular DM model under consideration and the full form of these interaction terms is not known. However, because the WIMPs have speeds of order $10^{-3} c$, the scattering occurs in the non-relativistic limit, leading to some important simplifications. In this limit, the axial-vector interaction simply couples the spins of the WIMP and quark. The scalar interaction induces a coupling of the WIMP to the number of nucleons in the nucleus, with the vector\footnote{For the case of a Majorana fermion, the vector current vanishes and we need not consider it.} and tensor interactions assuming the same form as the scalar in the non-relativistic limit \cite{Jungman:1995}. All other interactions are typically suppressed by powers of $v/c$ and so will be subdominant (though we will consider briefly scenarios where this is not the case in Sec.~\ref{}). \note{Check and cite...} Generically, then, the cross section is typically written in terms of spin-independent (SI) and spin-dependent (SD) interactions \cite{Goodman:1985} \note{Talk a bit more here about effective field theories - find the right paper - there's one that has all the v/c dependences...}
+
+\begin{equation}
+\dbd{\sigma}{E_R} = \dbd{\sigma_{SI}}{E_R} + \dbd{\sigma_{SD}}{E_R}\,.
+\end{equation}
+We now discuss the form of the SI and SD cross sections in turn.
+
+\subsection{SI interactions}
+
+Spin-independent interactions are generated predominantly by scalar terms in the effective lagrangian\note{NB: Contact interactions in some effective field theory - what about loop diagrams...?}
+
+\begin{equation}
+\label{eq:ScalarInt}
+\mathcal{L} \supset g_q \bar{\chi} \chi \bar{q} q \,,
+\end{equation}
+for interactions with a quark species $q$ with coupling $g_q$. NEED TO EVALUATE THE NUCLEON CONTENT (COPY LOTS FROM THE `EVENT RATE' NOTE); ALSO NEED TO ACTUALLY DO THE MATRIX ELEMENT-CROSS SECTION CALCULATION IN FULL (AGAIN, COPY).
+
+
+
