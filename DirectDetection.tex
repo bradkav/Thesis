@@ -37,11 +37,32 @@ for recoils of energy $E_R$, $N_T$ target particles, a DM flux of $\Phi_\chi$ an
 \dbd{R}{E_R} =  \frac{\rho_0}{m_N m_\chi} \int_{0}^{\infty} v f(v) \dbd{\sigma}{E_R} \, \mathrm{d}v\,.
 \end{equation}
 
-The differential scattering cross section is obtained from interaction terms in the lagrangian between the DM particle and quarks. This will depend on the particular DM model under consideration and the full form of these interaction terms is not known. However, because the WIMPs have speeds of order $10^{-3} c$, the scattering occurs in the non-relativistic limit, leading to some important simplifications. In this limit, the axial-vector interaction simply couples the spins of the WIMP and quark. The scalar interaction induces a coupling of the WIMP to the number of nucleons in the nucleus, with the vector\footnote{For the case of a Majorana fermion, the vector current vanishes and we need not consider it.} and tensor interactions assuming the same form as the scalar in the non-relativistic limit \cite{Jungman:1995}. All other interactions are typically suppressed by powers of $v/c$ and so will be subdominant (though we will consider briefly scenarios where this is not the case in Sec.~\ref{}). \note{Check and cite...} Generically, then, the cross section is typically written in terms of spin-independent (SI) and spin-dependent (SD) interactions \cite{Goodman:1985} \note{Talk a bit more here about effective field theories - find the right paper - there's one that has all the v/c dependences...}
+The differential scattering cross section per solid angle in the zero-momentum frame (ZMF), \(\Omega^*\), is given by:
+\begin{equation}
+\frac{\textrm{d}\sigma}{\textrm{d}\Omega^*} = \frac{1}{64 \pi^2 s} \frac{p_f^*}{p_i^*} |\mathcal{M}|^2 \,,
+\end{equation}
+where $\mathcal{M}$ is the scattering amplitude obtained from the Lagrangian. For elastic scattering, the final and initial momenta in the ZMF are equal: \(p_f^* = p_i^*\). The centre-of-mass energy squared, \(s\), can be written \(s \approx (m_\chi + m_N)^2\), where we have used the non-relativistic approximation \note{This is only justified later}. The recoil energy can be written in terms of the ZMF scattering angle $\theta^*$ as \cite{Cerdeno:2010}
+
+\begin{equation}
+E_R = \frac{\mu_{\chi N }^2 v^2}{m_N} (1-\cos\theta^*)\,.
+\end{equation}
+Noting that $\textrm{d}\Omega^* = \textrm{d}\cos\theta^*\textrm{d}\phi$, we can write:
+
+\begin{equation}
+\frac{\textrm{d}E_R}{\textrm{d}\Omega^*} = \frac{\mu_{\chi N}^2 v^2}{2\pi m_N}\,,
+\end{equation}
+and therefore
+
+\begin{equation}
+\dbd{\sigma}{E_R} = \frac{1}{32\pi m_N m_\chi^2 v^2}|\mathcal{M}|^2\,.
+\end{equation}
+
+The matrix element $\mathcal{M}$ is obtained from interaction terms in the lagrangian between the DM particle and quarks. This will depend on the particular DM model under consideration and the full form of these interaction terms is not known. However, because the WIMPs have speeds of order $10^{-3} c$, the scattering occurs in the non-relativistic limit, leading to some important simplifications. In this limit, the axial-vector interaction simply couples the spins of the WIMP and quark. The scalar interaction induces a coupling of the WIMP to the number of nucleons in the nucleus, with the vector\footnote{For the case of a Majorana fermion, the vector current vanishes and we need not consider it.} and tensor interactions assuming the same form as the scalar in the non-relativistic limit \cite{Jungman:1995}. All other interactions are typically suppressed by powers of $v/c$ and so will be subdominant (though we will consider briefly scenarios where this is not the case in Sec.~\ref{}). \note{Check and cite...} Generically, then, the cross section is typically written in terms of spin-independent (SI) and spin-dependent (SD) interactions \cite{Goodman:1985} \note{Talk a bit more here about effective field theories - find the right paper - there's one that has all the v/c dependences - mentioned in \cite{Engel:1992}... - only considering contact interactions, slow moving spin-1/2,...\cite{Kurylov:2003,Fan:2010,Cirelli:2013,Fitzpatrick:2013} - axial-vector and scalar currents do not interfere...}
 
 \begin{equation}
 \dbd{\sigma}{E_R} = \dbd{\sigma_{SI}}{E_R} + \dbd{\sigma_{SD}}{E_R}\,.
 \end{equation}
+
 We now discuss the form of the SI and SD cross sections in turn.
 
 \subsection{SI interactions}
@@ -50,9 +71,176 @@ Spin-independent interactions are generated predominantly by scalar terms in the
 
 \begin{equation}
 \label{eq:ScalarInt}
-\mathcal{L} \supset g_q \bar{\chi} \chi \bar{q} q \,,
+\mathcal{L} \supset \alpha_S^{(q)} \bar{\chi} \chi \bar{q} q \,,
 \end{equation}
-for interactions with a quark species $q$ with coupling $g_q$. NEED TO EVALUATE THE NUCLEON CONTENT (COPY LOTS FROM THE `EVENT RATE' NOTE); ALSO NEED TO ACTUALLY DO THE MATRIX ELEMENT-CROSS SECTION CALCULATION IN FULL (AGAIN, COPY).
+for interactions with a quark species $q$ with coupling $\alpha_S^{(q)}$. The operator $\bar{q} q$ is simply the quark number operator, which couples to the quark density. However, we should recall that the quarks are in nucleon bound states $|n\rangle$, so we should evaluate $\langle n|\bar{q}q|n\rangle$, adding coherently the contributions from both valence and sea quarks. These matrix elements are obtained from chiral perturbation theory \cite{Alarcon:2012} or Lattice QCD \cite{Bali:2012}. These matrix elements can be parametrised in terms of their contribution to the nucleon mass in the form:
+
+\begin{equation}
+m_n f_{Tq}^n \equiv \langle n|m_q\bar{q}q|n \rangle \,.
+\end{equation}
+
+Adding the contributions of the light quarks, as well as the heavy quarks and gluons (which contribute through the chiral anomaly \cite{Shifman:1978}), we obtain
+
+\begin{equation}
+\langle n| \sum_{q,Q,g} \bar{q} q |n \rangle  = \left(\sum_{q=u,d,s}\frac{m_n}{m_q} f_{Tq}^n \alpha_S^q + \frac{2}{27} f_{TQ}^n \sum_{q = c,b,t} \frac{m_n}{m_q} \alpha_S^q\right) \equiv f^n\,.
+\end{equation}
+The parameters describing the contributions of the different quarks to the nucleon mass be determined experimentally. The uncertainties this produces will be discussed shortly in Sec.~\ref{DD:sec:nuclearunc}.
+\note{Check - what exactly is this equal to...}
+
+We now consider the matrix elements of the nucleon operators within a nuclear state, $|\Psi_N\rangle$:$\langle \Psi_N|f^n \bar{n}n|\Psi_N\rangle$. These operators now simply count the number of \(n\) nucleons in the nucleus, along with a momentum-dependent form factor, $F(\textbf{q})$, corresponding to the Fourier transform of the nucleon density. This takes into account the loss of coherence for nuclear scattering due to the fact that the nucleus is not point-like. We therefore obtain:
+\begin{equation}
+\langle \Psi_N|f^n \bar{n}n|\Psi_N\rangle = \langle \Psi_N|\Psi_N\rangle f^n N_n F_n(\textbf{q}) = 2m_N f^n N_n F_n(\textbf{q})\,,
+\end{equation}
+where we note that we require the wavefunctions to be normalised to \(2E \approx 2m_N\) for a nucleus of mass \(m_N\). We now add the contribution from protons to the matrix element, noting that \(F_n \approx F_p = F\) (see Sec.~\ref{DD:sec:nuclearunc})
+\begin{equation}
+\langle \Psi_N|f^n \bar{n}n + f^p \bar{p}p|\Psi_N\rangle = 2m_N (f^n N_n + f^p N_p) F(\textbf{q})\,,
+\end{equation}
+where $N_n$ and $N_p$ are the neutron and proton numbers of the nucleus respectively.
+
+The corresponding matrix element for the scalar WIMP operator $\bar{\chi}\chi$ is simple in the non-relativistic limit, evaluating to $2 m_\chi$ \cite{}. Combining these, we obtain the scalar matrix element
+\begin{equation}
+|\mathcal{M}_S|^2 = 16 m_\chi^2 m_N^2 \left|f^p Z + f^n (A-Z)\right|^2 F_{SI}^2(\textbf{q})\,,
+\end{equation}
+and the SI cross section
+\begin{equation}
+\dbd{\sigma_{SI}}{E_R} = \frac{m_N}{ 2 \pi v^2} \left|f^p Z + f^n (A-Z)\right|^2 F^2(\textbf{q})\,,
+\end{equation}
+where we have used the atomic number $Z$ and mass number $A$ to describe the composition of the nucleus. It is conventional to write this in terms of the \note{total} WIMP-proton SI cross section, which does not depend on the particular $(A,Z)$ of the target nucleus and thus allows easy comparison between experiments. This cross section is given by
+
+\begin{equation}
+\sigma_{SI}^p = \frac{\mu_{\chi p}^2}{\pi}(f^p)^2\,,
+\end{equation}
+meaning that
+
+\begin{equation}
+\dbd{\sigma_{SI}}{E_R} = \frac{m_N}{ 2 \mu_{\chi p}^2 v^2} \left|Z + (f^n/f^p) (A-Z)\right|^2 F^2(E_R)\,.
+\end{equation}
+
+\todo{TALK ABOUT fn/fp.}
+
+\todo{Talk about the vector contribution - subdominant}
+
+\todo{Mention spin 0 and spin 1}
+
+\note{Distinguish between nucleon and neutron with n}
+
+\subsection{SD interactions}
+
+The spin-dependent interaction is typically sourced by axial-vector currents of the form
+
+\begin{equation}
+\label{eq:AVInt}
+\mathcal{L} \supset \alpha_{AV}^{(q)} (\bar{\chi} \gamma^\mu \gamma_5 \chi) (\bar{q} \gamma_\mu \gamma_5 q)\,.
+\end{equation}
+These result in a coupling of the spins of the WIMP and nucleus. In analogy with the SI case, we can write the nucleon quark matrix elements in the form \cite{Engel:1991, Engel:1992}
+
+\begin{equation}
+\langle n | \bar{q} \gamma_\mu \gamma_5 q | n \rangle = 2 s_\mu^n \Delta_q^n\,,
+\end{equation}
+where $s_\mu$ is the nucleon \note{/neutron} spin 4-vector and $\Delta_q^n$ parametrises the contribution of quark $q$ to this total spin. Adding the contributions of the different quarks, we can define
+
+\begin{equation}
+a_{p,n} = \sum_{q = u,d,s} \frac{\alpha_{AV}^{(q)}}{\sqrt{2}G_F} \Delta_q^{p,n}\,,
+\end{equation}
+which are the effective proton and neutron spin couplings. 
+
+The full nuclear matrix elements can then be written in the form 
+
+\begin{equation}
+\langle \Psi_N | \sum_{q=u,d,s} \bar{q} \gamma_\mu \gamma_5 q | \Psi_N \rangle = 4 \sqrt{2} G_F \frac{a_p \langle S_p \rangle + a_n \langle S_N \rangle}{J} \langle \Psi_N | \hat{J} | \Psi_N \rangle F_{SD}^2(E_R)
+\end{equation}
+where J is the total nuclear spin, $\langle S_{p,n} \rangle$ the expectation value of the total proton and neutron spin in the nucleus and $F_{SD}^2$ is a form factor, as in the SI case, which is determined by the internal spin structure of the nucleus. \note{Should that be $4\sqrt{2}$ or $2\sqrt{2}$?} Noting that $\langle \Psi_N | \hat{J} | \Psi_N \rangle = 2J(J+1)m_N$, we obtain for the SD cross section
+
+\begin{equation}
+\dbd{\sigma_{SD}}{E_R} = \frac{16 m_N}{\pi v^2} G_F^2 \frac{J + 1}{J} \left| a_p \langle S_p \rangle + a_n \langle S_n \rangle \right|^2 F_{SD}^2(E_R)\,.
+\end{equation}
+\todo{Say something about the form factor - and about the `alternate' non-form factor version...Also what about the neutralino axial vector matrix element - is that just 2 mx?}
+
+Again, as in the SI case, it is convenient to rewrite this expression in terms of the proton cross section $\sigma_{SD}^p$, which is given by \note{be more explicit about how we obtain the cross section - i.e. using the $\dbd{\sigma}{\Omega^*}$ equation...}
+
+\begin{equation}
+\sigma_{SD}^{p} = \frac{96}{4} G_F^2 \frac{\mu_{\chi p}^2}{\pi} (a_p)^2\,.
+\end{equation}
+This leads to the final expression for the SD cross section
+
+\begin{equation}
+\dbd{\sigma_{SD}}{E_R} = \frac{2 m_N \sigma_{SD}^p}{3 \mu_{\chi p}^2 v^2} \frac{J+1}{J} \left| \langle S_p \rangle + (a_n/a_p) \langle S_n \rangle \right|^2 F_{SD}^2(E_R)\,.
+\end{equation}
+
+\subsection{The final event rate}
+
+It is helpful to collect these various results together to form a coherent picture of the event rate. Combining the SI and SD rates together, we can write
+
+\begin{equation}
+\dbd{\sigma}{E_R} = \frac{m_N}{2 \mu_{\chi p}^2 v^2} \left( \sigma_{SI}^p \mathcal{C}_{SI} F_{SI}^2(E_R) + \sigma_{SD}^p \mathcal{C}_{SD} F_{SD}^2(E_R) \right)\,,
+\end{equation}
+where the proton cross sections $\sigma_{SI,SD}^p$ were defined in the previous section, the form factors $F_{SI,SD}^2$ will be discussed in more detail in Sec.~\ref{sec:DD:nuclearunc} and we have defined the enhancement factors as 
+
+\begin{align}
+\mathcal{C}_{SI} &= \left|Z + (f^n/f^p) (A-Z)\right|^2 \\
+\mathcal{C}_{SD} &= \frac{4}{3}\frac{J+1}{J} \left| \langle S_p \rangle + (a_n/a_p) \langle S_n \rangle \right|^2\,.
+\end{align}
+
+We can now incorporate these into the full event rate:
+
+\begin{equation}
+\dbd{R}{E_R} = \frac{\rho_0}{2 \mu_{\chi p}^2 m_x}\left( \sigma_{SI}^p \mathcal{C}_{SI} F_{SI}^2(E_R) + \sigma_{SD}^p \mathcal{C}_{SD} F_{SD}^2(E_R) \right) \int_{0}^\infty \frac{f(v)}{v}\,\mathrm{d}v\,.
+\end{equation}
+
+For a given experiment, which is sensitive to recoil energies in the range $E_\textrm{min}$ to $E_\textrm{max}$, the total number of events expected is obtained by integrating over this range of recoil energies and multiplying by the exposure time $t_\textrm{exp}$, detector mass $m_\textrm{det}$ and efficiency (which may also be a function of the recoil energy $E_R$) $\epsilon(E_R)$:
+
+\begin{equation}
+N_e = m_\textrm{det} t_\textrm{exp} \int_{E_\textrm{min}}^{E_\textrm{max}}\epsilon(E_R) \dbd{R}{E_R} \, \mathrm{d}E_R\,.
+\end{equation}
+For the case of a more realistic experiment in which the measurement of energy has only a finite resolution $\sigma(E_R)$, we convolve the event rate with a resolution function to obtain the observed recoil spectrum $\dbd{\tilde{R}}{E_R}$,
+\begin{equation}
+\dbd{\tilde{R}}{E_R}(E) = \int_{E' = 0}^{\infty} \frac{\mathrm{e}^{-(E - E')^2/(2\sigma(E'))}}{\sqrt{2\pi}\sigma(E')} \dbd{R}{E_R}(E') \, \mathrm{d}E'\,.
+\end{equation} 
+
+We now turn our attention to the discussion of such `realistic experiments' and the current state of dark matter direct searches. 
+
+\note{SI good for heavier detectors...}
+\note{Annual modulation}
+
+\section{Direct detection experiments}
+
+
+\begin{table}
+	\begin{tabular}{ccc}
+		%Give references to results and 'setup'papers...
+		\hline\hline
+		Experiment & Target & Status \\
+		\hline
+		CDMS-II \cite{Ahmed:2009,Ahmed:2011,Agnese:2013} & Ge, Si & Null result \\
+		CoGeNT \cite{Aalseth:2011a,Aalseth:2011b} & Ge & Excess \& annual modulation observed \\
+		XENON100 \cite{Aprile:2011} & Xe & Null result \\
+		CRESST-II \cite{Angloher:2012} & CaWO\(_4\) & Excess observed\\
+		DAMA/LIBRA \cite{Bernabei:2010} &  NaI(Tl) & Annual modulation observed \\
+		EDELWEISS-II \cite{Armengaud:2011} &  Ge & Null result \\
+		ZEPLIN-III \cite{Akimov:2012} & Xe & Null result\\
+		KIMS \cite{Lee:2007} & CsI(Tl) & Null result \\
+		PICASSO \cite{Archambault:2012} & \(^{19}\textrm{F}\) & Null result \\
+		SIMPLE-II \cite{Felizardo:2012} & \(\textrm{C}_2 \textrm{ClF}_5\) & Null result \\
+		COUPP \cite{Behnke:2011} & CF\(_3\)I & Null result \\
+		\hline\hline
+		\end{tabular}
+	\caption{Summary of current WIMP detection experiments.}
+	\label{DD:tab:ExptSummary}
+\end{table}
+
+
+
+\subsection{Directional experiments}
+
+
+
+
+
+
+
+\todo{Add in some plots of event rates etc...}
+PION-NUCLEON sigma term \cite{Borasoy:1995, Pavan:2001,Alarcon:2012}
+
 
 
 
