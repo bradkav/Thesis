@@ -201,9 +201,56 @@ We now turn our attention to the discussion of such `realistic experiments' and 
 
 \note{SI good for heavier detectors...}
 \note{Annual modulation}
+\note{Isospin conserving assumptions...}
+\todo{Add in some plots and discussion of event rates etc...}
 
 \section{Direct detection experiments}
 
+\note{Typical sources of backgrounds include \begin{inparaenum}[i)] \item $e/\gamma$ events, \item neutrons, \item $\alpha$-particles and \item nuclear recoils. \end{inparaenum}}
+
+In order to measure this spectrum, a range of obstacles must be overcome. Radioactive decays due to naturally occuring isotopes may cause keV energy nuclear recoils in the detector, meaning that care must be taken to reduce their impact. The radiopurity of the target material is therefore of utmost importance (see for example Ref.~\cite{Munster:2014}), as well as the radiopurity of detector equipment itself \cite{Bernabei:2008b,Kuzniak:2012} \note{Need clean construction...}. In some cases, the naturally occurring target material is contaminated with a particular radioisotope, such as $^{39}Ar$ contamination in Argon. In these cases, special sources of the material must be found \cite{Galbiati:2008}, or the amount of contamination must be carefully measured and accounted for in data analysis \cite{Aprile:2013a} \note{I think they do actually remove the Krypton...}. \note{These are $\alpha$s and $\gamma$s I think...}
+
+\todo{Exchange this paragraph with the one before...}
+Another possible source of backgrounds are high energy cosmic rays. For this reason, direct detection experiments are typically operated underground, such as at the Gran Sasso laboratory in Italy or the Boulby laboratory in the UK, in order to reduce the penetration of these cosmic rays. However, cosmogenic neutrons can still penetrate the experiments, leading to the need for active shield which can detect these neutrons \note{and muons?} and provide a veto for any nuclear recoils they produce in the detector. Passive shielding also reduces the neutron flux from surrounding rock and other sources \note{environmental radioactivity}. For a detailed analysis of neutron sources at dark matter experiments, see Ref.~\cite{Scholl:2012} (CRESST-II) and Ref.~\cite{Aprile:2013b} (XENON100).
+
+\note{Neutrons from U/Th contamination in the detector and surrounding materials; neutrons look exactly like WIMPs}
+
+\note{Reject multiple events etc.; veto anti-coincident...}
+
+A major source of backgrounds is also electron recoils, which deposit energy in the detector and must be distinguished from nuclear recoils caused by WIMP interactions. Depending on the design of the detector, different methods are used to discriminate electron from nuclear recoils and to measure the recoil energy itself. We will now summarise some of the techniques which are used.
+
+\note{Use \href{http://cdms.phy.queensu.ca/Public_Docs/DirectDetection.html}{this list}...}
+\todo{Say something about energy calibration and NR and EE...}
+\todo{Which ones are sensitive to spin independent and spin dependent?}
+
+Cryogenic experiments, such as CDMS \cite{Ahmed:2009,Ahmed:2011,Agnese:2013}, CRESST \cite{Angloher:2012}, CoGeNT \cite{Aalseth:2011a,Aalseth:2011b, Aalseth:2013,Aalseth:2014a,Aalseth:2014b} and EDELWEISS \cite{Armengaud:2011}, use cryogenic crystals of materials such as Germanium or Silicon as target materials. When a WIMP recoils from a target nucleus a phonon signal is generated in the crystal along with an ionization signal \note{be more technical - how are they measured}. By summing the energy collected in these two channels (and accounting for any which may be incompletely collected), the total energy of the nuclear recoil can be obtained. The ratio of the total nuclear recoil energy and the ionization signal is referred to as the `ionisation yield' and can be used to discriminate electron from nuclear recoils; electron recoils deposit more energy into ionisation. However, care must be taken to identify so-called `surface events' - events occurring close to the detector surface which result in an incomplete collection of ionisation signal and can thus mimic a WIMP signal.
+
+Noble liquid experiments use liquid (or two-phase) noble elements such as Xenon and Argon as target materials. Completed or operational Xenon detectors include ZEPLIN \cite{Akimov:2012}, XENON \cite{Aprile:2011} and LUX \cite{Akerib:2014}. In these detectors, Xenon recoils produce a scintillation signal (S1) which can be observed directly using photomultiplier tubes. Ionisation electrons are also produced, which drift in an applied magnetic field, producing an electroluminescence signal (S2) in the gas phase. The sum of these signals can be used to reconstruct the total recoil energy, while the ratio S1/S2 is used to discriminate electron from nuclear recoils. \note{TPC} The two signals can also be used to localise the event within the detectors. A fiducial volume is then defined within the detector - only events inside this volume are considered in data analysis. This allows liquid Noble detectors to be self-shielding; the fiducial volume is shielded by the remaining detector volume. Experiments utilising Argon \cite{Marchionni:2011, Badertscher:2013} and Neon \cite{Boulay:2008} are currently under development, using either the scintillation to ionisation signal as a discriminant or using timing of the scintillation signal (pulse shape discrimination).
+
+Superheated liquid detectors such as COUPP \cite{Behnke:2011}, SIMPLE \cite{Felizardo:2012} and PICASSO \cite{Archambault:2012} use a detector volume filled with droplets of superheated liquid such as $\textrm{C}_4\textrm{F}_{10}$. The deposition of kinetic energy by a WIMP will induce the nucleation of a bubble producing an acoustic signal which is detected by piezoelectric transducers. Energy deposition by other particles such as muons and $\gamma$- and $\beta$-radiation typically occurs over longer length scales and thus does not register a signal. The temperature and pressure of the detector can be tuned to specify the threshold energy, the minimum energy which must be deposited before nucleation occurs. As such, superheated liquid detectors cannot measure the energy of specific events but rather the total event rate above the energy threshold. However, by ramping up the energy threshold, the recoil spectrum can effectively be measured. \note{Sensitive to SD and light WIMPs}.
+
+Crystal scintillator experiments \cite{Kim:2010} such as DAMA/LIBRA \cite{Bernabei:2008a,Bernabei:2010,Bernabei:2013} and KIMS \cite{Lee:2007} use crystals such as Thallium-doped Sodium Iodide (NaI(Tl)) as the detector material. When a nuclear recoil occurs with the nuclei in the crystal, scintillation occurs. The light is collected by photomultiplier tubes, with the total recoil energy being related to the amount of scintillation light produced. In the case of DAMA/LIBRA, electron-nuclear recoil discrimination is not employed. Instead, the experiment aims to observe the annual modulation of the signal which is expected due to the periodic motion of the Earth through the WIMP halo. In other cases, such as NAIAD \cite{Ahmed:2003}, pulse shape discrimination has been used to distinguish nuclear and electronic recoils.
+
+A final class of direct detection experiments are known as `directional' direct detection experiments. These aim to measure not only the energy deposited by WIMP scattering events but also the direction of the nuclear recoils. \note{Why?} This requires the use of specialised gas time projection chambers (TPCs), which allow measurable track lengths from which the recoil direction can be determined. \note{Is any of this true?} The directional detection of dark matter is the subject of Chapter~\ref{ch:Directional} and we therefore defer a more detailed discussion until then.
+
+\note{Neutrinos backgrounds...}
+
+\subsection{Current limits and results}
+
+The first major dark matter detection to be reported was that of DAMA/NaI \cite{Bernabei:2003} and its successor DAMA/LIBRA. The experiments observed an annual modulation over 13 annual cycles, with a phase matching that expected from a dark matter signal. The detection of the annual modulation has been reported at the $8.9\sigma$ confidence level over an energy range of 2-6 keV. The modulation signal was only found in single-hit events at low energies, again suggesting a dark matter origin for the signal. Such a signal is compatible with a wide range of particle physics scenarios \cite{} and has been associated with a dark matter particle of mass $m_\chi \sim 10 \textrm{ GeV}$ and SI cross section $\sigma_{SI} \sim 10^{-41} \textrm{ cm}^2$ \cite{Belli:2011}. An annual modulation signal was also observed in the CoGeNT experiment \cite{Aalseth:2011b, Aalseth:2014a}. In this case too, the period and phase are consistent with expectations, though, in both cases the amplitude of the annual modulation is approximately 5 times larger than expected. 
+
+Excesses above the expected backgrounds have also been observed in a number of experiments.%including CoGeNT, CRESST-II and CDMS-Si. 
+The CoGeNT experiment observed an exponentially rising excess of events at low energies, down to $0.5 \textrm{ keV}_{ee}$. A maximum likelihood analysis \cite{Aalseth:2014b} pointed towards a $10 \textrm{ GeV}$ WIMP interpretation, with a cross section of around $\sigma_{SI} \sim 5 \times 10^{-42} \textrm{ cm}^2$, though the significance of the `signal' lies at only 2.9$\sigma$. CRESST-II observe 67 events in the nuclear recoil signal region but expect a background of only one event due to leakage of electron recoils into this window. Taking into account other backgrounds, the CRESST-II collaboration estimate that 25-30 of these events may be due to a WIMP signal. A fit to the data produces two minima in the likelihood function: one at $m_\chi \approx 25 \textrm{ GeV}$ (in which scattering from Tungsten is appreciable) and another at $m_\chi \approx 12 \GeV$ (where Tungsten recoils lie below the energy threshold). In both cases, the fitted cross section is in the range $\sigma_{SI} \approx 10^{-42} - 5 \times 10^{-41} \textrm{ cm}^2$. Finally, a recent analysis of the Silicon detector data from CDMS-II finds 3 events in the signal region. However, the very low expected backgrounds mean that this small number of events may be significant. The probability of the known backgrounds producing these three events has been calculated at 5.4\% and a likelihood analysis shows consistency with WIMP with $m_\chi \approx 9 \GeV$ and $\sigma_{SI} \approx 2 \times 10^{-41} \cmsq$.
+
+While it appears that a reasonably consistent picture of a low mass WIMP is emerging from several experiments \cite{Hooper:2010}, a large number of competing experiments have reported null results. Results from CDMS-II (Ge), XENON100, LUX, SuperCDMS \cite{Agnese:2014} and others set upper limits on the standard WIMP cross section several orders of magnitude lower than the claimed signal. Several explanations for this discrepancy have been offered. One possibility is background contamination of the experiments claiming to have observed a signal \cite{Kuzniak:2012}. Another possibility is that ion-channeling in the detector crystals may affect the collected ionisation signal and therefore alter the signal \cite{Bozorgnia:2010}. The DAMA/LIBRA signal has also been attributed to an annually modulated muon signal \cite{Blum:2011,Bernabei:2012} or \note{WHAT ELSE?}.
+
+An alternative explanation is that the claimed signals \textit{are} due to a dark matter particle, but that its properties are not as simple as in the canonical case, explaining why it has not been observed in all experiments. One possibility is that the astrophysical distribution of dark matter does not match the standard assumptions. We will discuss this astrophysical distribution in more detail shortly in Sec.~\ref{DD:sec:AstroUnc}. However, it appears that even with this additional freedom, the different results cannot be reconciled \note{Fairbairn:2009,Herrero-Garcia:2012,Fox:2011b,Frandsen:2012}. A number of particle physics models have also been considered to explain the results, including spin-dependent interactions \cite{Buckley:2013}, isospin violating dark matter (for which $f^p \neq f^n$) \cite{Feng:2011}, inelastic dark matter \cite{Smith:2001} and mirror dark matter \cite{Foot:2013}. However, consistent picture which reconciles all experimental datasets remains elusive \cite{Schwetz:2011}. 
+
+We summarise some of the completed and current direct detection experiments in Table~\ref{DD:tab:ExptSummary}. The most stringent limits on the SI WIMP-proton cross section are set by LUX \cite{Akerib:2014}, who find a limit of $\sigma_{SI}^p \leq 7.6 \times 10^{-46} \cmsq$ at a mass of $m_\chi = 33 \GeV$. The best limit for the SD cross section is set by XENON100 \cite{Aprile:2013c}: $\sigma_{SD}^p \leq 3.5 \times 10^{-40} \cmsq$. The confirmation or falsification of the signals which have been claimed thus far may have to wait for the next generation of dark matter experiments, or for corroboration from collider or indirect searches. 
+
+\note{More of the `halo-independent' ones -Gondolo:2012,DelNobile:2013...}
+
+\note{What about the halo-independent method?}
 
 \begin{table}
 	\begin{tabular}{ccc}
@@ -211,36 +258,86 @@ We now turn our attention to the discussion of such `realistic experiments' and 
 		\hline\hline
 		Experiment & Target & Status \\
 		\hline
-		CDMS-II \cite{Ahmed:2009,Ahmed:2011,Agnese:2013} & Ge, Si & Null result \\
-		CoGeNT \cite{Aalseth:2011a,Aalseth:2011b} & Ge & Excess \& annual modulation observed \\
-		XENON100 \cite{Aprile:2011} & Xe & Null result \\
+		CDMS-II (Ge) \cite{Ahmed:2009,Ahmed:2011} & Ge & Null result \\
+                CDMS-II (Si) \cite{Agnese:2013} & Si & Excess \\
+                SuperCDMS \cite{Agnese:2014} & Ge & Null result \\
+		CoGeNT \cite{Aalseth:2011a,Aalseth:2011b, Aalseth:2013,Aalseth:2014a,Aalseth:2014b} & Ge & Excess \& annual modulation observed \\
 		CRESST-II \cite{Angloher:2012} & CaWO\(_4\) & Excess observed\\
-		DAMA/LIBRA \cite{Bernabei:2010} &  NaI(Tl) & Annual modulation observed \\
 		EDELWEISS-II \cite{Armengaud:2011} &  Ge & Null result \\
 		ZEPLIN-III \cite{Akimov:2012} & Xe & Null result\\
-		KIMS \cite{Lee:2007} & CsI(Tl) & Null result \\
-		PICASSO \cite{Archambault:2012} & \(^{19}\textrm{F}\) & Null result \\
+		XENON100 \cite{Aprile:2011} & Xe & Null result \\
+                LUX \cite{Akerib:2014} & Xe & Null result \\
+		PICASSO \cite{Archambault:2012} & \(\textrm{C}_4\textrm{F}_{10}\) & Null result \\
 		SIMPLE-II \cite{Felizardo:2012} & \(\textrm{C}_2 \textrm{ClF}_5\) & Null result \\
 		COUPP \cite{Behnke:2011} & CF\(_3\)I & Null result \\
+		DAMA/LIBRA \cite{Bernabei:2008a,Bernabei:2010,Bernabei:2013} &  NaI(Tl) & Annual modulation observed \\
+                NAIAD \cite{Ahmed:2003} & NaI(Tl) & Null result \\
+		KIMS \cite{Lee:2007} & CsI(Tl) & Null result \\
 		\hline\hline
 		\end{tabular}
-	\caption{Summary of current WIMP detection experiments.}
+	\caption{Summary of current and completed direct detection experiments.}
 	\label{DD:tab:ExptSummary}
 \end{table}
 
 
-
-\subsection{Directional experiments}
-
+\todo{Give some typical values for thresholds and efficiencies...}
 
 
+\subsection{Future experiments}
 
+Experiments which are planned or under construction typically aim to scale up the size of current detectors and reduce unwanted backgrounds (in order to increase the sensitivity to lower cross sections) as well as decrease the energy threshold (which increases sensitivity to lower masses). There are a number of ton scale detectors either in operation or planned, including XENON1T \cite{Aprile:2012}, EURECA \cite{Kraus:2007,Roth:2009} and DARWIN \cite{Baudis:2012}. With this next generation of detectors, the aim is to achieve sensitivity to the SI WIMP-proton cross section down to $\sigma_{SI}^p = 10^{-48} \cmsq$.
 
+In addition, there have been a number of proposals for novel methods of directly detecting dark matter. These include using DNA-based detectors to provide high spatial resolution \cite{Drukier:2012}, using nano-scale explosives \cite{Lopez:2014} or charged-coupled devices \cite{Aguilar-Arevalo:2013} to achieve very low energy thresholds and using proton-beam experiments as a source for dark matter source for direct detection experiments \cite{deNiverville:2012}.
 
+\todo{Mini-conclusion...}
 
-\todo{Add in some plots of event rates etc...}
-PION-NUCLEON sigma term \cite{Borasoy:1995, Pavan:2001,Alarcon:2012}
+\note{What about electron recoils...?}
 
+\section{Uncertainties}
 
+Calculation of the DM differential event rate $\dbd{R}{E_R}$ requires not only a knowledge the dark matter parameters $m_\chi$ and $\sigma_{SI,SD}$ but a number of other factors which enter into the calculation. It is important to understand how uncertainties in these different factors and parameters propagates into the event rate in order to ensure that the conclusions we draw from direct detection experiments are unbiased. These uncertainties are typically partitioned into three separate classes: nuclear physics, particle physics and astrophysics.
 
+\subsection{Nuclear physics uncertainties}
+
+As we have already seen, nuclear physics enters into the calculation of the nucleon matrix elements $m_n f_{Tq}^n \equiv \langle n|m_q\bar{q}q|n \rangle$. The factors $f_{Tq}^n$ must be determined either experimentally, having values
+
+\begin{equation}
+f_{Tu}^p = 0.020 \pm 0.004 ; f_{Td}^p = 0.026 \pm 0.005 ; f_{Ts}^p = 0.118 \pm 0.062\,,
+\end{equation}
+with $f_{Tu}^p = f_{Td}^n$, $f_{Td}^p = f_{Tu}^n$ and $f_{Ts}^p = f_{Ts}^n$. \note{Strange content is most important - justifying fp = fn...?} The main uncertainties stem from determinations of the $\pi$-nucleon sigma term, determined either experimentally from low energy pion-nucleon scattering \cite{Borasoy:1995, Pavan:2001,Alarcon:2012} or from lattice QCD calculations \cite{Bali:2012, Alvarez-Ruso:2014}. Similarly for the spin contributions $\Delta_q$ to the nucleus, values must be obtained experimentally \cite{Ashman:1988,Engel:1992},
+
+\begin{equation}
+\Delta_u = 0.78 \pm 0.08 ; \Delta_d = -0.50 \pm 0.08 ; \Delta_s = -0.16 \pm 0.08\,,
+\end{equation}
+although efforts are being made to obtain these values directly via calculation \cite{Qing:1998,Thomas:2008}. It should be noted that these nucleon matrix elements are only necessary if we wish to deal directly with quark-level couplings and interactions. If, instead, we consider the nucleon-level effective operators (and equivalently the WIMP-nucleon cross sections), these values are not required.
+
+Nuclear physics also enters into the calculation of form factors, describing the internal nucleon and spin structures of the nuclei. For the SI case, the form factor is obtained from the Fourier transform of the nucleon distribution in the nucleus. The form typically used is due to Helm \cite{Helm:1956}
+
+\begin{equation}
+F_{SI}^2(E_R) = \left(\frac{3j_1(qR_1)}{qR_1}\right)^2 \mathrm{e}^{-q^2s^2}\,,
+\end{equation}
+where $j_1(x)$ is a spherical bessel function of the first kind,
+\begin{equation}
+j_1(x) = \frac{\sin x}{x^2} - \frac{\cos x}{x}\,.
+\end{equation}
+Typically used are nuclear parameters due to Lewin and Smith \cite{Lewin:1996}, based on fits to muon spectroscopy data \cite{Fricke:1995}:
+\begin{align}
+R_1 & = \sqrt{c^2 + \frac{7}{3}\pi^2a^2 - 5s^2} \\
+c & = 1.23A^{1/3} - 0.60 \mathrm{ fm} \\
+a & = 0.52 \mathrm{ fm} \\
+s & = 0.9 \mathrm{ fm} \,.
+\end{align}
+Muon spectroscopy is used as a probe of the \textit{charge} distribution in the nucleus. However, detailed Hartree-Fock calculations indicate that the charge distribution can be used as a good proxy for the nucleon distribution (especially in the case $f_p \approx f_n$) and that using the approximate Helm form factor introduces an error of less than $\sim$5\% in the total event rate \cite{Co:2012}. Studies also indicate that errors due to distortions in nuclear shape away from sphericity are negligible \cite{Ya-Zheng:2012}.
+
+\note{Find that paper that compares all the different SI form factors...}
+
+In the SD case, however, the situation is more complicated...\note{Copy over from Complementarity.tex}
+
+\subsection{Particle physics uncertainties}
+
+What do I really want to say here? Different types of interactions - just a brief summary.
+
+\subsection{Astrophysical uncertainties}
+
+\note{COPY TONS FROM OLD PAPERS - ESP. THE ANNIKA REVIEW PAPER}
 
