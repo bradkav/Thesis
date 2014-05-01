@@ -1559,7 +1559,15 @@ FUNCTION {format.names}
         nameptr #1 > not
           {
             t *
-          } {
+          } {          
+            nameptr #1
+            #1 + =
+            numnames #10
+            > and
+              { "others" 't :=
+              #1 'namesleft := }
+              'skip$
+            if$
             namesleft #1 >
               {
                 names.punctuate

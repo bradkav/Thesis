@@ -2,6 +2,8 @@
 
 \section{Introduction}
 
+\note{Definitely need to include a little bit about what the event rates actually look like. Some plots and stuff...}
+
 The idea that particle dark matter (DM) may be observed in terrestrial detectors was first proposed by Goodman and Witten in 1985 \cite{Goodman:1985} and by Drukier, Freese and Spergel in 1986 \cite{Drukier:1986}. If DM can interact with particles of the Standard Model, the flux of DM from the halo of the Milky Way should be large enough to cause measureable scattering from nuclei. If the subsequent recoils can be detected and their energy spectrum measured, it should be possible to infer some properties of the DM particles.
 
 However, the expected event rate for keV-scale recoils at such a detector would be of the order of $10^{-10}$ events per kg of detector material per day per keV recoil energy \cite{Cerdeno:2010}. With such a low event rate, it is imperative that backgrounds can be reduced as much as possible. In addition, detectors should be as large as possible and sensitive to as wide a range of recoil energies as possible, in order to maximise the total number of events observed. Thus, specialised detectors are required to shield the active detector material from backgrounds and to discriminate between these backgrounds and signal events.
@@ -34,7 +36,12 @@ We wish to obtain the rate of nuclear recoils per unit detector mass. The differ
 for recoils of energy $E_R$, $N_T$ target particles, a DM flux of $\Phi_\chi$ and a differential scattering cross section of $\dbd{\sigma}{E_R}$. Per unit detector mass, the number of target particles is simply $N_T = 1/m_N$, for nuclei of mass $m_N$. The DM flux for particles with speed in the range $v \rightarrow v + \mathrm{d}v$ is $\Phi_\chi = n_\chi v f(v) \,\mathrm{d}v$. Here, $n_\chi$ is the number density of dark matter particles $\chi$ and $f(v)$ is the speed distribution for the dark matter. This distribution function describes the fraction of DM particles having a given speed. Finally, we can convert from the number density to the mass density $\rho_0$ by dividing by DM particle mass $m_\chi$: $n_\chi = \rho_0/m_\chi$. By integrating over all DM speeds, we therefore obtain
 
 \begin{equation}
-\dbd{R}{E_R} =  \frac{\rho_0}{m_N m_\chi} \int_{0}^{\infty} v f(v) \dbd{\sigma}{E_R} \, \mathrm{d}v\,.
+\dbd{R}{E_R} =  \frac{\rho_0}{m_N m_\chi} \int_{v_\textrm{min}}^{\infty} v f(v) \dbd{\sigma}{E_R} \, \mathrm{d}v\,,
+\end{equation}
+where $v_\textrm{min}$ is the minimum speed required to excite a nuclear recoil of energy $E_R$:
+
+\begin{equation}
+v_\textrm{min} = \sqrt{\frac{m_N E_R}{2 \mu_{\chi N}^2}}\,.
 \end{equation}
 
 The differential scattering cross section per solid angle in the zero-momentum frame (ZMF), \(\Omega^*\), is given by:
@@ -68,6 +75,8 @@ We now discuss the form of the SI and SD cross sections in turn.
 \subsection{SI interactions}
 
 Spin-independent interactions are generated predominantly by scalar terms in the effective lagrangian\note{NB: Contact interactions in some effective field theory - what about loop diagrams...?}
+
+\note{Does the scalar couple to the number or the mass?}
 
 \begin{equation}
 \label{eq:ScalarInt}
@@ -164,6 +173,7 @@ Again, as in the SI case, it is convenient to rewrite this expression in terms o
 This leads to the final expression for the SD cross section
 
 \begin{equation}
+\label{DD:eq:sigsd}
 \dbd{\sigma_{SD}}{E_R} = \frac{2 m_N \sigma_{SD}^p}{3 \mu_{\chi p}^2 v^2} \frac{J+1}{J} \left| \langle S_p \rangle + (a_n/a_p) \langle S_n \rangle \right|^2 F_{SD}^2(E_R)\,.
 \end{equation}
 
@@ -184,7 +194,7 @@ where the proton cross sections $\sigma_{SI,SD}^p$ were defined in the previous 
 We can now incorporate these into the full event rate:
 
 \begin{equation}
-\dbd{R}{E_R} = \frac{\rho_0}{2 \mu_{\chi p}^2 m_x}\left( \sigma_{SI}^p \mathcal{C}_{SI} F_{SI}^2(E_R) + \sigma_{SD}^p \mathcal{C}_{SD} F_{SD}^2(E_R) \right) \int_{0}^\infty \frac{f(v)}{v}\,\mathrm{d}v\,.
+\dbd{R}{E_R} = \frac{\rho_0}{2 \mu_{\chi p}^2 m_x}\left( \sigma_{SI}^p \mathcal{C}_{SI} F_{SI}^2(E_R) + \sigma_{SD}^p \mathcal{C}_{SD} F_{SD}^2(E_R) \right) \int_{v_\textrm{min}}^\infty \frac{f(v)}{v}\,\mathrm{d}v\,.
 \end{equation}
 
 For a given experiment, which is sensitive to recoil energies in the range $E_\textrm{min}$ to $E_\textrm{max}$, the total number of events expected is obtained by integrating over this range of recoil energies and multiplying by the exposure time $t_\textrm{exp}$, detector mass $m_\textrm{det}$ and efficiency (which may also be a function of the recoil energy $E_R$) $\epsilon(E_R)$:
@@ -244,7 +254,7 @@ The CoGeNT experiment observed an exponentially rising excess of events at low e
 
 While it appears that a reasonably consistent picture of a low mass WIMP is emerging from several experiments \cite{Hooper:2010}, a large number of competing experiments have reported null results. Results from CDMS-II (Ge), XENON100, LUX, SuperCDMS \cite{Agnese:2014} and others set upper limits on the standard WIMP cross section several orders of magnitude lower than the claimed signal. Several explanations for this discrepancy have been offered. One possibility is background contamination of the experiments claiming to have observed a signal \cite{Kuzniak:2012}. Another possibility is that ion-channeling in the detector crystals may affect the collected ionisation signal and therefore alter the signal \cite{Bozorgnia:2010}. The DAMA/LIBRA signal has also been attributed to an annually modulated muon signal \cite{Blum:2011,Bernabei:2012} or \note{WHAT ELSE?}.
 
-An alternative explanation is that the claimed signals \textit{are} due to a dark matter particle, but that its properties are not as simple as in the canonical case, explaining why it has not been observed in all experiments. One possibility is that the astrophysical distribution of dark matter does not match the standard assumptions. We will discuss this astrophysical distribution in more detail shortly in Sec.~\ref{DD:sec:AstroUnc}. However, it appears that even with this additional freedom, the different results cannot be reconciled \note{Fairbairn:2009,Herrero-Garcia:2012,Fox:2011b,Frandsen:2012}. A number of particle physics models have also been considered to explain the results, including spin-dependent interactions \cite{Buckley:2013}, isospin violating dark matter (for which $f^p \neq f^n$) \cite{Feng:2011}, inelastic dark matter \cite{Smith:2001} and mirror dark matter \cite{Foot:2013}. However, consistent picture which reconciles all experimental datasets remains elusive \cite{Schwetz:2011}. 
+An alternative explanation is that the claimed signals \textit{are} due to a dark matter particle, but that its properties are not as simple as in the canonical case, explaining why it has not been observed in all experiments. One possibility is that the astrophysical distribution of dark matter does not match the standard assumptions. We will discuss this astrophysical distribution in more detail shortly in Sec.~\ref{DD:sec:AstroUnc}. However, it appears that even with this additional freedom, the different results cannot be reconciled \note{Fairbairn:2009,Herrero-Garcia:2012,Fox:2011b,Frandsen:2012}. A number of particle physics models have also been considered to explain the results, including spin-dependent interactions \cite{Buckley:2013}, isospin violating dark matter (for which $f^p \neq f^n$) \cite{Feng:2011}, inelastic dark matter \cite{Smith:2001} and mirror dark matter \cite{Foot:2013}. However, consistent picture which reconciles all experimental datasets remains elusive \cite{Schwetz:2011}. \note{IVDM is invoked to reduce sensitivity to a particular experiment...}
 
 We summarise some of the completed and current direct detection experiments in Table~\ref{DD:tab:ExptSummary}. The most stringent limits on the SI WIMP-proton cross section are set by LUX \cite{Akerib:2014}, who find a limit of $\sigma_{SI}^p \leq 7.6 \times 10^{-46} \cmsq$ at a mass of $m_\chi = 33 \GeV$. The best limit for the SD cross section is set by XENON100 \cite{Aprile:2013c}: $\sigma_{SD}^p \leq 3.5 \times 10^{-40} \cmsq$. The confirmation or falsification of the signals which have been claimed thus far may have to wait for the next generation of dark matter experiments, or for corroboration from collider or indirect searches. 
 
@@ -299,17 +309,17 @@ Calculation of the DM differential event rate $\dbd{R}{E_R}$ requires not only a
 
 \subsection{Nuclear physics uncertainties}
 
-As we have already seen, nuclear physics enters into the calculation of the nucleon matrix elements $m_n f_{Tq}^n \equiv \langle n|m_q\bar{q}q|n \rangle$. The factors $f_{Tq}^n$ must be determined either experimentally, having values
+As we have already seen, nuclear physics enters into the calculation of the nucleon matrix elements $m_n f_{Tq}^n \equiv \langle n|m_q\bar{q}q|n \rangle$. The factors $f_{Tq}^n$ must be determined experimentally, having values
 
 \begin{equation}
 f_{Tu}^p = 0.020 \pm 0.004 ; f_{Td}^p = 0.026 \pm 0.005 ; f_{Ts}^p = 0.118 \pm 0.062\,,
 \end{equation}
-with $f_{Tu}^p = f_{Td}^n$, $f_{Td}^p = f_{Tu}^n$ and $f_{Ts}^p = f_{Ts}^n$. \note{Strange content is most important - justifying fp = fn...?} The main uncertainties stem from determinations of the $\pi$-nucleon sigma term, determined either experimentally from low energy pion-nucleon scattering \cite{Borasoy:1995, Pavan:2001,Alarcon:2012} or from lattice QCD calculations \cite{Bali:2012, Alvarez-Ruso:2014}. Similarly for the spin contributions $\Delta_q$ to the nucleus, values must be obtained experimentally \cite{Ashman:1988,Engel:1992},
+with $f_{Tu}^p = f_{Td}^n$, $f_{Td}^p = f_{Tu}^n$ and $f_{Ts}^p = f_{Ts}^n$. \note{Strange content is most important - justifying fp = fn...?} The main uncertainties stem from determinations of the $\pi$-nucleon sigma term, determined either experimentally from low energy pion-nucleon scattering \cite{Borasoy:1995, Pavan:2001,Alarcon:2012} or from lattice QCD calculations \cite{Bali:2012, Alvarez-Ruso:2014}. Similarly for the spin contributions $\Delta_q$ to the nucleus, values must be obtained experimentally \cite{Ashman:1988,Jaffe:1990,Engel:1992,Adams:1997}, \note{Get up to date values...}
 
 \begin{equation}
-\Delta_u = 0.78 \pm 0.08 ; \Delta_d = -0.50 \pm 0.08 ; \Delta_s = -0.16 \pm 0.08\,,
+\Delta_u^p = 0.77 \pm 0.08 ; \Delta_d^p = -0.38 \pm 0.08 ; \Delta_s^p = -0.09 \pm 0.08\,,
 \end{equation}
-although efforts are being made to obtain these values directly via calculation \cite{Qing:1998,Thomas:2008}. It should be noted that these nucleon matrix elements are only necessary if we wish to deal directly with quark-level couplings and interactions. If, instead, we consider the nucleon-level effective operators (and equivalently the WIMP-nucleon cross sections), these values are not required.
+although efforts are being made to obtain these values directly via calculation \cite{Qing:1998,Thomas:2008}. It should be noted that these nucleon matrix elements are only necessary if we wish to deal directly with quark-level couplings and interactions. If, instead, we consider the nucleon-level effective operators (and equivalently the WIMP-nucleon cross sections), these values are not required. \note{Is this from muon-proton scattering?}
 
 Nuclear physics also enters into the calculation of form factors, describing the internal nucleon and spin structures of the nuclei. For the SI case, the form factor is obtained from the Fourier transform of the nucleon distribution in the nucleus. The form typically used is due to Helm \cite{Helm:1956}
 
@@ -331,13 +341,116 @@ Muon spectroscopy is used as a probe of the \textit{charge} distribution in the 
 
 \note{Find that paper that compares all the different SI form factors...}
 
-In the SD case, however, the situation is more complicated...\note{Copy over from Complementarity.tex}
+\todo{Include a table of Sp and Sn values - or values for N, alpha, beta - table in \cite{Jungman:1995}}
+In the SD case, however, the situation is more complicated. In order to calculate the SD cross section, we require the proton and neutron spin content $\langle S_{p,n} \rangle$ as well as the form factor $F_{SD}^2$. The form factor can be written in the form
+
+\begin{equation}
+F_{SD}^2(E_R) = S(E_R)/S(0)\,,
+\end{equation}
+in terms of the response function $S(E_R)$. This response function can in turn be decomposed into three spin-dependent structure functions (SDSFs)
+
+\begin{equation}
+S(E_R) = a_0^2S_{00}(E_R) + a_0a_1S_{01}(E_R) + a_1^2S_{11}(E_R)\,,
+\end{equation}
+where $a_0 = a_p + a_n$ is the isoscalar coupling and $a_1 = a_p - a_n$ is the isovector coupling. The zero momentum transfer value $S(0)$ is related to the proton and neutron spin expectation values by \cite{Cannoni:2013}
+\begin{equation}
+S(0) = \frac{2J + 1}{\pi} \frac{J+1}{J} \left|a_p\langle S_p \rangle + a_n \langle S_n \rangle\right|^2\,.
+\end{equation}
+We can therefore rearrange the SD cross section of Eq.~\ref{DD:eq:sigsd} as
+
+\begin{equation}
+\dbd{\sigma_{SD}}{E_R} = \frac{2\pi}{3} \frac{m_N \sigma_{SD}^p}{\mu_{\chi p}^2 v^2} \frac{1}{2J+1} \frac{S(E_R)}{(a_p)^2}\,.
+\end{equation}
+The nuclear physics is now encapsulated in a single response function $S(E_R)$ (or equivalently two SDSFs $S_{00}$ and $S_{11}$).\footnote{In Ref.~\cite{Cannoni:2013}, it is noted that the SDSFs are not independent and that the function $S_{01}$ can be written in terms of the other two.}
+
+The functional form for $S_{ij}$ can be calculated from shell models for the nucleus \cite{Ressell:1997}. However, there are a number of competing models (such as the Odd Group Model \cite{Engel:1989}, Interacting Boson Fermion Model \cite{Iachello:1991} and Independent Single Particle Shell Model \cite{Ellis:1988} among others). These models use different methods for accounting for forces between quarks, leading to different forms for the SDSFs and therefore to significant uncertainty in the spin-dependent cross section. This issue was explored by Cerde\~{n}o \etal \cite{Cerdeno:2012}, who developed a parametrisation for the spin structure functions in terms of the parameter $u = (qb)^2/2$, where $q$ is the momentum transfer and $b = \sqrt{41.467/(45.0 A^{-1/3} - 25.0 A^{-2/3})}$ is the oscillator size parameter. This parametrisation takes the form
+
+\begin{equation}
+\label{eq:SDparametrisation}
+S_{ij} = N ((1-\beta)\mathrm{e}^{-\alpha u} + \beta)\,,
+\end{equation}
+where the range of the parameters $\left\{N, \alpha, \beta\right\}$ is chosen such that $S_{ij}$ spans the different possible forms presented in the literature. It was shown that this parametrisation was able to mitigate the uncertainties in the SD cross section and accurately recover the remaining particle physics parameters when the true form for the SDSFs was unknown.
 
 \subsection{Particle physics uncertainties}
 
-What do I really want to say here? Different types of interactions - just a brief summary.
+Apart from the unknown values for the WIMP mass $m_\chi$ and cross sections $\sigma_{SI,SD}$, the ratios of proton to neutron couplings are also \textit{a priori} unknown. In the case of SI scattering, the dominant contribution comes from the coupling to strange quarks $f_{Ts}$, which is equal for protons and neutrons. It is therefore typically assumed that $f^p \approx f^n$, though as we have seen isospin violating dark matter models have been considered \cite{Feng:2011, Kumar:2012,Hamaguchi:2014}. Similarly, for the SD interaction, a specific relation is typically assumed between the proton and neutron couplings, such as $a_p/a_n \approx \pm1$. While specific models often predict such a relation \cite{}, it should be noted that this ratio is \textit{a priori} unknown and fixing it is a model choice.
+
+Further uncertainty is derived from the form of the interaction terms themselves. Here, we have considered the dominant contributions to scattering in the case of non-relativistic contact interactions. Extensions including mediator particles have been considered \cite{Schmidt-Hoberg:2013, An:2014}, as well as models in which DM can interact electromagnetically with nuclei \cite{Pospelov:2000, Ho:2013}. There has also been significant effort towards developing a general non-relativistic field theory for the interaction of WIMPs with nuclei \cite{Kurylov:2003,Fan:2010,Cirelli:2013,Fitzpatrick:2013}. Current limits can be translated into limits on the couplings associated with a range of effective operators. While this approach significantly widens the parameter space of dark matter direct detection, it is more general and does not rely on (potentially poor) assumptions about DM interactions.
+
+\note{Asymmetric DM?}
 
 \subsection{Astrophysical uncertainties}
 
-\note{COPY TONS FROM OLD PAPERS - ESP. THE ANNIKA REVIEW PAPER}
+Astrophysical uncertainties enter into the direct detection event rate through the local dark matter density $\rho_0$ and the speed distribution $f(v)$. 
+
+\subsubsection{DM density, $\rho_0$}
+
+The DM mass density sets the overall scale of the scattering rate. As we shall discuss in Chapter~\ref{ch:Binned}, the DM density is degenerate with the interaction cross section, meaning that an accurate determination is important. One method of obtaining the value of $\rho_0$ is by mass modelling of the Milky Way (MW). One builds a model for the Galaxy incorporating various sources of mass, including the stellar bulge and disc, dust and a dark matter halo \cite{Catena:2010}. It is then possible to use various data such as the total MW mass, local surface mass density and the velocities of tracers \note{[some citations?]} to fit the parameters of this model and thereby extract $\rho_0$. Estimates using this method tend to have a wide uncertainty, typically lying in the range \(0.2 - 0.4 \textrm{ GeV cm}^{-3}\) (e.g.\ Ref.\ \cite{Catena:2010,Weber:2010}). A more recent determination using state-of-the-art data obtains a more precise but higher value of $\rho_0 = 0.47_{-0.06}^{0.05} \textrm{ GeV cm}^{-3}$ \cite{Nesti:2013} (though this depends on the choice of halo density profile). 
+
+An alternative method is to use local stellar kinematic data to constrain the gravitational potential near the Sun and thus obtain an estimate of $\rho_0$. Using kinematic data from roughly 2000 K-dwarfs, Garbari \etal \cite{Garbari:2012} obtain the value \(\rho_0 = 0.85_{-0.50}^{+0.57} \textrm{ GeV cm}^{-3}\) while Zhang \etal, using a larger sample of 9000 K-dwarfs, obtain $0.28\pm0.08 \textrm{ GeV cm}^{-3}$. Including microlensing data, the range of allowed values at $1\sigma$ is $\rho_0 = 0.20-0.56 \textrm{ GeV cm}^{-3}$ \cite{Iocco:2011}. The advantage of such approaches is that one does not need to assume a particular form for the DM halo density profile. However, they may be more sensitive to assumptions about local equilibrium near the Sun's position.
+
+In 2012, Moni Bidin \etal \cite{Moni-Bidin:2012} used the dynamics of thick disk stars to constrain the DM density, finding a result consistent with no dark matter at the Sun's radius. However, a subsequent reanalysis by Bovy and Tremaine \cite{Bovy:2012} showed that this result derived from a poor assumption about the velocity of stellar tracers as a function of galactic radius. Using the same data with more reasonable assumptions, the value $0.3 \pm 0.1 \textrm{ GeV cm}^{-3}$ was obtained. 
+
+In spite of the large number of determinations, no consistent value appears to be emerging, with values ranging from $0.2 - 0.85 \textrm{ GeV cm}^{-3}$. There also remain a number of uncertainties in these determinations, including the shape of the DM halo \cite{} and assumptions about the local equilibrium of the Galaxy \cite{}. \note{Need citations}. The `standard' value assumed in the analysis of direct detection experiments is $0.3 \textrm{ GeV cm}^{-3}$, though the exact origin of this number is unclear \cite{Green:2012}. As we shall discuss in Chapter~\ref{ch:Binned}, the DM density is 
+
+\note{Could also include Salucci et al. \cite{Salucci:2010}...}
+
+\note{Talk about ultra-local distribution...}
+
+\subsubsection{Speed distribution, $f(v)$}
+
+The speed distribution enters into the direct detection rate in the integral,
+
+\begin{equation}
+\eta(v_\textrm{min}) \equiv \int_{v_\textrm{min}}^\infty \frac{f(v)}{v} \, \mathrm{d}v\,,
+\end{equation}
+which is referred to as the `velocity integral' or the `mean inverse speed.' Direct detection experiments are traditionally analyzed within the framework of the Standard Halo Model (SHM), in which WIMPs are assumed to have a Maxwell-Boltzmann speed distribution in the Galactic frame. \note{What about Earth/Sun motion and time dependence?} In the Earth's frame, this takes the form 
+
+\begin{equation}
+\label{eq:gaussian}
+f_{\textrm{SHM}}(\textbf{v}) = N \exp\left(-\frac{(\textbf{v} - \textbf{v}_\textrm{lag})^2}{2\sigma_v^2}\right) \Theta(v_\textrm{esc} - |\textbf{v} - \textbf{v}_\textrm{lag}|)\,,
+\end{equation}
+where $\textbf{v}_\textrm{lag}$ specifies the velocity of the Earth frame with respect to the local standard of rest (LSR) and $\sigma_v$ the velocity dispersion. We truncate the distribution above the escape speed $v_\textrm{esc}$ in the Galactic frame and the factor $N$ is required to satisfy the normalization condition (Eq.~\ref{eq:normalization}). \note{Distinguish between the velocity and speed distributions and write down the integrated form.} The SHM distribution is obtained assuming a spherical, isothermal DM halo with density profile $\rho \sim r^{-2}$ and results in the relation $\sigma_v = \sqrt{2} v_\textrm{lag}$. \note{Need to be careful and sensible about notation here and check factors of sqrt, as well as finding a few citations...}
+
+Within the SHM, there is some uncertainty on the parameters describing $f(v)$. The parameter $v_\textrm{lag}$ is given by the local circular speed of the Sun $v_c = 218 \pm 7 \kms$ \cite{Kerr:1986,Feast:1997} (plus a contribution from the Earth's motion relative to the Sun \note{...}). The galactic escape velocity can be estimated from the radial velocities of MW stars; the RAVE survey obtain the range $v_\textrm{esc} = 533_{-41}^{+54} \kms$ at 90\% confidence \cite{RAVE:2007, RAVE:2014}. \note{MENTION THE EARTH'S MOTION...and finish this paragraph...} Moreover, it is not known how well the relation $\sigma_v = \sqrt{2} v_\textrm{lag}$ holds \note{why?}, meaning that $\sigma_v$ is in reality poorly constrained. 
+
+However, the SHM is unlikely to be an accurate representation of the DM halo - observations and N-body simulations indicate that the halo should deviate from a $1/r^2$ profile and may not be spherically symmetric. As a result alternative models have been proposed. Speed distributions associated with triaxial halos \cite{Evans:2000} or with more realistic density profiles \cite{Widrow:2000} have been suggested, as well as analytic parametrisations which should provide more realistic behaviour at low and high speeds \cite{Lisanti:2010}. \note{Fix this last sentence, and talk more about Lisanti.} Self-consistent distribution functions reconstructed from the potential of the Milky Way have also been obtained \cite{Bhattacharjee:2012,Fornasa:2013}.
+
+It is also possible to extract the speed distribution from N-body simulations. Such distribution functions tend \cite{Vogelsberger:2009, Kuhlen:2010, Mao:2012} to peak at lower speeds than the SHM and have a more populated high speed tail. There are also indications that DM substructure may be significant, causing `bumps' in the speed distribution, or that DM which has not completely phase-mixed - so-called `debris flows' - may have a contribution \cite{Kuhlen:2012}. \note{Show a plot} It should be noted that N-body simulations do not probe down to the sub-milliparsec scales which are probed by direct detection experiments. This means that N-body speed distributions are averaged over large volumes in order to obtain sufficient statistics. The effect of probing the speed distribution over such large length scales (rather than on the ultra local scale of experiments) is not known. \note{talk about `smoothing' effect of going to the Earth frame.}
+
+Another result obtained from N-body simulations is the possibility of a dark disk. When baryons are included in simulations of galaxy formation, this results in the tidal distruption of DM subhaloes which are then preferentially dragged into the disk plane \cite{Read:2009, Read:2010}. The resulting dark disk corotates with approximately the same speed as the baryonic matter, though with a smaller velocity dispersion $\sigma_v^{DD} \sim 50 \kms$. This dark disk is expected to contribute an additional density 0.2-1.0 times the density of the halo (depending on the merger history of the Milky Way). The more recent ERIS results \cite{Pillepich:2014}, comparing hydrodynamic and DM-only simulations, indicate a smaller density of just 10\% that of the DM halo in a Milky Way mass galaxy.
+
+\note{Talk about ultra local distribution - and possibility of streams...}
+
+In Fig.~\ref{DD:fig:SpeedDists}, we show some examples of possible dark matter speed distributions. \note{How does that relate to the rate...? Do plots of $\eta$...} These different distributions result in different event rates \note{as shown in PLOT}. The impact of uncertainties in the WIMP speed distribution has been much studied (see e.g.\ Refs.~\cite{Green:2010, Peter:2011, Fairbairn:2012}) and it has been shown that poor assumptions about the speed distribution may result in biased reconstructions of the DM mass and cross sections from future direct detection data. \note{[Maybe make this part of my first `results' chapter]} It is unknown which, if any, of these distributions best describes the true galactic DM speed distribution and there have therefore been numerous attempts to mitigate these uncertainties.
+
+
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{SpeedDistributions.pdf}
+  \caption[Examples of dark matter speed distributions]{\note{Need actual caption - also, redo this plot.}}
+  \label{fig:DD:SpeedDists}
+\end{figure}
+
+A first step is to extend the SHM to incorporate uncertainties in $v_\textrm{lag}$, $\sigma_v$ and $v_\textrm{esc}$ into reconstructions. Strigari and Trotta \cite{Strigari:2009} introduce a simple model of the Milky Way mass distribution, from which SHM velocity parameters can be derived. They then use projected stellar kinematics and direct detection data to fit both the model parameters and the dark matter properties. A more direct approach is to directly fit the SHM velocity parameters, incorporating their uncertainties into the fitting likelihood. This method has been considered by Peter \cite{Peter:2010}, and is typically used as a simple model of astrophysical uncertainties (especially in studies which focus on other aspects of direct detection, e.g.\ Ref.~\cite{Arina:2013}). These methods allow bias in the reconstructed WIMP parameters to be eliminated when the underlying speed distribution is indeed in the SHM form. However, as shown by Peter \cite{Peter:2011}, these methods fail when the distribution function differs from the standard Maxwellian case.
+
+There have also been attempts to incorporate and fit more realistic distribution functions. Pato et al. \cite{Pato:2011} incorporate astrophysical uncertainties by using the distribution function of Lisanti et al. \cite{Lisanti:2010} and fitting the various shape parameters associated with it. In a more recent paper, Pato et al. \cite{Pato:2013} use projected direct detection data to fit a model of the Milky Way mass distribution, from which they derive a self-consistent distribution function (SCDF) using Eddington's formula. This means that the resulting speed distribution will be consistent with the underlying potentials of the galaxy's bulge, disk and dark matter, incorporating a broader range of shapes than the SHM alone. However, as the authors point out, velocity distributions from cosmological N-body simulations differ significantly from those expected from Eddington's formula. As with the Standard Halo Model, fitting a realistically-motivated distribution function is likely to result in biased reconstructions if the true distribution deviates significantly from the functional form used for fitting.
+
+Methods which make no assumptions about the functional form of the speed distribution have had mixed success. Drees and Shan \cite{Drees:2007, Drees:2008} developed a method for estimating the WIMP mass by calculating moments of the speed distribution. However, this method still introduces a bias into the reconstructed WIMP mass and performs more poorly for heavier WIMPs and when finite energy thresholds are considered. An empirical ansatz for the speed distribution has also been suggested, specifically dividing the WIMP speed into a series of bins, with the distribution being constant within each bin \cite{Peter:2011}. \note{We will discuss this method in more detail in a later chapter...} However, both of these still result in a significant bias in the reconstructed mass and cross section. A recent proposal by Feldstein and Kahlhoefer \cite{Feldstein:2014} is to fit the velocity \textit{integral} rather than the speed distribution. This proposal is the most promising so far and appears to give an unbiased reconstruction of the mass, though reconstructing the speed distribution itself remains problematic. \note{This is shit - I need to say something more concrete about these...}
+
+Finally, a method for analysing existing data has been developed by various authors \cite{Fox:2011b,Frandsen:2012, Gondolo:2012}. At a given mass, a given experiment is sensitive only to speeds in a fixed range, set by $v_\textrm{min}(E_\textrm{min})$ and $v_\textrm{min}(E_\textrm{max})$. By considering only the range of speeds where two or more experiments overlap, one can ensure that the astrophysical contribution to both experiments is equal. This method has typically been used to assess the compatibility of different data sets and to set more robust limits on the WIMP interaction cross sections. Recently it has also been extended to accomodate more general forms for the WIMP interactions \cite{DelNobile:2013}. \note{Again, be more specific - actually read these papers and put in some more detail - if it has to spill over into another chapter then fine... - Not sure, which is the McCabe one...}
+
+\note{Need to spend lots more time on this section - less time on other sections... - maybe send some of the detector stuff to the first chapter...or some of this stuff to a later chapter...}
+
+\note{May even be able to reconstruct f(v) itself - why is that good?}
+
+\note{Masses and which bits are probed by which...}
+\section{Conclusion}
+
+We have discussed the dark matter direct detection formalism, focussing on the contribution from scalar and axial-vector contact interactions. The non-relativistic speeds involved means that the event rate can be divided into a spin-dependent and spin-independent contribution. A number of sophisticated experiments have been and continue to be developed which should allow these rare nuclear recoils to be detected. The use of different channels such as scintillation, ionisation and phonons not only allows the energy of these events to be measured but also allows discrimination against electronic recoils which can act as a significant background.
+
+Tentative hints of a signal from the DAMA/LIBRA, CRESST-II and CoGeNT experiments have been interpreted as evidence for a WIMP with mass $m_\chi \sim 10 \GeV$ and cross section $\sigma_{SI} \sim 10^{-41} \cmsq$. However, null results from XENON, CDMS and other experiments are in tensions with this claimed signal. The origin of this discrepancy may lie in unidentified backgrounds or in an unconventional model for DM; corroboration from indirect and collider experiments may be needed before such a signal can be confirmed. 
+
+Finally, there are a number of uncertainties associated with calculating direct detection event rates and therefore with interpreting data from these experiments. Nuclear uncertainties are typically more important for SD rate than for the SI, though the method of Cerde\~{n}o \etal may be able to reduce the impact of such uncertainties. Particle physics uncertainties are significant, though the standard contact operator approach should be a good first approximation and effective field theories extending beyond this standard approach are being developed. Uncertainties in the \textit{number} of dark matter particles, embodied in the local DM density $\rho_0$, lead to a factor of roughly 2 uncertainty in the total direct detection rate. 
+
+In contrast, uncertainties in the speed distribution of dark matter are poorly controlled. Theoretical and computational considerations indicate that the benchmark assumption - the SHM - is not a good description of the WIMP distribution and while a large number of alternatives are available, it is unclear which, if any, of these may be correct. Attempts to treat the speed distribution more generally in data analysis have had mixed success, either leading to a biased reconstruction of the WIMP parameters or requiring additional assumptions or information about the WIMP, such as its mass. The wide range of possibilities for $f(v)$, as well as the consequences for misinterpreting future data, indicate that a more generalised approach is required.
 
