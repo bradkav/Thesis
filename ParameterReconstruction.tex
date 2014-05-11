@@ -1,4 +1,29 @@
 \chapter{Parameter Reconstruction}
+\label{ch:parameter}
+
+\section{Introduction}
+
+A common problem in physics is attempting to reconstruct the parameters of a model from a set of data. Stated more precisely, this is an attempt to answer the following question: given a set of data $\mathcal{D}$, what is the probability of a given set of model parameters $\boldsymbol\theta$ being the true, underlying parameters? But how do we interpret this question and what do we mean by the `probability' of a given set of parameters?
+
+In general, there are two approaches to parameter estimation. In \textit{frequentist} inference, there is only a single, fixed set of true values for the model parameters $\boldsymbol\theta$. We imagine that the experiment (which produced the data $\mathcal{D}$) can be repeated a large number of times, giving independent results each time. The `probability' associated with each set of parameters $\boldsymbol\theta$ is a measure of how frequently our experiment would produce data which looked similar to $\mathcal{D}$ if $\boldsymbol\theta$ is the true value. In a frequentist framework, the true model parameters are fixed but unknown and we make statements about how confident we are that these true parameters lie in a particular range.
+
+An alternative approach is \textit{Bayesian} inference. The true parameter value is treated as a random variable and we use Bayes theorem to determine its probability distribution from the data:
+\begin{equation}
+P(\boldsymbol\theta|\mathcal{D}) = P(\boldsymbol\theta) \frac{P(\mathcal{D}|\boldsymbol\theta)}{P(\mathcal{D})}\,.
+\end{equation}
+In doing so, we need to know $P(\boldsymbol\theta)$, known as the prior on the model parameters. This is a measure of our beliefs about the true value of $\boldsymbol\theta$ and must be put in `by hand'. In a Bayesian framework, we combine the data with information about our prior expectations to make statements about the probability of $\boldsymbol\theta$ having a particular value.
+
+These two approaches have different strengths and weaknesses, as we shall explore, and have both been applied to the problem of parameter exploration in physics. In this chapter, we will discuss how both frequentist and Bayesian statistics are used to make parameter estimates and measure the degree of certainty in these estimates. We will describe several methods which are used to explore parameter spaces and therefore make parameter inferences. Finally, we will outline how to calculate the likelihood $\mathcal{L}$ - the probability of obtaining a particular set of data given some underlying model parameters - which is at the core of both the frequentist and Bayesian approaches.
+
+%Plan for this chapter:
+%-`Shape of a parameter space' - define the likelihood and the posterior distribution (and marginalisation/profiling)
+%-`Estimates' - what do we do for point estimates and spread estimates
+%-`Methods' - MCMC and Nested Sampling
+%-`Likelihood examples' - some likelihoods, such as poisson and extended (so that I don't have to do them later)
+
+\section{The `shape' of a parameter space}
+
+
 
 \section{Posterior distribution}
 

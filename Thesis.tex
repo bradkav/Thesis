@@ -22,6 +22,7 @@
 %\usepackage{caption}
 %\usepackage{subcaption}
 \usepackage{amsmath}
+\usepackage{amssymb}
 
 \setlrmarginsandblock{2in}{1in}{*}
 \setulmarginsandblock{1.25in}{1.25in}{*}
@@ -30,6 +31,9 @@
 %MAY NEED TO SPECIFY THE CAPTION FONTS!!!
 \changecaptionwidth
 \captionwidth{0.9\textwidth}
+\captionnamefont{\small}
+\captiontitlefont{\small}
+
 
 \DeclareGraphicsRule{*}{mps}{*}{}
 
@@ -46,6 +50,13 @@
 \newcommand{\GeV}{\textrm{ GeV}}
 \newcommand{\cmsq}{\textrm{ cm}^2}
 \newcommand{\kms}{\,\textrm{km s}^{-1}}
+\newcommand{\qhat}{\hat{\textbf{q}}}
+\newcommand{\vhat}{\hat{\textbf{v}}}
+
+
+\newcommand{\acos}{\cos^{-1}}
+\newcommand{\asin}{\sin^{-1}}
+\newcommand{\atan}{\tan^{-1}}
 
 \makenomenclature
 \input{nomenclature.tex}
@@ -87,6 +98,8 @@
 \input{DirectDetection.tex}
 
 \input{ParameterReconstruction.tex}
+
+%%%Could do `reconstructing the WIMP mass' and `reconstructing the cross section'...
 
 \input{MomentumDistribution.tex}
 
