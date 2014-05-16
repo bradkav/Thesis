@@ -23,10 +23,14 @@
 %\usepackage{subcaption}
 \usepackage{amsmath}
 \usepackage{amssymb}
+%\usepackage[pdf]{pstricks}
+\usepackage{epstopdf}
 
 \setlrmarginsandblock{2in}{1in}{*}
 \setulmarginsandblock{1.25in}{1.25in}{*}
 \checkandfixthelayout
+
+\makeheadrule{headings}{\textwidth}{0.3pt}
 
 %MAY NEED TO SPECIFY THE CAPTION FONTS!!!
 \changecaptionwidth
@@ -52,7 +56,22 @@
 \newcommand{\kms}{\,\textrm{km s}^{-1}}
 \newcommand{\qhat}{\hat{\textbf{q}}}
 \newcommand{\vhat}{\hat{\textbf{v}}}
+\newcommand{\boldtheta}{\boldsymbol\theta}
+\newcommand{\boldpsi}{\boldsymbol\psi}
+\newcommand{\boldphi}{\boldsymbol\phi}
 
+
+
+\newcommand{\mchi}{\ifmmode m_\chi \else $m_\chi$ \fi}
+\newcommand{\vmin}{\ifmmode v_{\mathrm{min}} \else $v_{\mathrm{min}}$ \fi}
+\newcommand{\vesc}{\ifmmode v_{\mathrm{esc}} \else $v_{\mathrm{esc}}$ \fi}
+\newcommand{\sigmapsi}{\relax \ifmmode \sigma_{\mathrm{p}}^{\mathrm{SI}} \else $\sigma_{\mathrm{p}}^{\mathrm{SI}}$ \fi}
+\newcommand{\sigmaNsi}{\ifmmode \sigma_{\mathrm{N}}^{\mathrm{SI}} \else $\sigma_{\mathrm{N}}^{\mathrm{SI}}$ \fi}
+\newcommand{\sigmapsd}{\relax \ifmmode \sigma_{\mathrm{p}}^{\mathrm{SD}} \else $\sigma_{\mathrm{p}}^{\mathrm{SD}}$ \fi}
+\newcommand{\sigmansd}{\ifmmode \sigma_{\mathrm{n}}^{\mathrm{SD}} \else $\sigma_{\mathrm{n}}^{\mathrm{SD}}$ \fi}
+
+\newcommand{\Emin}{\ifmmode E_\textrm{min} \else $E_\textrm{min}$ \fi}
+\newcommand{\Emax}{\ifmmode E_\textrm{max} \else $E_\textrm{max}$ \fi}
 
 \newcommand{\acos}{\cos^{-1}}
 \newcommand{\asin}{\sin^{-1}}
@@ -101,9 +120,11 @@
 
 %%%Could do `reconstructing the WIMP mass' and `reconstructing the cross section'...
 
-\input{MomentumDistribution.tex}
+%\input{MomentumDistribution.tex}
 
 \input{SpeedDistribution.tex}
+
+\input{Poly.tex}
 
 \input{NeutrinoTelescope.tex}
 
