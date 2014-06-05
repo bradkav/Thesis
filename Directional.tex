@@ -348,7 +348,7 @@ The results of this comparison for a SHM model with $v_\textrm{lag} = 220 \kms$ 
 
   \includegraphics[trim={2cm 8cm 2cm 8cm},clip,width=0.80\textwidth]{Directional/N2-backward.pdf}
 
-\caption[Discretised Radon transform for $N=2$ components]{True and approximate forward and backward radon transforms when the full velocity distribution is discretised into N = 2 directional pieces. \note{Finish}}
+\caption[True and approximate Radon transforms for $N=2$ components]{True and approximate forward and backward radon transforms when the full velocity distribution is discretised into N = 2 directional pieces. \note{Finish}}
 \end{figure}
 
 
@@ -398,7 +398,7 @@ Again, we wish to test how closely the $N=3$ discretised distribution can reprod
 
   \includegraphics[trim={2cm 8cm 2cm 8cm},clip,width=0.80\textwidth]{Directional/N3-transverse.pdf}
 
-\caption{True and approximate transforms when the full velocity distribution is discretised into N = 3 directional pieces. In the `forward' case $\cos\theta \in [1/2,1]$, in the `backward' case $\cos\theta \in [-1, -1/2]$, and in the `transverse case' $\cos\theta \in [-1/2, 1/2]$.}
+\caption[True and approximate Radon transforms $N=3$ components]{True and approximate transforms when the full velocity distribution is discretised into N = 3 directional pieces. In the `forward' case $\cos\theta \in [1/2,1]$, in the `backward' case $\cos\theta \in [-1, -1/2]$, and in the `transverse case' $\cos\theta \in [-1/2, 1/2]$.}
 \end{figure}
 
 \subsubsection{The folded distribution}
@@ -427,7 +427,7 @@ We plot the transverse and longitudinal averaged in Fig.~\ref{fig:directional:ra
 
   \includegraphics[trim={2cm 8cm 2cm 8cm},clip,width=0.80\textwidth]{Directional/N3-transverse.pdf}
 
-\caption{True and approximate folded transforms when the full velocity distribution is discretised into N = 3 directional pieces. In the `longitudinal' case $|\cos\theta| \in [1/2,1]$ while in the `transverse case' $|\cos\theta| \in [0, 1/2]$.}
+\caption[True and approximate folded Radon transforms for $N=3$ components]{True and approximate folded transforms when the full velocity distribution is discretised into N = 3 directional pieces. In the `longitudinal' case $|\cos\theta| \in [1/2,1]$ while in the `transverse case' $|\cos\theta| \in [0, 1/2]$.}
 \end{figure}
 
 We note that in this folded case, we would fit to two functions, corresponding to the longitudinal and transverse event rates. However, our original discretisation required 3 free functions of $v$: $f_{1,2,3}(v)$. However, due to the properties of the Radon transform \note{(which are...?)}, the longitudinal rate is not a function of $f_1(v)$ and $f_3(v)$ but of the sum $f_1(v) + f_3(v) \equiv f_L(v)$. Thus, we have only two free functions to fit $f_{L,T}(v)$. 

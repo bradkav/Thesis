@@ -128,7 +128,7 @@ Energy Range, \(\left[E_\textrm{min},E_\textrm{max} \right] / \textrm{keV}\) & [
     \hline\hline
     \end{tabular}
   \end{center}
-  \caption{Parameter values for the three mock experiments used in this work, chosen to closely match those used in Ref.\ \cite{Peter:2011}. The meanings of the experimental parameters are described in Sec.\ \ref{sec:Speed:Experiments}.}
+  \caption[Parameter values for the three mock experiments used in Chapter \ref{ch:Speed}]{Parameter values for the three mock experiments used in this chapter, chosen to closely match those used in Ref.\ \cite{Peter:2011}. The meanings of the experimental parameters are described in Sec.\ \ref{sec:Speed:Experiments}.}
 \label{tab:Speed:Expts}
 \end{table}
 We assume perfect and uniform detection efficiency - that is, all signal events and no background events survive analysis cuts. We also assume perfect energy resolution. For a real experiment, these assumptions will almost certainly not hold, for example due to variations in the relative scintillation efficiency of Xenon \cite{Aprile:2009b}, but the results presented here should be viewed as a proof of principle in the ideal case.
@@ -400,7 +400,7 @@ We report coverage statistics for the various benchmark parameters in Table \ref
     \hline\hline
     \end{tabular}
   \end{center}
-  \caption{68\% and 95\% confidence interval coverage results for the momentum parametrisation method using a variety of benchmark parameters, as defined in Sec.\ \ref{sec:ParamBenchmarks}.}
+  \caption[Confidence interval coverage results for the momentum parametrisation method]{68\% and 95\% confidence interval coverage results for the momentum parametrisation method using a variety of benchmark parameters, as defined in Sec.\ \ref{sec:ParamBenchmarks}.}
 \label{tab:Speed:CoverageAll}
 \end{table}
 
@@ -413,7 +413,7 @@ First, we consider a 50 GeV WIMP with SHM distribution, as an archetypal WIMP mo
  \begin{figure}[t]
 \centering
 \includegraphics[width=0.75\textwidth]{Speed/50SHM_speeds.eps}
-\caption{Reconstructed speed distribution from all three mock experiments using the momentum parametrisation method. The benchmark is a 50 GeV WIMP and the SHM distribution function. The upper pane shows the underlying SHM speed distribution (solid blue) and the fitted values of the speed bin parameters (red points). The errors on the bin values are within-chain standard deviations as described in Sec.\ \ref{sec:ParamExplore}. The lower pane shows the mean inverse speed corresponding to these fitted values (dashed red line) and the true mean inverse speed (solid blue). The underlying distributions have been rescaled by \(\alpha\) for comparison to the reconstructions.}
+\caption[Reconstructed speed distribution from all three mock experiments using the momentum parametrisation method for a 50 GeV WIMP and SHM distribution function.]{Reconstructed speed distribution from all three mock experiments using the momentum parametrisation method. The benchmark is a 50 GeV WIMP and the SHM distribution function. The upper pane shows the underlying SHM speed distribution (solid blue) and the fitted values of the speed bin parameters (red points). The errors on the bin values are within-chain standard deviations as described in Sec.\ \ref{sec:ParamExplore}. The lower pane shows the mean inverse speed corresponding to these fitted values (dashed red line) and the true mean inverse speed (solid blue). The underlying distributions have been rescaled by \(\alpha\) for comparison to the reconstructions.}
   \label{fig:Speed:SHM50}
 \end{figure}
 
@@ -427,10 +427,11 @@ First, we consider a 50 GeV WIMP with SHM distribution, as an archetypal WIMP mo
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.75\textwidth]{Speed/100DD_7bins_masses.eps}
-\caption{Distribution of reconstructed masses using the 7-bin momentum method for 250 reconstructions for a DD benchmark distribution. The true mass of 100 GeV is shown as a dashed vertical line.}
+\caption[Distribution of reconstructed masses using the 7-bin momentum method for a DD benchmark distribution.]{Distribution of reconstructed masses using the 7-bin momentum method for 250 reconstructions for a DD benchmark distribution. The true mass of 100 GeV is shown as a dashed vertical line.}
   \label{fig:Speed:7bins}
 \end{figure}
 
+\note{Need to rename things SHM+DD for consistency!}
 Next, we consider a reconstruction for a 100 GeV WIMP with DD distribution function. One example is shown in the left-hand panes of Fig.\ \ref{fig:Speed:DD100}, for a dataset with reconstructed mass \(\log_{10}(m_\textrm{rec} / \textrm{GeV}) = 1.83 \pm 0.15\), compared to the true value of \(\log_{10}(m_\chi / \textrm{GeV}) = 2\). The speed distribution appears to be well recovered at all speeds. However, there is a significant discrepancy in the mean inverse speed below \(\sim 150 \kms\). This is because the DD distribution function is very rapidly varying at low \(v\), meaning that the ansatz of constant bins can no longer be applied. As observed in the speed parametrisation method, the event spectrum can be steepened by moving to lower mass values and this may explain why there is significant bias and poor coverage for this set of benchmark parameters. 
 
 In the right-hand panes of Fig.\ \ref{fig:Speed:DD100}, we show results from the same mock dataset reconstructed using 7 bins in momentum space. The reconstructed mass is now \(\log_{10}(m_\textrm{rec} / \textrm{GeV}) = 2.21 \pm 0.27\), with the mean inverse momentum more closely reconstructed than for the 5 bin case. Figure \ref{fig:Speed:7bins} shows the distribution of reconstructed masses for a 100 GeV WIMP with a DD distribution function using 7 bins in momentum space. The reconstructed masses are now more broadly distributed around the benchmark value, with improved coverage compared to the 5 bin case: \(67 \pm 3 \%\) and \(94 \pm 1 \%\). We have found that increasing the number of bins for the 50 GeV SHM benchmark leaves the coverage properties and distribution of reconstructions largely unchanged, indicating that increasing the number of bins can be used to check the robustness of the reconstructions.
@@ -441,7 +442,7 @@ Finally, we consider the discriminatory power of the reconstructions. Returning 
  \begin{figure}[t]
 \centering
 \includegraphics[width=0.75\textwidth]{Speed/SHM50_all.eps}
-\caption{Reconstructed speed distribution from all three mock experiments using a benchmark of a 50 GeV WIMP with SHM distribution. The reconstructed values have been rescaled by \(\alpha\) for comparison to the true distribution. The three different benchmark speed distributions defined in Sec.\ \ref{sec:ParamBenchmarks} have been overlaid: SHM (solid blue), DD (dashed green) and VL-2 (dotted red).}
+\caption[Reconstructed speed distribution from all three mock experiments for a 50 GeV WIMP with SHM distribution. All three benchmark distributions are shown for comparison.]{Reconstructed speed distribution from all three mock experiments using a benchmark of a 50 GeV WIMP with SHM distribution. The reconstructed values have been rescaled by \(\alpha\) for comparison to the true distribution. The three different benchmark speed distributions defined in Sec.\ \ref{sec:ParamBenchmarks} have been overlaid: SHM (solid blue), DD (dashed green) and VL-2 (dotted red).}
   \label{fig:Speed:SHM50_all}
 \end{figure}
 

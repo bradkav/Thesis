@@ -79,7 +79,7 @@ We incorporate the effects of detector sensitivity, analysis cuts and detector d
 	\end{tabular}
 %\end{sideways}
   \end{center}
-\caption{Summary of experimental parameters used in this work, defined in Sec.~\ref{sec:Poly:experiments}. An exposure of $t_\textrm{exp} = 2 \textrm{ years}$ is used for all 3 experiments.}
+\caption[Parameter values used for the three mock experiments used in Chapter \ref{ch:Poly}]{Summary of experimental parameters used in this work, defined in Sec.~\ref{sec:Poly:experiments}. An exposure of $t_\textrm{exp} = 2 \textrm{ years}$ is used for all 3 experiments.}
 \label{tab:Poly:experiments}
 \end{table}
 
@@ -128,14 +128,14 @@ We use the parameter values $k = 2$ and $v_0 = 220 \kms$ in this work. We summar
 	\end{tabular}
         
   \end{center}
-\caption{Summary of speed distribution benchmarks used in this work. Some benchmarks are modelled as mixtures of two gaussian components (defined in Eq.~\ref{eq:Poly:gaussian}), for which we give the fractional contribution of each component (labelled `Fraction'). The remaining parameters are defined in Eqs.~\ref{eq:Poly:gaussian} and \ref{eq:Poly:lisanti} and the accompanying text. The `bump' and `double-peak' distributions are discussed in Sec.~\ref{sec:Poly:test}.}
+\caption[Summary of speed distribution benchmarks used in Chapter \ref{ch:Poly}]{Summary of speed distribution benchmarks used in this work. Some benchmarks are modelled as mixtures of two gaussian components (defined in Eq.~\ref{eq:Poly:gaussian}), for which we give the fractional contribution of each component (labelled `Fraction'). The remaining parameters are defined in Eqs.~\ref{eq:Poly:gaussian} and \ref{eq:Poly:lisanti} and the accompanying text. The `bump' and `double-peak' distributions are discussed in Sec.~\ref{sec:Poly:test}.}
 \label{tab:Poly:distributions}
 \end{table}
 
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/SpeedDistributions-Ensemble.pdf}
-  \caption{Several of the benchmark speed distributions used in this work. They are defined in Eqs.~\ref{eq:gaussian} and \ref{eq:lisanti} with parameters from Tab.~\ref{tab:Poly:distributions}. These distributions are the SHM (solid blue), SHM+DD (dashed green), Lisanti et al. (dot-dashed red) and the stream (dotted magenta).}
+  \caption[Several benchmark speed distributions used to test the polynomial $\ln f(v)$ method.]{Several of the benchmark speed distributions used in this chapter. They are defined in Eqs.~\ref{eq:gaussian} and \ref{eq:lisanti} with parameters from Tab.~\ref{tab:Poly:distributions}. These distributions are the SHM (solid blue), SHM+DD (dashed green), Lisanti et al. (dot-dashed red) and the stream (dotted magenta).}
   \label{fig:Poly:Ensemble_distributions}
 \end{figure}
 
@@ -158,7 +158,7 @@ The parameter space of the speed distribution parameters is now much larger and 
         \hline\hline
 	\end{tabular}
   \end{center}
-\caption{Summary of the priors on the parameters used in this work. The background rate $R_{BG}$ is defined in Sec.~\ref{sec:Poly:mass} while the $\left\{a_k\right\}$ are the polynomial coefficients used in the parametrisation.}
+\caption[Summary of the priors on the parameters used in Chapter \ref{ch:Poly}]{Summary of the priors on the parameters used in this chapter. The background rate $R_{BG}$ is defined in Sec.~\ref{sec:Poly:mass} while the $\left\{a_k\right\}$ are the polynomial coefficients used in the parametrisation.}
 \label{tab:Poly:priors}
 \end{table}
 
@@ -176,7 +176,7 @@ The parameter space of the speed distribution parameters is now much larger and 
         \hline\hline
 	\end{tabular}
   \end{center}
-\caption{Summary of the MultiNest sampling parameters used in this work.}
+\caption[Summary of the MultiNest sampling parameters used in Chapter \ref{ch:Poly}]{Summary of the MultiNest sampling parameters used in this chapter.}
 \label{tab:Poly:MultiNest}
 \end{table}
 
@@ -209,7 +209,7 @@ We compare the performance of the polynomial $\ln f(v)$ presented here with the 
          \hline\hline
 	\end{tabular}
   \end{center}
-  \caption{Reconstructed mass using the parametrization presented in this chapter, as well as the the speed binning and momentum binning methods of Chapter~\ref{ch:Speed} for comparison. The benchmark used is a stream distribution function described in \note{Somwhere!} and a 50 GeV WIMP. In all cases, 5 speed distribution parameters (either bins or basis coefficients) are used.}
+  \caption[Reconstructed mass for a 50 GeV WIMP using the speed binning, momentum binning and polynomial $\ln f(v)$ parametrisations]{Reconstructed mass using the parametrization presented in this chapter, as well as the the speed binning and momentum binning methods of Chapter~\ref{ch:Speed} for comparison. The benchmark used is a stream distribution function described in \note{Somewhere!} and a 50 GeV WIMP. In all cases, 5 speed distribution parameters (either bins or basis coefficients) are used.}
 \label{tab:Poly:ReconstructedMass}
 \end{table}
 
@@ -247,7 +247,7 @@ where $N_p$ is the number of free parameters, $N_m$ is the number of measurement
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/VaryingN_BUMP_LEG.pdf}
-  \caption{Bayesian information criterion (BIC) as a function of the number of basis functions for an underlying `bump' distribution function, 50 GeV WIMP and using Legendre polynomial basis functions (upper panel). Also shown (lower panel) are the reconstructed WIMP mass (dashed blue line), 68\% confidence interval (shaded blue region) and underlying WIMP mass (solid horizontal black line).}
+  \caption[Bayesian information criterion and reconstructed WIMP mass as a function of the number of basis functions for a 50 GeV WIMP with `bump' distribution function]{Bayesian information criterion (BIC) as a function of the number of basis functions for an underlying `bump' distribution function, 50 GeV WIMP and using Legendre polynomial basis functions (upper panel). Also shown (lower panel) are the reconstructed WIMP mass (dashed blue line), 68\% confidence interval (shaded blue region) and underlying WIMP mass (solid horizontal black line).}
   \label{fig:Poly:BUMP_LEG}
 \end{figure}
 
@@ -273,7 +273,7 @@ We have checked that the reconstruction results using Chebyshev polynomials are 
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/RunTimes.pdf}
-  \caption{Time taken (using 4 processors in parallel) for the reconstruction of the `bump' benchmark, as a function of number of basis functions. The time taken using the Chebyshev basis (blue squares) grows more slowly with $N$ than for the Legendre basis (red triangles).}
+  \caption[Time taken for the reconstruction of the `bump' benchmark as a function of number of basis functions for both the Chebyshev and Legendre bases.]{Time taken (using 4 processors in parallel) for the reconstruction of the `bump' benchmark, as a function of number of basis functions. The time taken using the Chebyshev basis (blue squares) grows more slowly with $N$ than for the Legendre basis (red triangles).}
   \label{fig:Poly:times}
 \end{figure}
 
@@ -287,7 +287,7 @@ For large values of $m_\chi$, the shape of the event spectrum becomes independen
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/VaryingM.pdf}
-  \caption{Reconstructed WIMP mass $m_\textrm{rec}$ (central dashed blue line) as a function of input WIMP mass $m_\chi$ as well as 68\% and 95\% intervals (inner and outer blue dashed lines respectively). The line $m_\textrm{rec} = m_\chi$ (solid red line) is also plotted for reference.}
+  \caption[Reconstructed WIMP mass as a function of input WIMP mass for ideal experiments]{Reconstructed WIMP mass $m_\textrm{rec}$ (central dashed blue line) as a function of input WIMP mass $m_\chi$ as well as 68\% and 95\% intervals (inner and outer blue dashed lines respectively). The line $m_\textrm{rec} = m_\chi$ (solid red line) is also plotted for reference.}
   \label{fig:Poly:VaryingM}
 \end{figure}
 
@@ -309,7 +309,7 @@ In spite of this, the true mass values still lie within the 68\% and 95\% confid
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/VaryingM_real.pdf}
-  \caption{As fig.~\ref{fig:Poly:VaryingM} but including the effects of finite energy resolution and non-zero backgrounds, as described in the text.}
+  \caption[Reconstructed WIMP mass as a function of input WIMP mass for experiments including the effects of finite backgrounds and energy resolution]{As fig.~\ref{fig:Poly:VaryingM} but including the effects of finite energy resolution and non-zero backgrounds, as described in the text.}
   \label{fig:Poly:VaryingM_real}
 \end{figure}
 
@@ -337,12 +337,14 @@ b = \textrm{ln}(m_\textrm{rec} / \textrm{GeV}) - \textrm{ln}(m_\textrm{true} / \
 \end{equation}
 We compare the logarithms of the mass values because we have used logarithmically-flat priors on the WIMP mass. In Tab.~\ref{tab:Poly:bias} we show the average bias across all 250 realisations for each of the three benchmark distributions. In all three cases, the average bias is consistent with zero. Even in the SHM+DD case, which shows larger fluctuations away from the true value, there is no statistical bias.
 
+\note{Need to specify which parametrisation is being used in the captions...}
+
 \begin{figure}
 \centering
   \includegraphics[trim=0cm 1cm 0cm 0.5cm,clip=true,width=0.75\textwidth]{Poly/SHM_ensemble.pdf}
   \includegraphics[trim=0cm 1cm 0cm 0.5cm,clip=true,width=0.75\textwidth]{Poly/DD_ensemble.pdf}
   \includegraphics[trim=0cm 1cm 0cm 0.5cm,clip=true,width=0.75\textwidth]{Poly/LIS_ensemble.pdf}
-  \caption{Distribution of the reconstructed mass $m_\textrm{rec}$ for 250 mock data sets generated using several benchmark speed distributions, defined in Sec.~\ref{sec:Poly:benchmarks}. These are the SHM (top), SHM+DD (middle) and Lisanti et al.\ (bottom) distributions. The input WIMP mass of $m_\chi = 50 \textrm{ GeV}$ is shown as a vertical dashed red line.}
+  \caption[Distribution of the reconstructed mass using a 50 GeV WIMP and SHM, SHM+DD and Lisanti et al. distribution functions]{Distribution of the reconstructed mass $m_\textrm{rec}$ for 250 mock data sets generated using several benchmark speed distributions, defined in Sec.~\ref{sec:Poly:benchmarks}. These are the SHM (top), SHM+DD (middle) and Lisanti et al.\ (bottom) distributions. The input WIMP mass of $m_\chi = 50 \textrm{ GeV}$ is shown as a vertical dashed red line.}
   \label{fig:Poly:Realisations}
 \end{figure}
 
@@ -360,9 +362,11 @@ We compare the logarithms of the mass values because we have used logarithmicall
         \hline\hline
 	\end{tabular}
   \end{center}
-\caption{Mean bias $\langle b \rangle$ in the reconstructed log WIMP mass (Eq.~\ref{eq:Poly:bias}). This was calculated over 250 realisations using three different benchmark speed distributions.}
+\caption[Mean bias in the reconstructed log WIMP mass using the \PLF method]{Mean bias $\langle b \rangle$ in the reconstructed log WIMP mass (Eq.~\ref{eq:Poly:bias}). This was calculated over 250 realisations using three different benchmark speed distributions.}
 \label{tab:Poly:bias}
 \end{table}
+
+\note{NB:are these credible intervals - check the other chapter - are those confidence intervals???}
 
 We also test the \textit{coverage} of the credible intervals which have been constructed. \note{Refer back to the section on coverage.} Table \ref{tab:Poly:coverage} shows the coverage values for the $68\%$ and $95\%$ intervals obtained in this section. In each case, there is very close to exact coverage. We have also checked that these intervals only provide exact coverage for the true WIMP mass of 50 GeV. Other values of $m_\textrm{rec}$ are contained within the intervals less frequently than the true value, again indicating that this parametrization allows for unbiased and statistically robust reconstructions of the WIMP mass.
 
@@ -380,7 +384,7 @@ We also test the \textit{coverage} of the credible intervals which have been con
         \hline \hline
 	\end{tabular}
   \end{center}
-\caption{Coverage of 68\% and 95\% credible intervals calculated from 250 data realisations each for three benchmark speed distributions. The concept of coverage is described in the text of Sec.~\ref{sec:Poly:stats}.}
+\caption[Credible interval coverage results for the \PLF method]{Coverage of 68\% and 95\% credible intervals calculated from 250 data realisations each for three benchmark speed distributions. The concept of coverage is described in the text of Sec.~\ref{sec:Poly:stats}.}
 \label{tab:Poly:coverage}
 \end{table}
 
@@ -394,7 +398,7 @@ As a first step, we can attempt to sample from the $P(\textbf{a})$, in order to 
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/f_SHM.pdf}
-  \caption{Reconstructed speed distribution for a single realisation of data, generated for a 50 GeV WIMP. 68\% and 95\% credible intervals are shown as dark and light shaded regions respectively, while the underlying SHM distribution function is shown as a solid blue line.}
+  \caption[Reconstructed speed distribution for a single realisation of data using the polynomial $\ln f(v)$ parametrisation]{Reconstructed speed distribution for a single realisation of data, generated for a 50 GeV WIMP. 68\% and 95\% credible intervals are shown as dark and light shaded regions respectively, while the underlying SHM distribution function is shown as a solid blue line.}
   \label{fig:Poly:f}
 \end{figure}
 
@@ -407,7 +411,7 @@ There remain several issues with this approach. In order to utilize this method,
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/f_SHM_scaled_line.pdf}
-  \caption{Reconstructed speed distribution for the same realisation of data as Fig.~\ref{fig:Poly:f}. In this case, we have also normalized $f_1(v)$ to unity above $v_a \approx 171 \kms$ (vertical dashed line). This is the lowest speed accessible to the experiments for a WIMP of mass 50 GeV. 68\% and 95\% credible intervals are shown as dark and light shaded regions respectively, while the underlying SHM distribution function is shown as a solid blue line.}
+  \caption[Reconstructed speed distribution for a single realisation of data using the polynomial $\ln f(v)$ parametrisation, normalised to unity above the threshold speed of the experiments]{Reconstructed speed distribution for the same realisation of data as Fig.~\ref{fig:Poly:f}. In this case, we have also normalized $f_1(v)$ to unity above $v_a \approx 171 \kms$ (vertical dashed line). This is the lowest speed accessible to the experiments for a WIMP of mass 50 GeV. 68\% and 95\% credible intervals are shown as dark and light shaded regions respectively, while the underlying SHM distribution function is shown as a solid blue line.}
   \label{fig:Poly:f_scaled}
 \end{figure}
 
@@ -424,7 +428,7 @@ In Fig.~\ref{fig:Poly:eta_stats}, we plot the mean reconstructed value of $\eta^
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/Eta.pdf}
-  \caption{Mean reconstructed values of the rescaled mean inverse speed $\eta(v)/\alpha(v)$ at several values of $v$, calculated over 250 realisations of data using a 50 GeV WIMP and underlying SHM distribution function. Errorbars indicate the mean upper and lower limits of the 68\% credible intervals. The underlying form of $\eta(v)/\alpha(v)$ obtained from the SHM is shown as a solid blue line.}
+  \caption[Mean reconstructed values of the rescaled mean inverse speed over 250 realisations for a 50 GeV WIMP with SHM distribution function]{Mean reconstructed values of the rescaled mean inverse speed $\eta(v)/\alpha(v)$ at several values of $v$, calculated over 250 realisations of data using a 50 GeV WIMP and underlying SHM distribution function. Errorbars indicate the mean upper and lower limits of the 68\% credible intervals. The underlying form of $\eta(v)/\alpha(v)$ obtained from the SHM is shown as a solid blue line.}
   \label{fig:Poly:eta_stats}
 \end{figure}
 
@@ -439,7 +443,7 @@ We can increase the discriminating power of this method by repeating this recons
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/SHM_lores.pdf}
-  \caption{Rescaled mean inverse speed $\eta(v)/\alpha(v)$, reconstructed from a single realisation of data using a 50 GeV WIMP and underlying SHM distribution function. At each value of $v$ we calculate 68\%, 95\% and 99\% credible intervals (shown as shaded intervals). We also show the calculated values of $\eta(v)/\alpha(v)$ for several possible benchmark speed distributions: SHM (solid blue), SHM+DD (dashed green), Lisanti et al.\ (dot-dashed red) and stream (dotted magenta). The benchmark curves are truncated when the underlying distribution function goes to zero.}
+  \caption[Rescaled mean inverse speed for a single realisation of data for a 50 GeV WIMP with SHM distribution function, showing several benchmark speed distributions for comparison]{Rescaled mean inverse speed $\eta(v)/\alpha(v)$, reconstructed from a single realisation of data using a 50 GeV WIMP and underlying SHM distribution function. At each value of $v$ we calculate 68\%, 95\% and 99\% credible intervals (shown as shaded intervals). We also show the calculated values of $\eta(v)/\alpha(v)$ for several possible benchmark speed distributions: SHM (solid blue), SHM+DD (dashed green), Lisanti et al.\ (dot-dashed red) and stream (dotted magenta). The benchmark curves are truncated when the underlying distribution function goes to zero.}
   \label{fig:Poly:eta}
 \end{figure}
 
@@ -458,7 +462,7 @@ Figure \ref{fig:Poly:eta_hires} shows the results of a reconstruction using a la
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/LIS_hires_zoom.pdf}
-  \caption{As Fig.~\ref{fig:Poly:eta_hires}, but focusing on the region around $v \sim 400 \kms$. Notice that in the range $400-550 \kms$, both the SHM and SHM+DD curves lie at or below the lower limit of the 95\% credible interval.}
+  \caption[As Fig.~\ref{fig:Poly:eta_hires}, but focusing on the region around $v \sim 400 \kms$.]{As Fig.~\ref{fig:Poly:eta_hires}, but focusing on the region around $v \sim 400 \kms$. Notice that in the range $400-550 \kms$, both the SHM and SHM+DD curves lie at or below the lower limit of the 95\% credible interval.}
   \label{fig:Poly:eta_hires_zoom}
 \end{figure}
 
