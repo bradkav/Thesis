@@ -7,11 +7,11 @@ The WIMP speed distribution $f(v)$ enters into the direct detection event rate a
 
 Because the speed distribution is so poorly constrained, an ideal goal would be to construct the most general parametrisation for $f(v)$ which can accommodate a wide range of possibilities for the true functional form. This approach has previously been explored by Peter \cite{Peter:2011}, who wrote down an empirical parametrisation for $f(v)$ as a series of constant bins in $v$. However, this still resulted in a bias in the reconstructed WIMP parameters. In Sec.~\ref{sec:Speed:binned}, we analyse in more detail the performance of this method and attempt to explain where this bias comes from.
 
-In Sec.~\ref{sec:Speed:momentum}, we discuss a method analogous to that of Peter but for parametrising the WIMP \textit{momentum} distribution in terms of a series of constant bins. This transformation helps remove some of the degeneracy between the WIMP mass and distribution function and improves reconstructions of the mass compared to binning in $f(v)$. However, this method is not generally applicable and begins to fail for low mass WIMPs. 
+In Sec.~\ref{sec:Speed:momentum}, we discuss a method analogous to that of Peter but for parametrising the WIMP \textit{momentum} distribution in terms of a series of constant bins. This transformation helps remove some of the degeneracy between the WIMP mass and distribution function and improves reconstructions of the mass compared to binning in $f(v)$. However, this method is not generally applicable and begins to fail for low mass WIMPs.
 
 %In Sec.~\ref{sec:Speed:poly}, we propose an alternative parametrisation. Instead of parametrising $f(v)$, we parametrise the logarithm of $f(v)$ as a series of polynomials. This permits the most general possible form from $f(v)$ satisfying the constraint $f(v) \geq 0$. We demonstrate the performance of this new method over a range of WIMP masses and over a range of underlying speed distributions and experimental parameters. We show that this method allows us to reconstruct the WIMP mass without bias, as well as allowing us to reconstruct information about the WIMP speed distribution itself. \note{What about doing some 1-D plots for $f(v)$ parameters, such as plotting $\langle v \rangle$ or similar...?}
 
-Finally, we compare these different parametrisations in Sec.~\ref{sec:Speed:discussion} and discuss how they relate to alternative methods of accounting for astrophysical uncertainties in direct detection experiments. We will also discuss the weaknesses of the momentum parametrisation, highlighting where remaining work is needed. 
+Finally, we compare these different parametrisations in Sec.~\ref{sec:Speed:discussion} and discuss how they relate to alternative methods of accounting for astrophysical uncertainties in direct detection experiments. We will also discuss the weaknesses of the momentum parametrisation, highlighting where remaining work is needed.
 
 \section{Uncertainties in $f(v)$}
 \label{sec:Speed:uncertainties}
@@ -21,7 +21,7 @@ Dark matter direct detection experiments simultaneously probe the WIMP speed dis
 \begin{equation}
 \dbd{R}{E_R} = \frac{\rho_0}{2 \mu_{\chi p}^2 m_x} \sigma_{SI}^p A^2 F_{SI}^2(E_R) \int_{v_\textrm{min}}^\infty \frac{f(v)}{v}\,\mathrm{d}v\,,
 \end{equation}
-where for simplicity we have assumed that the coupling to protons and neutrons is the same ($f_p \approx f_n$) and we consider only the spin-independent (SI) contribution to the rate. Not also is the SI contibution expected to dominate for heavy nuclei (due to the $A^2$ enhancement), but considering only a single contribution allows us to focus on the degeneracies between \mchi, \sigmapsi and $f(v)$. 
+where for simplicity we have assumed that the coupling to protons and neutrons is the same ($f_p \approx f_n$) and we consider only the spin-independent (SI) contribution to the rate. Not also is the SI contibution expected to dominate for heavy nuclei (due to the $A^2$ enhancement), but considering only a single contribution allows us to focus on the degeneracies between \mchi, \sigmapsi and $f(v)$.
 
 We have previously outlined in Chapter~\ref{ch:DD} that there are various possibilities for the form of the WIMP speed distribution and that poor assumptions about this form may lead to biased reconstructions of the WIMP parameters. This has been demonstrated, for example, by Peter \cite{Peter:2011}, who attempted to reconstruct the WIMP mass and SI cross section from mock data sets based on future direct detection experiments. In order to generate the data, an SHM distribution function with an additional contribution from a dark disk was assumed. However, the posterior distribution for \mchi and \sigmapsi was obtained assuming that $f(v)$ could be well described by a single Maxwell-Boltzmann (MB) distribution (with average speed and speed dispersion included as nuisance parameters). The resulting marginalised 68\% and 95\% contours for \mchi and \sigmapsi are shown in Fig.~\ref{fig:Speed:PeterRecon}, with the true parameter values given by the black crosses.
 
@@ -33,10 +33,10 @@ We have previously outlined in Chapter~\ref{ch:DD} that there are various possib
 
 Even including some uncertainties in the shape of the MB speed distribution, there is still a clear bias in the reconstructed WIMP parameters. The MB speed distribution cannot reproduce the shape of the event spectrum closely and the WIMP mass and cross section move to different values to compensate and improve the fit. Not only is there a bias, but the resulting contours are relatively small. In this case, if we trust the ansatz of a MB distribution, we would mistakenly believe that we had reconstructed the WIMP parameters accurately with a high precision. Thus, there is a need for a more general approach which allows a broad range of speed distributions to be probed. We discuss the consequences of such an approach now. \todo{Improve flow...}
 
-We can write the integral over the speed distribution as 
+We can write the integral over the speed distribution as
 \begin{equation}
 \label{eq:Speed:eta}
-\eta(\vmin) \equiv \int_{\vmin}^\infty \frac{f(v)}{v}\,\mathrm{d}v\,, 
+\eta(\vmin) \equiv \int_{\vmin}^\infty \frac{f(v)}{v}\,\mathrm{d}v\,,
 \end{equation}
 where \vmin is given by
 \begin{equation}
@@ -142,7 +142,7 @@ We assume perfect and uniform detection efficiency - that is, all signal events 
 
 Figure \ref{fig:Speed:Access} shows the minimum and maximum accessible WIMP speeds for each experiment. All three experiments rapidly become insensitive to WIMPs with speeds less than \(\sim 1000 \kms\) as the WIMP mass drops below \(m_\chi \sim 10 \textrm{ GeV}\). This suggests that the experiments considered here generically have a low sensitivity to such light WIMPs, producing too few events for accurate parameter reconstruction. \note{So what...?}
 
-For comparison with later methods, we consider here a single benchmark model: \(m_\chi = 50 \textrm{ GeV}\), $\sigmapsi = 10^{-44} \mathrm{cm}^2$ and the SHM. We assume a fixed value for the local DM density $\rho_0 = 0.3 \textrm{ GeV cm}^{-3}$. As will be explained in Sec.\ \ref{sec:MomentumMethod2}, the precise values of \sigmapsi and \(\rho_0\) are not particularly important due to the degeneracy between these two parameters. The total number of events from all three detectors combined typically ranges from around 300 to 600 for the different benchmark parameters which will be considered in this chapter. 
+For comparison with later methods, we consider here a single benchmark model: \(m_\chi = 50 \textrm{ GeV}\), $\sigmapsi = 10^{-44} \mathrm{cm}^2$ and the SHM. We assume a fixed value for the local DM density $\rho_0 = 0.3 \textrm{ GeV cm}^{-3}$. As will be explained in Sec.\ \ref{sec:MomentumMethod2}, the precise values of \sigmapsi and \(\rho_0\) are not particularly important due to the degeneracy between these two parameters. The total number of events from all three detectors combined typically ranges from around 300 to 600 for the different benchmark parameters which will be considered in this chapter.
 
 \subsection{Parameter reconstruction}
 We generate 250 mock data sets using the experiments described above. We then use the Markov Chain Monte Carlo (MCMC) package CosmoMC \cite{} to make parameter inferences on the parameters $\mchi, \sigmapsi, \left\{\hat{g}_i\right\}$, where $\hat{g}_i$ are the bin parameters for a 5 bin speed distribution function. We sample the WIMP mass and cross-section logarithmically in the ranges \([10, 1000] \textrm{ GeV}\) and \([10, 10000] \times 10^{-47} \textrm{ cm}^2\) respectively, with log-flat priors on both. We sample the $\hat{g}_i$ linearly in the range $[0,1]$, subject to the normalisation constraint of Eq.~\cite{eq:Speed:ghat}. We perform the MCMC at a temperature $T=2$ to ensure adequate exploration of the parameter space.
@@ -155,7 +155,7 @@ Figure~\ref{fig:Speed_MassFit} shows the fitted values for the WIMP mass, \(m_\t
  \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Speed/Speed_MassFit.eps}
-  \caption[Distribution of reconstructed WIMP masses using the binned speed parametrisation]{WIMP masses reconstructed using the binned speed parametrisation method from 250 realisations. The benchmark speed distribution is the SHM. The true mass of 50 GeV is shown as a dashed vertical line.} 
+  \caption[Distribution of reconstructed WIMP masses using the binned speed parametrisation]{WIMP masses reconstructed using the binned speed parametrisation method from 250 realisations. The benchmark speed distribution is the SHM. The true mass of 50 GeV is shown as a dashed vertical line.}
   \label{fig:Speed:Speed_MassFit}
 \end{figure}
 
@@ -164,7 +164,7 @@ However, a coverage study of 68\% and 95\% confidence intervals for this method 
 We can also assess the performance of the method by calculating the `pull' statistic \(\Delta\) (see e.g.\ Ref.\ \cite{Pulls}),
 \begin{equation}
 \Delta = \frac{m_\textrm{rec} - m_\textrm{true}}{\sigma} \,,
-\end{equation}   
+\end{equation}
 where \(m_\textrm{rec}\) and \(m_\textrm{true}\) are the reconstructed and true values of the WIMP mass respectively. An estimate of the uncertainty on $m_\chi$ is given by $\sigma$, which we estimate from the standard deviation of $m_\chi$ within a chain. The \(\Delta\) statistic quantifies the statistical deviation of the reconstruction from the true value. For a large number of mock datasets, the distribution of \(\Delta\) should have a mean of zero and a standard deviation of unity. \note{I'm actually using the marginalised distributions, am I?}
 
 Figure \ref{fig:Speed:Speed_Delta} shows the \(\Delta\) distribution for the 250 realisations of this method. The standard deviation of \(\Delta\) is \(\sigma_\Delta = 3.5\), which is significantly greater than unity, showing that the speed parametrisation method significantly underestimates the errors on reconstructed values. As demonstrated in Ref.\ \cite{Peter:2011}, the problem of poor reconstructions using this method does not appear to be significantly improved by increasing the number of bins in the speed parametrisation and worsens for more complicated speed distributions.
@@ -172,7 +172,7 @@ Figure \ref{fig:Speed:Speed_Delta} shows the \(\Delta\) distribution for the 250
  \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Speed/Speed_Delta.eps}
-  \caption[Distribution of the pull statistic $\delta$ using the binned speed parametrisation]{Distribution of the $\Delta$ statistic, defined in the text, for 250 realisations using the speed parametrisation method. The benchmark speed distribution is the SHM, with a 50 GeV WIMP.} 
+  \caption[Distribution of the pull statistic $\delta$ using the binned speed parametrisation]{Distribution of the $\Delta$ statistic, defined in the text, for 250 realisations using the speed parametrisation method. The benchmark speed distribution is the SHM, with a 50 GeV WIMP.}
   \label{fig:Speed:Speed_Delta}
 \end{figure}
 
@@ -227,7 +227,7 @@ where we have defined
 \begin{equation}
 D(\sigma_p,m_\chi,m_N) = \frac{\sigma_p \mu_{\chi N}}{\mu_{\chi p}^2 m_\chi} \,,
 \end{equation}
-which encodes all information about the WIMP mass and cross-section and controls the overall scale of the event rate. 
+which encodes all information about the WIMP mass and cross-section and controls the overall scale of the event rate.
 
 We can again define a directionally averaged momentum distribution, \(\tilde{f}(p) = f(p/\mu_{\chi N})/\mu_{\chi N}^3\), and parametrise this in terms of 5 constant bins, with bin values \(\{h_i\}\). We parametrise \(\tilde{f}(p)\) only over the range of sensitivity of the experiment: \(p \in \left[p_a, p_b\right]\), where \(p_{a,b} = p_\textrm{min}(E_\textrm{min,max})\). This means that we need not make any assumptions about the distribution function outside the range of sensitivity of the experiment. However, we still wish to impose some normalisation constraint on the momentum distribution parameters. Each experiment now probes a well-defined (but unknown) fraction of WIMPs, \(\alpha_N\), given by
 
@@ -278,7 +278,7 @@ However, this is smaller than the typical statistical uncertainty in a single re
    \label{fig:SpeedSpeed:Argon1}
 \end{figure}
 
-We show in Fig.\ \ref{fig:Speed:Ar_Momentum} the reconstructed momentum distribution and mean inverse momentum for a typical realisation, for which the reconstructed \(D\) value is \(1.81_{-0.05}^{+0.09}\). The underlying momentum distribution has been rescaled by \(1/\alpha_\textrm{Ar}\) to allow a comparison to the reconstructed values. We see that the the momentum distribution is well reconstructed and the mean inverse momentum is accurately recovered at low and high momenta. In the middle of the momentum range, however, \(\tilde{\eta}(p_\textrm{min})\) exceeds the true value. Because only a single experiment is being used, the measured spectrum is particularly susceptible to Poisson fluctuations. The mock dataset used here has a slight excess of events around \(E_\textrm{R} \approx 60 \textrm{ keV}\), corresponding to \(p_\textrm{Ar} \approx 30 \textrm{ MeV}\), which may explain the reconstructed excess. 
+We show in Fig.\ \ref{fig:Speed:Ar_Momentum} the reconstructed momentum distribution and mean inverse momentum for a typical realisation, for which the reconstructed \(D\) value is \(1.81_{-0.05}^{+0.09}\). The underlying momentum distribution has been rescaled by \(1/\alpha_\textrm{Ar}\) to allow a comparison to the reconstructed values. We see that the the momentum distribution is well reconstructed and the mean inverse momentum is accurately recovered at low and high momenta. In the middle of the momentum range, however, \(\tilde{\eta}(p_\textrm{min})\) exceeds the true value. Because only a single experiment is being used, the measured spectrum is particularly susceptible to Poisson fluctuations. The mock dataset used here has a slight excess of events around \(E_\textrm{R} \approx 60 \textrm{ keV}\), corresponding to \(p_\textrm{Ar} \approx 30 \textrm{ MeV}\), which may explain the reconstructed excess.
 
  \begin{figure}[t]
 \centering
@@ -306,14 +306,14 @@ Unfortunately, this method does not allow the WIMP-nucleon cross-section to be e
 
 \subsection{Results}
 
-We first compare results for the momentum method to the speed parametrisation method presented in Section \ref{sec:SpeedMethod}. We use the same mock datasets generated for the \(50 \textrm{ GeV}\), SHM benchmark presented previously. The results of both the momentum and speed methods are shown in Fig.\ \ref{fig:Speed:both}. In the case of the momentum method, the distribution of realisations is now more closely peaked around the true mass of \(50 \textrm{ GeV}\). Furthermore, the momentum method produces substantially improved coverage properties, as summarised in Table \ref{tab:CoverageComparison}. It should be noted that compared to the speed method, the momentum method leads to a larger number of reconstructions at high WIMP mass. It is not clear whether this signals a failure of the momentum method in certain cases or whether these are representative of `bad' reconstructions, as will be discussed shortly. 
+We first compare results for the momentum method to the speed parametrisation method presented in Section \ref{sec:SpeedMethod}. We use the same mock datasets generated for the \(50 \textrm{ GeV}\), SHM benchmark presented previously. The results of both the momentum and speed methods are shown in Fig.\ \ref{fig:Speed:both}. In the case of the momentum method, the distribution of realisations is now more closely peaked around the true mass of \(50 \textrm{ GeV}\). Furthermore, the momentum method produces substantially improved coverage properties, as summarised in Table \ref{tab:CoverageComparison}. It should be noted that compared to the speed method, the momentum method leads to a larger number of reconstructions at high WIMP mass. It is not clear whether this signals a failure of the momentum method in certain cases or whether these are representative of `bad' reconstructions, as will be discussed shortly.
 
 Fig.\ \ref{fig:Speed:50SHM_momentum} shows the reconstructed WIMP-Argon momentum distribution using the same mock dataset as used for Fig.\ \ref{fig:Speed:Speed_Recon}. The benchmark distributions have been rescaled by \(\alpha\) so that they can be compared to the reconstructed values. In this case, \(\alpha = 0.995\), so we can reconstruct both the mass and cross section accurately: \(\log_{10} (m_\textrm{rec} / \textrm{ GeV}) = 1.62 \pm 0.31\) and \(\log_{10} (\sigma_p / 10^{-47} \textrm{ cm}^2) = 2.99 \pm 0.18\), compared to the true values of \(\log_{10} (m_\textrm{true} / \textrm{ GeV}) = 1.699\) and \(\log_{10} (\sigma_p / 10^{-47} \textrm{ cm}^2) = 3.0\). While there is no way to know \textit{a priori} whether \(\alpha\) will be close to unity, the accurate reconstruction of the mass, cross-section and momentum distribution show that momentum parametrisation can offer a significant improvement over the speed parametrisation method.
 
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Speed/Both.eps}
-  \caption[Comparison of WIMP masses reconstructed using the binned speed and momentum parametrisations]{WIMP masses reconstructed using the speed and momentum parametrisation methods from 250 realisation. The benchmark speed distribution is the SHM. The true mass of 50 GeV is shown as a dashed vertical line.} 
+  \caption[Comparison of WIMP masses reconstructed using the binned speed and momentum parametrisations]{WIMP masses reconstructed using the speed and momentum parametrisation methods from 250 realisation. The benchmark speed distribution is the SHM. The true mass of 50 GeV is shown as a dashed vertical line.}
   \label{fig:Speed:both}
 \end{figure}
 
@@ -408,7 +408,7 @@ We report coverage statistics for the various benchmark parameters in Table \ref
 
 We will now consider how the speed distribution can be reconstructed from the momentum parametrisation. For a set of constant bins in momentum space, the positions and widths of bins in velocity space is dependent on the WIMP mass. It is therefore difficult to extract precise statistical information on the speed distribution, as the bin values will be very strongly correlated with the WIMP mass. Instead, we take the reconstructed WIMP mass as fixed and use this to obtain a speed distribution from the momentum distribution parameters. Without treating the covariance of the WIMP mass and the bin parameters in full, the reconstructed speed distribution will depend strongly on the reconstructed mass value. However, this naive approach should give an indication of whether accurate reconstructions are possible.
 
-First, we consider a 50 GeV WIMP with SHM distribution, as an archetypal WIMP model with a well-behaved distribution function. We show a typical reconstructed speed distribution in Fig.\ \ref{fig:Speed:SHM50}, using the same mock dataset as Fig.\ \ref{fig:Speed:50SHM_momentum}. In this case, the reconstructed value of \(m_\textrm{rec}\) is 42 GeV and the speed distribution appears to be accurately reconstructed within the error estimates. 
+First, we consider a 50 GeV WIMP with SHM distribution, as an archetypal WIMP model with a well-behaved distribution function. We show a typical reconstructed speed distribution in Fig.\ \ref{fig:Speed:SHM50}, using the same mock dataset as Fig.\ \ref{fig:Speed:50SHM_momentum}. In this case, the reconstructed value of \(m_\textrm{rec}\) is 42 GeV and the speed distribution appears to be accurately reconstructed within the error estimates.
 
  \begin{figure}[t]
 \centering
@@ -432,7 +432,7 @@ First, we consider a 50 GeV WIMP with SHM distribution, as an archetypal WIMP mo
 \end{figure}
 
 \note{Need to rename things SHM+DD for consistency!}
-Next, we consider a reconstruction for a 100 GeV WIMP with DD distribution function. One example is shown in the left-hand panes of Fig.\ \ref{fig:Speed:DD100}, for a dataset with reconstructed mass \(\log_{10}(m_\textrm{rec} / \textrm{GeV}) = 1.83 \pm 0.15\), compared to the true value of \(\log_{10}(m_\chi / \textrm{GeV}) = 2\). The speed distribution appears to be well recovered at all speeds. However, there is a significant discrepancy in the mean inverse speed below \(\sim 150 \kms\). This is because the DD distribution function is very rapidly varying at low \(v\), meaning that the ansatz of constant bins can no longer be applied. As observed in the speed parametrisation method, the event spectrum can be steepened by moving to lower mass values and this may explain why there is significant bias and poor coverage for this set of benchmark parameters. 
+Next, we consider a reconstruction for a 100 GeV WIMP with DD distribution function. One example is shown in the left-hand panes of Fig.\ \ref{fig:Speed:DD100}, for a dataset with reconstructed mass \(\log_{10}(m_\textrm{rec} / \textrm{GeV}) = 1.83 \pm 0.15\), compared to the true value of \(\log_{10}(m_\chi / \textrm{GeV}) = 2\). The speed distribution appears to be well recovered at all speeds. However, there is a significant discrepancy in the mean inverse speed below \(\sim 150 \kms\). This is because the DD distribution function is very rapidly varying at low \(v\), meaning that the ansatz of constant bins can no longer be applied. As observed in the speed parametrisation method, the event spectrum can be steepened by moving to lower mass values and this may explain why there is significant bias and poor coverage for this set of benchmark parameters.
 
 In the right-hand panes of Fig.\ \ref{fig:Speed:DD100}, we show results from the same mock dataset reconstructed using 7 bins in momentum space. The reconstructed mass is now \(\log_{10}(m_\textrm{rec} / \textrm{GeV}) = 2.21 \pm 0.27\), with the mean inverse momentum more closely reconstructed than for the 5 bin case. Figure \ref{fig:Speed:7bins} shows the distribution of reconstructed masses for a 100 GeV WIMP with a DD distribution function using 7 bins in momentum space. The reconstructed masses are now more broadly distributed around the benchmark value, with improved coverage compared to the 5 bin case: \(67 \pm 3 \%\) and \(94 \pm 1 \%\). We have found that increasing the number of bins for the 50 GeV SHM benchmark leaves the coverage properties and distribution of reconstructions largely unchanged, indicating that increasing the number of bins can be used to check the robustness of the reconstructions.
 
@@ -453,9 +453,9 @@ Finally, we consider the discriminatory power of the reconstructions. Returning 
 
 We have explored the simple, empirical parametrisation proposed by Peter and showed that it produces a significant bias and underestimates the errors on $m_\chi$, even for simple benchmarks. \note{Lower \mchi leads to higher \vmin - we can sort of stop that using the momentum method...} This appears to be due to the dependence of $\eta(E_R)$ on \mchi. For a fixed bin width in $v$, reducing the WIMP mass produces leads to smaller bins in $E_R$. This means that $\eta(E_R)$ can provide a better fit to the observed data.
 
-As an alternative we have proposed binning the \textit{momentum} distribution. For a single experiment, the inverse momentum distribution $\tilde{\eta}(E_R)$ is independent of the WIMP mass and the scale (controlled by the parameter $D$ of Eq.~\ref{eq:Speed:D}) and shape of the recoil distribution can be effectively decoupled. This allows $D$ to be reconstructed with minimal bias. The $D$ values from many different experiments can then potentially be used to place bounds on the values of the WIMP mass and cross-section. 
+As an alternative we have proposed binning the \textit{momentum} distribution. For a single experiment, the inverse momentum distribution $\tilde{\eta}(E_R)$ is independent of the WIMP mass and the scale (controlled by the parameter $D$ of Eq.~\ref{eq:Speed:D}) and shape of the recoil distribution can be effectively decoupled. This allows $D$ to be reconstructed with minimal bias. The $D$ values from many different experiments can then potentially be used to place bounds on the values of the WIMP mass and cross-section.
 
-However, to directly constrain the WIMP mass, it is necessary to combine data from multiple experiments simultaneously. This is done by parametrising the reduced momentum distribution of the WIMPs with respect to only one of the experiments. In this work, we choose to parametrise $p_{\chi Ar}$. The result is that the shape of the recoil spectrum depends only weakly on the WIMP mass. This is because the recoil energy can now be written as 
+However, to directly constrain the WIMP mass, it is necessary to combine data from multiple experiments simultaneously. This is done by parametrising the reduced momentum distribution of the WIMPs with respect to only one of the experiments. In this work, we choose to parametrise $p_{\chi Ar}$. The result is that the shape of the recoil spectrum depends only weakly on the WIMP mass. This is because the recoil energy can now be written as
 
 \begin{equation}
 E_R = \frac{2 p_{\chi Ar}^2}{m_N} \left(\frac{\mu_{\chi N}}{\mu_{\chi Ar}}\right)^2\,.
@@ -474,13 +474,13 @@ Finally, while the momentum bin parametrisation provides significant improvement
 \section{Conclusion}
 \label{sec:Speed:Conclusion}
 
-We have presented a new method of analysing direct detection data sets which aims to reconstruct as much information as possible about the WIMP mass, cross-section and distribution function while making no assumptions about the shape of the underlying speed distribution. To do this, we parametrise the WIMP momentum distribution using a simple empirical parametrisation. This ensures that we do not parametrise those regions of velocity space to which the experiments are not sensitive, thus preventing spurious reconstructions, as seen previously in the use of speed parametrisation methods. We have also seen that the binned speed parametrisation introduces a fixed scale (the bin width) into the distribution function. Converting from speed bins to energy bins depends on the WIMP mass, introducing a bias into the analysis. The momentum parametrisation should reduce this dependence and consequently reduce the bias introduced. 
+We have presented a new method of analysing direct detection data sets which aims to reconstruct as much information as possible about the WIMP mass, cross-section and distribution function while making no assumptions about the shape of the underlying speed distribution. To do this, we parametrise the WIMP momentum distribution using a simple empirical parametrisation. This ensures that we do not parametrise those regions of velocity space to which the experiments are not sensitive, thus preventing spurious reconstructions, as seen previously in the use of speed parametrisation methods. We have also seen that the binned speed parametrisation introduces a fixed scale (the bin width) into the distribution function. Converting from speed bins to energy bins depends on the WIMP mass, introducing a bias into the analysis. The momentum parametrisation should reduce this dependence and consequently reduce the bias introduced.
 
 In the case of a single experiment, this method can be applied exactly and allows one to extract information about the shape of the distribution function, at the cost of losing access to information about either the WIMP mass or cross-section separately. For multiple experiments, the range of the parametrisation must be extended to cover the sensitivity regions of all experiments. For estimation of the WIMP mass, this allows us to achieve significant improvements in coverage and reduction in bias over previous methods. Without making any assumptions about the WIMP speed distribution, however, we cannot estimate the interaction cross-section due to its degeneracy with the fraction of WIMPs accessible to the experiments. This is an unavoidable problem, but is rendered somewhat irrelevant by large uncertainties in the local DM density.
 
 Reconstruction of the WIMP speed distribution remains difficult. The finite sensitivity window of direct detection experiments means that information on the normalisation of \(f(v)\) is lost, making comparison to theoretical models difficult. At the event rates studied here, it does not appear to be possible to distinguish between different distribution functions.
 
-This technique represents a significant step towards developing model-independent methods for determining the WIMP mass. However, caution must be exercised, as the method is expected to perform poorly for low mass WIMPs, where the range of momenta probed by the experiments is large. There is also evidence that residual bias may remain, especially in the case of more extreme distribution functions. 
+This technique represents a significant step towards developing model-independent methods for determining the WIMP mass. However, caution must be exercised, as the method is expected to perform poorly for low mass WIMPs, where the range of momenta probed by the experiments is large. There is also evidence that residual bias may remain, especially in the case of more extreme distribution functions.
 
 \note{Try not to repeat yourself...}
 
