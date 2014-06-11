@@ -26,6 +26,8 @@
 %\usepackage[pdf]{pstricks}
 \usepackage{epstopdf}
 \usepackage{verbatim}
+\usepackage{xspace}
+
 
 \setlrmarginsandblock{2in}{1in}{*}
 \setulmarginsandblock{1.25in}{1.25in}{*}
@@ -51,7 +53,7 @@
 
 
 \newcommand{\etal}{et al.\ }
-\newcommand{\LCDM}{$\Lambda$CDM }
+\newcommand{\LCDM}{$\Lambda$CDM}
 \newcommand{\dbd}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
 \newcommand{\GeV}{\textrm{ GeV}}
 \newcommand{\cmsq}{\textrm{ cm}^2}
@@ -61,17 +63,18 @@
 \newcommand{\boldtheta}{\boldsymbol\theta}
 \newcommand{\boldpsi}{\boldsymbol\psi}
 \newcommand{\boldphi}{\boldsymbol\phi}
-\newcommand{\PLF}{polynomial $\ln f(v)$ }
+\newcommand{\PLF}{polynomial $\ln f(v)$\xspace}
 
+\newcommand{\multinest}{\textsc{MultiNest}\xspace}
+\newcommand{\cosmomc}{\textsc{CosmoMC}\xspace}
 
-
-\newcommand{\mchi}{\ifmmode m_\chi \else $m_\chi$ \fi}
-\newcommand{\vmin}{\ifmmode v_{\mathrm{min}} \else $v_{\mathrm{min}}$ \fi}
-\newcommand{\vesc}{\ifmmode v_{\mathrm{esc}} \else $v_{\mathrm{esc}}$ \fi}
-\newcommand{\sigmapsi}{\relax \ifmmode \sigma_{\mathrm{p}}^{\mathrm{SI}} \else $\sigma_{\mathrm{p}}^{\mathrm{SI}}$ \fi}
-\newcommand{\sigmaNsi}{\ifmmode \sigma_{\mathrm{N}}^{\mathrm{SI}} \else $\sigma_{\mathrm{N}}^{\mathrm{SI}}$ \fi}
-\newcommand{\sigmapsd}{\relax \ifmmode \sigma_{\mathrm{p}}^{\mathrm{SD}} \else $\sigma_{\mathrm{p}}^{\mathrm{SD}}$ \fi}
-\newcommand{\sigmansd}{\ifmmode \sigma_{\mathrm{n}}^{\mathrm{SD}} \else $\sigma_{\mathrm{n}}^{\mathrm{SD}}$ \fi}
+\newcommand{\mchi}{\ifmmode m_\chi \else $m_\chi$\fi\xspace}
+\newcommand{\vmin}{\ifmmode v_{\mathrm{min}} \else $v_{\mathrm{min}}$\fi\xspace}
+\newcommand{\vesc}{\ifmmode v_{\mathrm{esc}} \else $v_{\mathrm{esc}}$\fi\xspace}
+\newcommand{\sigmapsi}{\relax \ifmmode \sigma_{\mathrm{p}}^{\mathrm{SI}} \else $\sigma_{\mathrm{p}}^{\mathrm{SI}}$\fi\xspace}
+\newcommand{\sigmaNsi}{\ifmmode \sigma_{\mathrm{N}}^{\mathrm{SI}} \else $\sigma_{\mathrm{N}}^{\mathrm{SI}}$\fi\xspace}
+\newcommand{\sigmapsd}{\relax \ifmmode \sigma_{\mathrm{p}}^{\mathrm{SD}} \else $\sigma_{\mathrm{p}}^{\mathrm{SD}}$\fi\xspace}
+\newcommand{\sigmansd}{\ifmmode \sigma_{\mathrm{n}}^{\mathrm{SD}} \else $\sigma_{\mathrm{n}}^{\mathrm{SD}}$\fi\xspace}
 
 \newcommand{\ScatRate}[0]{\ensuremath{\Omega^{-}_{\vesc,i}(w)}}
 
@@ -92,29 +95,29 @@
 \input{Title.tex}
 
 
-\thispagestyle{empty}
-\input{Abstract.tex}
+%\thispagestyle{empty}
+%\input{Abstract.tex}
 
 
-\pagenumbering{roman}
-\input{Papers.tex}
+%\pagenumbering{roman}
+%\input{Papers.tex}
 
-\newpage
-\input{Acknowledgements.tex}
+%\newpage
+%\input{Acknowledgements.tex}
 
 \newpage
 \tableofcontents
 
-\newpage
-\listoffigures
+%\newpage
+%\listoffigures
 
-\newpage
-\listoftables
-\newpage
+%\newpage
+%\listoftables
+%\newpage
 
-\newpage
-\printnomenclature
-\newpage
+%\newpage
+%\printnomenclature
+%\newpage
 
 \pagenumbering{arabic}
 \input{Introduction.tex}
@@ -131,11 +134,11 @@
 
 \input{Poly.tex}
 
-\input{NeutrinoTelescope.tex}
+%\input{NeutrinoTelescope.tex}
 
-\input{Directional.tex}
+%\input{Directional.tex}
 
-\input{Conclusions.tex}
+%\input{Conclusions.tex}
 
 
 %%%Problems with the style file: I've edited
