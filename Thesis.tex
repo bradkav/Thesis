@@ -95,29 +95,29 @@
 \input{Title.tex}
 
 
-%\thispagestyle{empty}
-%\input{Abstract.tex}
+\thispagestyle{empty}
+\input{Abstract.tex}
 
 
-%\pagenumbering{roman}
-%\input{Papers.tex}
+\pagenumbering{roman}
+\input{Papers.tex}
 
-%\newpage
-%\input{Acknowledgements.tex}
+\newpage
+\input{Acknowledgements.tex}
 
 \newpage
 \tableofcontents
 
-%\newpage
-%\listoffigures
+\newpage
+\listoffigures
 
-%\newpage
-%\listoftables
-%\newpage
+\newpage
+\listoftables
+\newpage
 
-%\newpage
-%\printnomenclature
-%\newpage
+\newpage
+\printnomenclature
+\newpage
 
 \pagenumbering{arabic}
 \input{Introduction.tex}
@@ -128,17 +128,17 @@
 
 %%%Could do `reconstructing the WIMP mass' and `reconstructing the cross section'...
 
-%\input{MomentumDistribution.tex}
+\input{MomentumDistribution.tex}
 
 \input{SpeedDistribution.tex}
 
 \input{Poly.tex}
 
-%\input{NeutrinoTelescope.tex}
+\input{NeutrinoTelescope.tex}
 
-%\input{Directional.tex}
+\input{Directional.tex}
 
-%\input{Conclusions.tex}
+\input{Conclusions.tex}
 
 
 %%%Problems with the style file: I've edited
@@ -148,6 +148,8 @@
 %in the article FUNCTION to remove doi - it was adding it if other fields were missing, we don't want that...
 %I've also removed some extra spaces which were messing with the hrefs...
 
+\appendix
+\input{DirectionalAppendix.tex}
 
 \bibliographystyle{my-apsrev4-2}
 \bibliography{Thesis,Experiments,DMDensity}
