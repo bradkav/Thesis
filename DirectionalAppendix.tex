@@ -113,19 +113,19 @@ where it is understood that $J$ depends implicityly on $\beta$.
 For $\beta$ in range $n$, we want to integrate over $\cos\theta \in [\cos(\pi j/N), \cos(\pi (j-1)/N)]$. There are only three `bins' in $\cos\theta$ which contribute:
 
 \begin{align*}
-\cos\theta \in & [\cos(\pi j/N), A_{n,3(j-1)+1}(\beta)]\,, \\
-\cos\theta \in & [A_{n,3(j-1)+1}(\beta), A_{n,3(j-1)+2}(\beta)]\,, \\
-\cos\theta \in & [A_{n,3(j-1)+2}(\beta), \cos(\pi (j-1)/N)]\,,
+\cos\theta \in & [\cos(\pi j/N), A_{n,2(j-1)+1}(\beta)]\,, \\
+\cos\theta \in & [A_{n,2(j-1)+1}(\beta), A_{n,2(j-1)+2}(\beta)]\,, \\
+\cos\theta \in & [A_{n,2(j-1)+2}(\beta), \cos(\pi (j-1)/N)]\,,
 \end{align*}
 We write these 4 edges as $B_{n, i}$ where $i = 1,2,3,4$. Integrating then over the range $\cos\theta \in [B_{n,i}, B_{n,i+1}]$ and summing, we obtain:
 
 \begin{align*}
 & \sum_{i = 1,3}\int_{B_{n,i}}^{B_{n,i+1}} \int_{-1}^{1} f(\textbf{v}) I(v_q, \cos\theta, \textbf{v}) \, \mathrm{d}\cos\theta' \, \mathrm{d}\cos\theta\\
-&= \frac{2}{v} f_{k_{n,3(j-1)+i}^+}(v) \left( \frac{\pi}{2}(B_{n,i+1} - B_{n,i}) \right.\\
-&\qquad\qquad - \left.J(B_{n,i+1}; \cos(\pi k_{n,3(j-1)+i}^{+}/N)) + J(B_{n,i}; \cos(\pi k_{n,3(j-1)+i}^{+}/N))\right)\\
-&+ \frac{2}{v} f_{k_{n,3(j-1)+i}^-}(v) \left( \frac{\pi}{2}(B_{n,i+1} - B_{n,i})\right. \\
-&\qquad\qquad + \left. J(B_{n,i+1}; \cos(\pi (k_{n,3(j-1)+i}^{-}-1)/N)) - J(B_{n,i}; \cos(\pi (k_{n,3(j-1)+i}^{-}-1)/N))\right)\\
-&+ \sum_{k = k_{n,3(j-1)+i}^+ +1}^{k_{n,3(j-1)+i}-1} \frac{2}{v} f_{k}(v) \left( J(B_{n,i+1};\cos(\pi (k-1)/N)) - J(B_{n,i};\cos(\pi (k-1)/N))\right. \\
+&=\sum_{i = 1,3} \frac{2}{v} f_{k_{n,2(j-1)+i}^+}(v) \left( \frac{\pi}{2}(B_{n,i+1} - B_{n,i}) \right.\\
+&\qquad\qquad - \left.J(B_{n,i+1}; \cos(\pi k_{n,2(j-1)+i}^{+}/N)) + J(B_{n,i}; \cos(\pi k_{n,2(j-1)+i}^{+}/N))\right)\\
+&+ \frac{2}{v} f_{k_{n,2(j-1)+i}^-}(v) \left( \frac{\pi}{2}(B_{n,i+1} - B_{n,i})\right. \\
+&\qquad\qquad + \left. J(B_{n,i+1}; \cos(\pi (k_{n,2(j-1)+i}^{-}-1)/N)) - J(B_{n,i}; \cos(\pi (k_{n,2(j-1)+i}^{-}-1)/N))\right)\\
+&+ \sum_{k = k_{n,2(j-1)+i}^+ +1}^{k_{n,2(j-1)+i}-1} \frac{2}{v} f_{k}(v) \left( J(B_{n,i+1};\cos(\pi (k-1)/N)) - J(B_{n,i};\cos(\pi (k-1)/N))\right. \\
 &\qquad\qquad - \left. J(B_{n,i+1};\cos(\pi (k)/N)) + J(B_{n,i};\cos(\pi (k)/N)) \right)\\
 &\equiv \sum_{i=1,2,3} \Gamma_{n,j,i}(v)\,.
 \end{align*}
