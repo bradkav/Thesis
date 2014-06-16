@@ -47,7 +47,7 @@ The crossings of $x_+$ with the line $\cos\theta' = \cos(k\pi/N)$ are
 \cos\theta &= \beta\cos(k\pi/N) - \sqrt{1-\beta^2}\sin(k\pi/N) & \textrm{ for } \beta > \cos((N-k)\pi/N)\,.\\
 \end{align*}
 
-Similarly for $x_-$, the crossing are at 
+Similarly for $x_-$, the crossing are at
 
 \begin{align*}
 \cos\theta &= \beta\cos(k\pi/N) + \sqrt{1-\beta^2}\sin(k\pi/N) & \textrm{ for } \beta > \cos(k\pi/N)\,,\\
@@ -108,8 +108,19 @@ We write the integral:
 \begin{equation}
 \int \asin\left\{\frac{y - \beta \cos\theta}{\sqrt{1-\beta^2}\sin\theta}\right\} \, \mathrm{d}\cos\theta \equiv J(\cos\theta; y) + C\,,
 \end{equation}
-where it is understood that $J$ depends implicityly on $\beta$. 
+where it is understood that $J$ depends implicityly on $\beta$. We evaluate $J$ as:
 
+\begin{align*}
+J(x;y) &= x \asin\left(\frac{y-\beta x}{\sqrt{1-x^2}\sqrt{1-\beta^2}}\right) \\
+&\, + y \atan\left(\frac{x-y\beta}{\sqrt{t}}\right) \\
+&\, + \frac{1}{2} \atan\left(\frac{1 - y^2 - \beta^2 - x + y\beta(1+x)}{(y-\beta) \sqrt{t}}\right) \\
+&\, - \frac{1}{2} \atan\left(\frac{1 - y^2 - \beta^2 + x - y\beta(1-x)}{(y+\beta) \sqrt{t}}\right)\,,
+\end{align*}
+where
+
+\begin{equation}
+t = (1-x^2)(1-\beta^2) - (y - \beta x)^2\,.
+\end{equation}
 For $\beta$ in range $n$, we want to integrate over $\cos\theta \in [\cos(\pi j/N), \cos(\pi (j-1)/N)]$. There are only three `bins' in $\cos\theta$ which contribute:
 
 \begin{align*}
