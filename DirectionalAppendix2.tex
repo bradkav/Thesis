@@ -1,0 +1,152 @@
+\chapter{Discretising the velocity distribution for arbitrary $N$}
+
+\note{Check all of this and derive it too!!!}
+
+We have to divide the range of $\beta$ into $N$ pieces. The sections are
+
+\begin{align*}
+\beta &\in \left[\cos\left(\frac{\pi}{2N}\right), 1\right]\,\\
+\beta &\in \left[\cos\left(\frac{2\pi}{2N}\right), \cos\left(\frac{\pi}{2N}\right)\right]\,\\
+& \vdots\\
+\beta &\in \left[\cos\left(\frac{(N-1)\pi}{2N}\right), \cos\left(\frac{(N-2)\pi}{2N}\right)\right]\,\\
+\beta &\in \left[0, \cos\left(\frac{(N-1)\pi}{2N}\right)\right]\,.\\
+\end{align*}
+
+We can label these by an index $n$, such that the limits are
+
+\begin{equation}
+\beta \in \left[\cos\left(\frac{n\pi}{2N}\right), \cos\left(\frac{(n-1)\pi}{2N}\right)\right]\,.
+\end{equation}
+
+\begin{comment}
+\begin{align*}
+\beta &\in \left[\cos\left(\frac{\pi}{N}\right), 1\right]\,\\
+\beta &\in \left[\cos\left(\frac{2\pi}{N}\right), \cos\left(\frac{\pi}{N}\right)\right]\,\\
+& \vdots\\
+\beta &\in \left[\cos\left(\frac{(N-1)\pi}{N}\right), \cos\left(\frac{(N-2)\pi}{N}\right)\right]\,\\
+\beta &\in \left[0, \cos\left(\frac{(N-1)\pi}{N}\right)\right]\,.\\
+\end{align*}
+
+We can label these by an index $n$, such that the limits are
+
+\begin{align*}
+\beta &\in \left[\cos\left(\frac{n\pi}{N}\right), \cos\left(\frac{(n-1)\pi}{N}\right)\right] \qquad \textrm{ for } n < l\,,\\
+\beta &\in \left[0, \cos\left(\frac{l\pi}{N}\right)\right] \qquad \textrm{ for } n = l\,.
+\end{align*}
+\end{comment}
+The limits of some of the integrals are
+
+\begin{equation}
+x_\pm = \beta \cos\theta \pm \sqrt{1-\beta^2}\sin\theta\,.
+\end{equation}
+
+The crossings of $x_+$ with the line $\cos\theta' = \cos(k\pi/N)$ are
+
+\begin{align*}
+\cos\theta &= \beta\cos(k\pi/N) + \sqrt{1-\beta^2}\sin(k\pi/N) & \textrm{ for } \beta < \cos(k\pi/N)\,,\\
+\cos\theta &= \beta\cos(k\pi/N) - \sqrt{1-\beta^2}\sin(k\pi/N) & \textrm{ for } \beta > \cos((N-k)\pi/N)\,.\\
+\end{align*}
+
+Similarly for $x_-$, the crossing are at
+
+\begin{align*}
+\cos\theta &= \beta\cos(k\pi/N) + \sqrt{1-\beta^2}\sin(k\pi/N) & \textrm{ for } \beta > \cos(k\pi/N)\,,\\
+\cos\theta &= \beta\cos(k\pi/N) - \sqrt{1-\beta^2}\sin(k\pi/N) & \textrm{ for } \beta < \cos((N-k)\pi/N)\,.\\
+\end{align*}
+
+This partitions the range of $\cos\theta$ into $2N+1$ sections.
+
+\note{I'm not sure how the above partitioning of $\beta$ is relevant...I'll check on the computer...Rewrite page 4 of the notes in terms of n which runs from 1 to 2N+1 (rather than just 1 to N) - that should make the m-1's simpler...}
+
+\note{NB: have to be careful about the orderings of the end points...}
+
+What are the edges of these $\cos\theta$ partitions?
+
+\note{NB:$n$ should run from 1 to N}
+
+\note{I may be missing some numerical factors...}
+
+\note{I can probably simplify these expressions because for each $\hat{f}_j(v)$, there are only ever one or two bin contributions in $\cos\theta$...NOPE: there are exactly 3 bins for each...}
+
+The edges of partition $m$ are:
+
+%bin_edges[j] = np.cos(g - pi*(np.floor(n/2.0)+(0.5*(1+(-1)**(j+1))-np.floor((j+1)/2))*(-1)**(n+j))*1.0/N)
+
+\begin{equation}
+\left[A_{n,m}(\beta), A_{n,m-1}(\beta)\right]\,,
+\end{equation}
+where
+\begin{equation}
+A_{n,m}(\beta) = \cos\left(\acos{\beta} - \frac{\pi}{N}\left[\left \lfloor{\frac{n}{2}}\right \rfloor + \left(\frac{1}{2}(1 - (-1)^m) - \left \lfloor{\frac{m+1}{2}}\right \rfloor\right)(-1)^{n+m}\right]\right)\,.
+\end{equation}
+
+%plusvals = (np.floor(np.abs((n-m+0.5)/2)))+1
+%minusvals = N-(np.floor(np.abs((n-(2*N+1 - m)-0.5)/2)))
+
+\note{$m$ counts the number of crossings...}
+When $\cos\theta$ falls in bin $m$, $x_+$ falls in bin:
+
+\begin{equation}
+k^{+}_{n,m} = \left \lfloor{\left|\frac{n-m+1/2}{2}\right|}\right \rfloor + 1\,,
+\end{equation}
+and $x_-$ falls in bin:
+\begin{equation}
+k^{-}_{n,m} = N - \left \lfloor{\left|\frac{n-(2N+1 -m)-1/2}{2}\right|}\right \rfloor\,.
+\end{equation}
+
+So for $\beta$ in range $n$ and $\cos\theta$ in bin $m$:
+
+\begin{align*}
+& \int_{-1}^{1} f(\textbf{v}) I(v_q, \cos\theta, \textbf{v}) \, \mathrm{d}\cos\theta'\\
+&= \frac{2}{v} f_{k_{n,m}^+}(v) \left( \frac{\pi}{2} - \asin\left\{\frac{\cos(\pi k_{n,m}^{+}/N) - \beta \cos\theta}{\sqrt{1-\beta^2}\sin\theta}\right\}\right)\\
+&+ \frac{2}{v} f_{k_{n,m}^-}(v) \left( \frac{\pi}{2} + \asin\left\{\frac{\cos(\pi (k_{n,m}^{-}-1)/N) - \beta \cos\theta}{\sqrt{1-\beta^2}\sin\theta}\right\}\right)\\
+&+ \sum_{k = k_{n,m}^+ +1}^{k_{n,m}-1} \frac{2}{v} f_{k}(v) \left( \asin\left\{\frac{\cos(\pi (k-1)/N) - \beta \cos\theta}{\sqrt{1-\beta^2}\sin\theta}\right\}\right. \\
+&\qquad\qquad\qquad\qquad- \left.\asin\left\{\frac{\cos(\pi (k)/N) - \beta \cos\theta}{\sqrt{1-\beta^2}\sin\theta}\right\}\right)\,.
+\end{align*}
+
+We write the integral:
+\begin{equation}
+\int \asin\left\{\frac{y - \beta \cos\theta}{\sqrt{1-\beta^2}\sin\theta}\right\} \, \mathrm{d}\cos\theta \equiv J(\cos\theta; y) + C\,,
+\end{equation}
+where it is understood that $J$ depends implicityly on $\beta$. We evaluate $J$ as:
+
+\begin{align*}
+J(x;y) &= x \asin\left(\frac{y-\beta x}{\sqrt{1-x^2}\sqrt{1-\beta^2}}\right) \\
+&\, + y \atan\left(\frac{x-y\beta}{\sqrt{t}}\right) \\
+&\, + \frac{1}{2} \atan\left(\frac{1 - y^2 - \beta^2 - x + y\beta(1+x)}{(y-\beta) \sqrt{t}}\right) \\
+&\, - \frac{1}{2} \atan\left(\frac{1 - y^2 - \beta^2 + x - y\beta(1-x)}{(y+\beta) \sqrt{t}}\right)\,,
+\end{align*}
+where
+
+\begin{equation}
+t = (1-x^2)(1-\beta^2) - (y - \beta x)^2\,.
+\end{equation}
+For $\beta$ in range $n$, we want to integrate over $\cos\theta \in [\cos(\pi j/N), \cos(\pi (j-1)/N)]$. There are only three `bins' in $\cos\theta$ which contribute:
+
+\begin{align*}
+\cos\theta \in & [\cos(\pi j/N), A_{n,2(j-1)+1}(\beta)]\,, \\
+\cos\theta \in & [A_{n,2(j-1)+1}(\beta), A_{n,2(j-1)+2}(\beta)]\,, \\
+\cos\theta \in & [A_{n,2(j-1)+2}(\beta), \cos(\pi (j-1)/N)]\,,
+\end{align*}
+We write these 4 edges as $B_{n, i}$ where $i = 1,2,3,4$. Integrating then over the range $\cos\theta \in [B_{n,i}, B_{n,i+1}]$ and summing, we obtain:
+
+\begin{align*}
+& \sum_{i = 1,3}\int_{B_{n,i}}^{B_{n,i+1}} \int_{-1}^{1} f(\textbf{v}) I(v_q, \cos\theta, \textbf{v}) \, \mathrm{d}\cos\theta' \, \mathrm{d}\cos\theta\\
+&=\sum_{i = 1,3} \frac{2}{v} f_{k_{n,2(j-1)+i}^+}(v) \left( \frac{\pi}{2}(B_{n,i+1} - B_{n,i}) \right.\\
+&\qquad\qquad - \left.J(B_{n,i+1}; \cos(\pi k_{n,2(j-1)+i}^{+}/N)) + J(B_{n,i}; \cos(\pi k_{n,2(j-1)+i}^{+}/N))\right)\\
+&+ \frac{2}{v} f_{k_{n,2(j-1)+i}^-}(v) \left( \frac{\pi}{2}(B_{n,i+1} - B_{n,i})\right. \\
+&\qquad\qquad + \left. J(B_{n,i+1}; \cos(\pi (k_{n,2(j-1)+i}^{-}-1)/N)) - J(B_{n,i}; \cos(\pi (k_{n,2(j-1)+i}^{-}-1)/N))\right)\\
+&+ \sum_{k = k_{n,2(j-1)+i}^+ +1}^{k_{n,2(j-1)+i}-1} \frac{2}{v} f_{k}(v) \left( J(B_{n,i+1};\cos(\pi (k-1)/N)) - J(B_{n,i};\cos(\pi (k-1)/N))\right. \\
+&\qquad\qquad - \left. J(B_{n,i+1};\cos(\pi (k)/N)) + J(B_{n,i};\cos(\pi (k)/N)) \right)\\
+&\equiv \sum_{i=1,2,3} \Gamma_{n,j,i}(v)\,.
+\end{align*}
+
+\note{NB:Check numerical factors...}
+Finally, we have to integrate over $v$ or, equivalently, $\beta$:
+
+\begin{equation}
+\hat{f}_j(v) = \sum_{n = 1,N} \sum_{i=1,2,3} \int_{v_q/\cos((n-1)\pi/(2N))}^{v_q/\cos(n\pi/(2N))}  \Gamma_{n,j,i}(v) \, \mathrm{d}v\,,
+\end{equation}
+where the $\Gamma_{n,j,i}$ depend on $j$ through the values of $B_{n,i}$ and the indices of $f_k$.
+
+\note{I can always refer back to the code to check - because the code gives the right values of things...}
