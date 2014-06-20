@@ -4,7 +4,7 @@
 
 %A common problem in physics is attempting to reconstruct the parameters of a model from a set of data. Stated more precisely, this is an attempt to answer the following question: given a set of data $\mathcal{D}$, what is the probability of a given set of model parameters $\boldsymbol\theta$ being the true, underlying parameters? But how do we interpret this question and what do we mean by the `probability' of a given set of parameters?
 
-In this appendix, we address the problem of parameter reconstruction. Given a set of data $\mathcal{D}$, we would like to make some statement about the values of a set of model parameters $\mathbf{\theta}$. Due to statistical and systematic uncertainties, this will be a probabilistic statement about which values of $\mathbf{\theta}$ are more likely. Here, we consider what is meant by 'more likely'. We then demonstrate how parameter estimates and uncertainty intervals are constructed and how the parameter space of $\mathbf{\theta}$ can be explored to obtain these estimates.
+In this appendix, we address the problem of parameter reconstruction. Given a set of data $\mathcal{D}$, we would like to make some statement about the values of a set of model parameters $\boldtheta$. Due to statistical and systematic uncertainties, this will be a probabilistic statement about which values of $\boldtheta$ are more likely. Here, we consider what is meant by `more likely'. We then demonstrate how parameter estimates and uncertainty intervals are constructed and how the parameter space of $\boldtheta$ can be explored to obtain these estimates.
 
 In general, there are two approaches to parameter estimation. In \textit{frequentist} inference, there is only a single, fixed set of true values for the model parameters $\boldsymbol\theta$. We imagine that the experiment (which produced the data $\mathcal{D}$) can be repeated a large number of times, giving independent results each time. The `probability' associated with each set of parameters $\boldsymbol\theta$ is a measure of how frequently our experiment would produce data which looked similar to $\mathcal{D}$ if $\boldsymbol\theta$ is the true value. In a frequentist framework, the true model parameters are fixed but unknown and we make statements about how confident we are that these true parameters lie in a particular range.
 
@@ -125,10 +125,10 @@ Each of these will behave differently for different posterior probability distri
 
 We also wish to make statements about the possible range of values for parameters. In a Bayesian framework, we define the p\% \textit{credible} interval $\mathcal{C}_{p}$ such that it encloses p\% of the probability distribution. Again, there are several possibilities for how to define $\mathcal{C}_{p} = [\mathcal{C}_{p}^\textrm{min}, \mathcal{C}_{p}^\textrm{max}]$, such as:
 \begin{description}
-\item[Central interval] - the interval which has the mean as its central value.
+\item[Central interval] - the interval which has the mean as its central value,
 \item[Equal tails interval] - the total probability below the interval is the same as above the interval,
 \begin{equation}
-\int_{-\infty}^{\mathcal{C}_{p}^\textrm{min}} \mathcal{P}(\boldtheta) \, \mathrm{d}\boldtheta = \int_{\mathcal{C}_{p}^\textrm{max}}^{\infty} \mathcal{P}(\boldtheta) \, \mathrm{d}\boldtheta\,.
+\int_{-\infty}^{\mathcal{C}_{p}^\textrm{min}} \mathcal{P}(\boldtheta) \, \mathrm{d}\boldtheta = \int_{\mathcal{C}_{p}^\textrm{max}}^{\infty} \mathcal{P}(\boldtheta) \, \mathrm{d}\boldtheta\,,
 \end{equation}
 \item[Highest density interval] - the interval defined by all values $\mathcal{P}(\theta) \geq \gamma$, where $\gamma$ is defined by
 \begin{equation}
@@ -141,7 +141,7 @@ Highest density intervals are useful when $\mathcal{P}(\boldtheta)$ is multimoda
 \centering
   \includegraphics[width=0.8\textwidth]{ParamRecon/PDF.pdf}
   \caption[Posterior-based parameter inference]{Illustration of posterior-based parameter inference. We show the difference between the MAP and mean parameter estimates. We also show one possible 95\% credible interval - the probability in the shaded tails is equal.}
-  \label{fig:parameter:likelihood}
+  \label{fig:parameter:PDF}
 \end{figure}
 
 
@@ -152,13 +152,13 @@ So far we have considered how, given $\mathcal{L}(\boldtheta)$ or $\mathcal{P}(\
 \subsection{Markov chain monte carlo}
 
 
-In the Markov chain monte carlo (MCMC) method \cite{Lewis:2009}, we generate a chain of points in the parameter space $\left\{\boldtheta_i\right\}$. A new point $\boldtheta_{j+1}$ in the chain is generated from the current point $\boldtheta_{j}$ by picking from some proposal distribution $q(\boldtheta_{j}; \boldtheta_{j+1})$. Under the Metropolis-Hastings algorithm \cite{Metropolis:1953}, the new point is accepted with probability
+In the Markov chain monte carlo (MCMC) method \cite{Lewis:2009}, we generate a chain of points in the parameter space $\left\{\boldtheta_i\right\}$. A new point $\boldtheta_{j+1}$ in the chain is generated from the current point $\boldtheta_{j}$ by picking from some proposal distribution $q(\boldtheta_{j+1}; \boldtheta_{j})$. Under the Metropolis-Hastings algorithm \cite{Metropolis:1953}, the new point is accepted with probability
 \begin{equation}
-\textrm{min}\left\{1, \frac{\mathcal{P}(\boldtheta_{j+1})q(\boldtheta_{j+1})}{\mathcal{P}(\boldtheta_{j})q(\boldtheta_{j})} \right\}\,.
+\textrm{min}\left\{1, \frac{\mathcal{P}(\boldtheta_{j+1})q(\boldtheta_{j+1};\boldtheta_{j})}{\mathcal{P}(\boldtheta_{j})q(\boldtheta_{j};\boldtheta_{j+1})} \right\}\,.
 \end{equation}
 Over a large number of points, the chain positions should converge to a stationary distribution. Eventually the number density of chain positions will be proportional to the posterior \(n(\boldtheta) \propto \mathcal{P}(\boldtheta)\) (assuming that the proposal distribution is symmetric). In addition, we will also have the value of the likelihood $\mathcal{L}(\boldtheta)$ evaluated at all of the points in the chain.
 
-Care must be taken to ensure that the chain has converged before the results can be interpreted. Typically some initial set of points is discarded as `burn-in', after which the chain is deemed to have converged. However, it is often unclear when convergence has been reached. Moreover, each chain position will dependent slighly on the previous position. However, we want to obtain independent samples from the posterior distribution. Therefore, the chain is typically thinned (by some factor of order 25-50) \cite{Lewis:2002}, with only some of the positions being retained. Finally, we must select how many positions we want to obtain in the chain before we stop the random walk, in the hopes that the chain has adequately explored the parameter space.
+Care must be taken to ensure that the chain has converged before the results can be interpreted. Typically some initial set of points is discarded as `burn-in', after which the chain is deemed to have converged. However, it is often unclear when convergence has been reached. Moreover, each chain position will depend slighly on the previous position. However, we want to obtain independent samples from the posterior distribution. Therefore, the chain is typically thinned (by some factor of order 25-50) \cite{Lewis:2002}, with only some of the positions being retained. Finally, we must select how many positions we want to obtain in the chain before we stop the random walk, in the hopes that the chain has adequately explored the parameter space.
 
 When $\mathcal{P}(\boldtheta)$ is multimodal, sharply peaked or has strong degeneracies among the parameters, exploration by the chain can be slow. It can be unclear whether convergence has been achieved, especially if the chain becomes trapped in one of the modes of the distribution. One way to improve the rate of convergence is to use high temperature MCMC \cite{Kirkpatrick:1983,Lewis:2009}. We employ a `heated' chain with temperature $T = 2$, meaning that we accept new points with probability
 \begin{equation}
@@ -175,14 +175,14 @@ One popular, publicly available MCMC code is \textsc{CosmoMC} \cite{Lewis:2002}.
 
 \subsection{Nested sampling}
 
-The nested sampling method \cite{Skilling:2004} was originally proposed as a method of calculating the overall normalising factor which appears in Bayes' theorem, $P(\mathcal{D})$. However, it produces as a by-product samples from the posterior distribution and values of the likelihood function. In nested sampling, we take an initial sample of points (so-called `live' points) from the parameter space and evaluate the likelihood at each point. At each subsequent step, the live point with the lowest likelihood $\mathcal{L}_0$ is removed from the sample and replaced with another point sampled from the parameter space with $\mathcal{L}_i > \mathcal{L}_0$. Thus, the algorithm explores the prior in concentric shells of $\mathcal{L}$. Each new live point can be assigned a weight $w_i$, obtained from an estimate of change in the prior volume between concentric shells. Finally, each point can then be assigned a posterior density
+The nested sampling method \cite{Skilling:2004} was originally proposed as a method of calculating the overall normalising factor which appears in Bayes' theorem, $P(\mathcal{D})$. However, it produces as a by-product samples from the posterior distribution and values of the likelihood function. In nested sampling, we take an initial sample of points (so-called `live' points) from the parameter space and evaluate the likelihood at each point. At each subsequent step, the live point with the lowest likelihood $\mathcal{L}_0$ is removed from the sample and replaced with another point sampled from the parameter space with $\mathcal{L}_i > \mathcal{L}_0$. Thus, the algorithm explores the prior in concentric shells of $\mathcal{L}$. Each new live point can be assigned a weight $w_i$, obtained from an estimate of the change in the prior volume between concentric shells. Finally, each point can then be assigned a posterior density
 
 \begin{equation}
 p_i = \frac{w_i \mathcal{L}_i}{\mathcal{Z}}\,.
 \end{equation}
 The Bayesian evidence $\mathcal{Z} \equiv P(\mathcal{D})$ is obtained by summing $\sum_i w_i \mathcal{L}_i$ and the algorithm continues until this is determined to some desired precision.
 
-In order to continue, we must be able to select points from the prior subject to the hard constraint $\mathcal{L}_i > \mathcal{L}_0$. As the algorithm moves to higher values of $\mathcal{L}_0$, points with a higher likelihood than this tend to become localised in very small regions of the parameter space. In addition, if the likelihood is multimodal or has pronounced degeneracies, the sampling of points subject to this constraint becomes highly inefficient. The \textsc{MultiNest} algorithm \cite{Feroz:2007,Feroz:2008,Feroz:2014} uses multimodal, ellipsoidal nested sampling to improve performance. As $\mathcal{L}_0$ increases during the calculation,  \textsc{MultiNest} uses the current live points to approximate the isolikelihood contour by a series of ellipsoidal surfaces. New points are drawn only from within these ellipsoids, increasing the efficiency of the sampling but still ensuring that the constraint $\mathcal{L}_i > \mathcal{L}_0$ is satisfied. The algorithm can also accomodate multiple modes in the posterior which can be explored independently.
+In order to continue, we must be able to select points from the prior subject to the hard constraint $\mathcal{L}_i > \mathcal{L}_0$. As the algorithm moves to higher values of $\mathcal{L}_0$, points with a higher likelihood than this tend to become localised in very small regions of the parameter space. In addition, if the likelihood is multimodal or has pronounced degeneracies, the sampling of points subject to this constraint becomes highly inefficient. The \textsc{MultiNest} algorithm \cite{Feroz:2007,Feroz:2008,Feroz:2014} uses multimodal, ellipsoidal nested sampling to improve performance. As $\mathcal{L}_0$ increases during the calculation,  \textsc{MultiNest} uses the current live points to approximate the isolikelihood contour by a series of ellipsoidal surfaces. New points are drawn only from within these ellipsoids, increasing the efficiency of the sampling but still ensuring that the constraint $\mathcal{L}_i > \mathcal{L}_0$ is satisfied. The algorithm can also accommodate multiple modes in the posterior which can be explored independently.
 
 In utilising the MultiNest algorithm, we must decide how many live point to use $N_\textrm{live}$. This determines how closely the isolikelihood contours can be followed, how dense the posterior samples will be and, in the case where there are highly localised modes, how well explored the prior will be. We must also decide the tolerance of the algorithm, \texttt{tol}. This determines the precision with which $\mathcal{Z}$ should be determined and therefore how high up the likelihood surface the algorithm should explore. Finally, we can introduce an efficiency \texttt{eff}, which is the desired sampling efficiency. In order to (attempt to) achieve this, the algorithm rescales the volume of the bounding ellipsoids to incorporate more or less of the prior volume, as desired. 
 
@@ -220,7 +220,7 @@ and from the background with probability $f_{BG} = 1-f_S$. Thus, we obtain the f
 \end{equation}
 Here, $N_e$ and $N_o$ are the total number of expected events including both signal and background. We must also take into account the normalised spectra of the signal $P_S(E)$ and the background $P_{BG}(E)$ seperately, multiplying the contributions of both.
 
-For multiple experiments, the total likelihood is then the product of the individual likelihoods for each experiment. When using the binned likelihood, experiment with more bins receive a greater weight in the likelihood. Therefore, we may want to reweight the bins such that each experiment receives equal weight. We write the likelihood contribution of the $i^\textrm{th}$ bin in experiment $n$ as $(\mathcal{L}_n^i)^{w_n}$, where $w_n$ is the weight for bins in experiment $n$. This weight is calculated as
+For multiple experiments, the total likelihood is then the product of the individual likelihoods for each experiment. When using the binned likelihood, experiments with more bins receive a greater weight in the likelihood. Therefore, we may want to reweight the bins such that each experiment receives equal weight. We write the likelihood contribution of the $i^\textrm{th}$ bin in experiment $n$ as $(\mathcal{L}_n^i)^{w_n}$, where $w_n$ is the weight for bins in experiment $n$. This weight is calculated as
 
 \begin{equation}
 w_n = \frac{N_\textrm{total}}{N_\textrm{expt}N_n}\,

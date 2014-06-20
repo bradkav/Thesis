@@ -1,6 +1,5 @@
-\chapter[Directional detection]{Speed parametrisation for directional experiments}
-
-\note{Check vq vs. vmin}
+\chapter[Directional detection]{Velocity parametrisation for directional experiments}
+\label{ch:directional}
 
 While many direct detection experiments seek to measure the recoil energies deposited by weakly interacting massive particles (WIMPs) scattering off detector nuclei, \textit{directional} experiments aim to measure both the energy and direction of the recoil. While the recoil distribution of typical backgrounds is expected to be roughly isotropic, the WIMP-induced recoil distribution is expected to be highly directional. The motion of the Sun through the Galactic dark matter (DM) halo generates a so-called `WIMP wind', leading to an event rate peaked in the opposing direction, the direction of the constellation Cygnus. 
 
@@ -9,6 +8,10 @@ The ability of directional detection to distinguish background from signal and t
 Measuring the directional recoil spectrum allows us to probe not just the energy distribution of WIMPs in the Galactic halo (embodied in the speed distribution $f_1(v)$), but the full 3-dimensional velocity distribution $f(\textbf{v})$. This may allow us to gain new insight into the phase space distribution of the Milky Way's DM halo. However, it also introduces new uncertainties into calculating the event rate. While non-directional detection leaves us with a single free function in the form of $f_1(v)$, the directional case relies upon the \textit{a priori} unknown function of a 3-dimensional vector, $f(\textbf{v})$.
 
 In this chapter, we will first introduce the formalism by which the directional rate is calculated. Specifically, we introduce the Radon transform which relates the WIMP velocity distribution to the corresponding nuclear recoil distribution.  We then discuss the current state of directional detection technology and the progress of several directional experiments. We the summarise previous approaches to mitigating the uncertainties associated with the velocity distribution. Finally, we consider a new method for parametrising $f(\textbf{v})$, which allows it to be written in terms of a finite number of one-dimensional functions, and how to calculate the Radon transform of this new, discretised distribution function.
+
+\todo{I should probably say something about why it would be nice to measure $f(\textbf{v})$ itself.}
+
+\todo{Some of the plots have $\hat{f}(v)$ on the axes, which should be $\hat{f}(\vmin)$.}
 
 \section{Directional event rate}
 
@@ -78,7 +81,7 @@ To obtain the differential rate per unit detector mass, we divide by the mass of
 \begin{equation}
 \frac{\rho_0}{m_\chi} v f(\textbf{v}) \, \textrm{d}^3 \textbf{v}\,,
 \end{equation}
-before integrating over all WIMP velocities, where \(\rho_0\) is the local dark matter mass density. Combining these, we obtain:
+where \(\rho_0\) is the local dark matter mass density, before integrating over all velocities. Combining these, we obtain:
 
 \begin{equation}
 \frac{\textrm{d}R}{\textrm{d}E_R \textrm{d}\Omega_q} = \frac{\rho_0 \sigma_p}{4\pi \mu_{\chi p}^2 m_\chi} \mathcal{C} F^2(E_R) \hat{f}\left(v_\textrm{min},\hat{\textbf{q}}\right)\,,
@@ -106,7 +109,7 @@ If we take this form to describe the DM velocity distribution in the Galactic fr
 \begin{equation}
 \hat{f}_\textrm{lab}(\vmin, \hat{\textbf{q}}) = \hat{f}_\textrm{gal}(\vmin - \textbf{v}_\textrm{lag}\cdot\hat{\textbf{q}} , \hat{\textbf{q}})\,,
 \end{equation}
-where $\textbf{v}_\textrm{lag}$ is the velocity of the peak of the Galactic distribution with respect to the laboratory. We therefore obtain the Radon transform of the Standard Halo Model
+where $\textbf{v}_\textrm{lag}$ is the velocity of the peak of the Galactic distribution with respect to the laboratory. We therefore obtain the Radon transform of the Standard Halo Model (SHM):
 
 \begin{equation}
 \label{eq:directional:SHM}
@@ -127,16 +130,16 @@ which has Radon transform
 This results in a highly directional signal, producing a spherical recoil spectrum centred on $\textbf{v} = \textbf{v}_s/2$.
 
 
-In Fig.~\ref{fig:directional:Radon}, we illustrate the Radon transform of the SHM (top left), the SHM with a 23\% contribution from a dark disk (top right), and a stream (bottom) with $v_\textrm{lag} = 400 \kms$. In each case, we have integrated over the $\phi$ direction and show $\hat{f}(v, \cos\theta)$. In the case of the SHM and the stream, there is a clear anisotropy and the two scenarios should be easily distinguishable. This highlights the discriminatory power of directional detection. It has previously been demonstrated that only of order 10 events would be required to distinguish a directional WIMP signal from an isotropic background. Furthermore, with of order 100 events, it should be possible to detect any deviation in peak recoil direction due to a stream \cite{Morgan:2005}. In the case of the SHM with a dark disk contribution, the spectrum is more isotropic. This is because the Radon transform is dominated by the dark disk contribution, which has a lower value of $v_\textrm{lag} = 50 \kms$ and therefore appears more isotropic in the Earth frame. 
+In Fig.~\ref{fig:directional:Radon}, we illustrate the Radon transform of the SHM (top), the SHM with a 23\% contribution from a dark disk (middle), and a stream (bottom) with $v_\textrm{lag} = 400 \kms$. In each case, we have integrated over the $\phi$ direction and show $\hat{f}(v, \cos\theta)$. In the case of the SHM and the stream, there is a clear anisotropy and the two scenarios should be easily distinguishable. This highlights the discriminatory power of directional detection. It has previously been demonstrated that only of order 10 events would be required to distinguish a directional WIMP signal from an isotropic background. Furthermore, with of order 100 events, it should be possible to detect any deviation in peak recoil direction due to a stream \cite{Morgan:2005}. In the case of the SHM with a dark disk contribution, the spectrum is more isotropic. This is because the Radon transform is dominated by the dark disk contribution, which has a lower value of $v_\textrm{lag} = 50 \kms$ and therefore appears more isotropic in the Earth frame. 
 
-\begin{figure}[ht!]
+\begin{figure}[pht!]
   \centering
-  \includegraphics[width=0.49\textwidth]{Directional/SHMRadonpolar.pdf}
-  \includegraphics[width=0.49\textwidth]{Directional/SHMDDRadonpolar.pdf}
+  \includegraphics[width=0.75\textwidth]{Directional/SHMRadonpolar.pdf}
+  \includegraphics[width=0.75\textwidth]{Directional/SHMDDRadonpolar.pdf}
 
-  \includegraphics[width=0.49\textwidth]{Directional/STREAMRadonpolar.pdf}
+  \includegraphics[width=0.75\textwidth]{Directional/STREAMRadonpolar.pdf}
 
-\caption[Radon transform examples]{Radon transform $\hat{f}(v, \cos\theta)$ of the SHM (top left), SHM with a dark disk contribution (top right) and stream (bottom) distribution functions. We have integrated over the $\phi$ angle. In each case $\mathbf{v}_\textrm{lag}$ is aligned along $\theta = 0$. Note the different scale in each plot.}
+\caption[Radon transform examples]{Radon transform $\hat{f}(v, \cos\theta)$ of the SHM (top), SHM with a dark disk contribution (middle) and stream (bottom) distribution functions. We have integrated over the $\phi$ angle. In each case $\mathbf{v}_\textrm{lag}$ is aligned along $\theta = 0$. Note the different scale in each plot.}
   \label{fig:directional:Radon}
 \end{figure}
 
@@ -219,9 +222,8 @@ f^N(v) & \textrm{ for } \theta' \in \left[ (N-1)\pi/N, \pi\right]\,. \\
 \end{equation}
 Over each bin in $\theta'$, $f(\textbf{v})$ has no angular dependence and depends only on a single function of the WIMP speed. We consider for simplicity only a discretisation in $\cos\theta'$, though this can be extended to an additional discretisation in $\phi'$ if required. 
 
-\note{Am I integrating - or averaging - I think I should be averaging - so there's an extra factor of 2 somewhere in the N=3 case...}
 
-We show in Fig.~\ref{fig:directional:Discrete} an example of this discretised velocity distribution. We show the full SHM velocity distribution (top), as well as the $N=2$ (middle) and $N=3$ (bottom) discretised approximations. These approximations are obtained by integrating the full velocity distribution over each bin in $\theta'$.
+We show in Fig.~\ref{fig:directional:Discrete} an example of this discretised velocity distribution. We show the full SHM velocity distribution (top), as well as the $N=2$ (middle) and $N=3$ (bottom) discretised approximations. These approximations are obtained by averaging the full velocity distribution over each bin in $\theta'$.
 
 \begin{figure}[pht!]
   \centering
@@ -243,7 +245,7 @@ Because angular information is being lost from the velocity distribution, the fu
 \end{equation}
  where $\hat{\textbf{q}} = (\cos\theta, \phi)$. Thus, we will be using a discretised version of the Radon transform (or equivalently, the event rate and, ultimately, data) in order to constrain the functional form of the discretised velocity distribution. While binning the data in this way results in a loss of angular information, it should reduce the error which is introduced by using a binned approximation to the velocity distribution. This in turn allows us to parametrise the $v$-dependence of each angular bin and mitigate uncertainties in the velocity distribution.
 
-What form should be used for the free functions $f^k(v)$? This discretisation scheme does not depend on choosing a particular form for the $v$ dependence of the velocity distribution. We can therefore choose any parametrisation for $f_k(v)$ - such as the polynomial parametrisation described in Chapter~\ref{ch:Poly} - having convinced ourselves that it introduces no bias into the fitting procedure. The question we will now address is what errors are introduced by this angular discretisation. We will now demonstrate for the cases of $N=1, 2, 3$ how the corresponding Radon transform is calculated and how it compares to the true Radon transform for some benchmark cases.
+What form should be used for the free functions $f^k(v)$? This discretisation scheme does not depend on choosing a particular form for the $v$-dependence of the velocity distribution. We can therefore choose any parametrisation for $f^k(v)$ - such as the polynomial parametrisation described in Chapter~\ref{ch:Poly} - as long as it is everywhere positive and we are convinced that it introduces no bias into the fitting procedure. The question we will now address is what errors are introduced by this angular discretisation. We will now demonstrate for the cases of $N=1, 2, 3$ how the corresponding Radon transform is calculated and how it compares to the true Radon transform for some benchmark cases.
 
 
 %\todo{Talk somewhere about tomography...}
@@ -272,7 +274,7 @@ which means that Eq.~\ref{eq:directional:radonN1} becomes
 \begin{equation}
 \hat{f}\left(v_\textrm{min},\hat{\textbf{q}}\right) = \int_{v=0}^\infty \frac{v^2\bar{f}(v)}{v} \oint \delta\left(v_\textrm{min}/v - \hat{\textbf{v}}\cdot\hat{\textbf{q}}\right)  \, \mathrm{d}\Omega_v\mathrm{d}v\,.
 \end{equation}
-The angular integral evaluates to unity as long as $v_\textrm{min}/v = \hat{\textbf{v}}\cdot\hat{\textbf{q}}$ for some value of $\hat{\textbf{v}}$ in the domain of integration. Because we integrate over all directions $\hat{\textbf{v}}$, this is guaranteed to be satisfied for some value, as long as $v > v_\textrm{min}$ (because $\hat{\textbf{v}}\cdot\hat{\textbf{q}}$ cannot exceed unity). Thus,
+The angular integral evaluates to unity as long as $v_\textrm{min}/v = \hat{\textbf{v}}\cdot\hat{\textbf{q}}$ for some value of $\hat{\textbf{v}}$ in the domain of integration. Because we integrate over all directions $\hat{\textbf{v}}$, this is guaranteed to be satisfied for some value, as long as $v > v_\textrm{min}$ (because $\hat{\textbf{v}}\cdot\hat{\textbf{q}}$ cannot exceed 1). Thus,
 
 \begin{equation}
 \oint \delta\left(v_\textrm{min}/v - \hat{\textbf{v}}\cdot\hat{\textbf{q}}\right)  \, \mathrm{d}\Omega_v = \Theta(v - v_\textrm{min})\,,
@@ -293,7 +295,6 @@ This matches the expression for the total non-directional scattering rate. We th
 
 \subsection{$N=2$ discretisation}
 
-\note{I'm up to here ------------------decide what to put in the appendix...}
 
 For the $N=2$ case, we are considering a forward-backward asymmetry in the velocity distribution:
 
@@ -309,101 +310,55 @@ f^2(v) & \textrm{for } \theta' \in [\pi/2, \pi]\,.
 From these, we wish to obtain the integrated Radon transforms for the forward and backward directions. Specifically:
 
 \begin{align}
-\hat{f}_1 &= \int_{0}^1 \hat{f}(v_q,\cos\theta) \, \mathrm{d}\cos\theta \\
-\hat{f}_2 &= \int_{-1}^0 \hat{f}(v_q, \cos\theta) \, \mathrm{d}\cos\theta \,.
+\hat{f}^1(\vmin) &= \int_{0}^1 \hat{f}(\vmin,\cos\theta) \, \mathrm{d}\cos\theta \\
+\hat{f}^2(\vmin) &= \int_{-1}^0 \hat{f}(\vmin, \cos\theta) \, \mathrm{d}\cos\theta \,.
 \end{align}
-We will focus on the first of these, $\hat{f}_1$, as the other can be obtained simply by exchanging which directions are forward and backward (that is, by interchanging $f_1$ and $f_2$). From now on, we will therefore be working under the assumption that $\cos\theta \in [0,1]$.
-
-We first consider calculating the azimuthally averaged Radon transform:
-
-\begin{align}
-\hat{f}(v_q, \cos\theta) &= \int_0^{2\pi} \hat{f}(v_q, \cos\theta, \phi) \, \mathrm{d}\phi \\
-&= \int_0^{2\pi}\left( \int_{\mathbb{R}^3} f(\mathbf{v}) \delta\left(\mathbf{v}\cdot\hat{\mathbf{q}} - v_q \right)\, \mathrm{d}^3\mathbf{v} \right) \mathrm{d}\phi \\
-&= \int_{\phi = 0}^{2\pi} \int_{v = 0}^{\infty} \oint v f(\textbf{v}) \delta\left(v_\textrm{min}/v - \hat{\textbf{v}}\cdot\hat{\textbf{q}}\right) \, \mathrm{d}\Omega_v \mathrm{d}v \mathrm{d}\phi\,.
-\end{align}
-We focus on performing the $\phi$ integral, which we define as:
-
-\begin{align}
-I(v_q, \cos\theta, \mathbf{v}) &= \int_{0}^{2\pi} \delta\left(\sin\theta\sin\theta' \cos(\phi-\phi') + \cos\theta\cos\theta' - v_q/v\right) \label{eq:defI} \, \mathrm{d}\phi \\
-&\equiv \int_{0}^{2\pi} \delta\left(g(\phi)\right) \, \mathrm{d}\phi\,.
-\end{align}
-We then rewrite the delta function as a function of $\phi$:
-\begin{equation}
-\label{eq:deltadecomp}
-\delta\left(g(\phi)\right) = \sum_{i} \frac{\delta(\phi - \phi_i)}{|g'(\phi_i)|}\,.
-\end{equation}
-Here, we sum over those values of $\phi_i$ satisfying $g(\phi_i) = 0$. We leave the details of the full calculation to Appendix~\ref{sec:appendix}. However, we obtain,
-
-\begin{equation}
-I(v_q, \cos\theta, \mathbf{v}) = \frac{2 C(\alpha)}{\sqrt{\left(\sin\theta\sin\theta'\right)^2 - \left(\beta - \cos\theta\cos\theta'\right)^2}}\Theta(v - v_q)\,,
-\end{equation}
-where
-\begin{equation}
-\beta = v_q/v\,; \qquad \alpha = \frac{\beta - \cos\theta\cos\theta'}{\sin\theta \sin\theta'}\,,
-\end{equation}
-and $C(\alpha) = 1$ for $\alpha \in [-1,1]$ and vanishing otherwise.
-
-We therefore obtain
-
-\begin{equation}
-\hat{f}(v_q, \cos\theta) = \int_{v=v_q}^{\infty} \int_{\cos\theta=-1}^{1} \int_{\cos\theta'=-1}^{1} f(v, \cos\theta') I(v_q, \cos\theta, v, \cos\theta')\, v \mathrm{d}v \mathrm{d}\cos\theta \mathrm{d}\cos\theta'\,,
-\end{equation}
-with
-\begin{equation}
-f(v, \cos\theta') = \int_{0}^{2\pi} f(v, \cos\theta', \phi') \, \mathrm{d}\phi'\,.
-\end{equation}
-
-\note{Leave a load of the details for the appendix}
-
-In the $N=2$ case, we obtain
+Full details of the calculation are given in Appendix~\ref{ch:RadonCalc}. However, the result takes the relatively straightforward form:
 
 \begin{align}
 \label{eq:directional:N2result}
-\hat{f}_1 &= 4\pi\int_{v_q}^{\infty} v \left( \pi f_1(v) + \atan\left\{\frac{\sqrt{1-\beta^2}}{\beta}\right\}\left(f_2(v) - f_1(v)\right) \right) \, \mathrm{d}v \\
-\hat{f}_2 &= 4\pi\int_{v_q}^{\infty} v \left( \pi f_2(v) + \atan\left\{\frac{\sqrt{1-\beta^2}}{\beta}\right\}\left(f_1(v) - f_2(v)\right) \right) \, \mathrm{d}v\,.
+\hat{f}^1 &= 4\pi\int_{\vmin}^{\infty} v \left\{ \pi f^1(v) + \atan\left(\frac{\sqrt{1-\beta^2}}{\beta}\right)\left(f^2(v) - f^1(v)\right) \right\} \, \mathrm{d}v \\
+\hat{f}^2 &= 4\pi\int_{\vmin}^{\infty} v \left\{ \pi f^2(v) + \atan\left(\frac{\sqrt{1-\beta^2}}{\beta}\right)\left(f^1(v) - f^2(v)\right) \right\} \, \mathrm{d}v\,,
 \end{align}
-We have also checked using Monte Carlo calculations that these are the correct forms of the forward and backward averaged Radon transforms in the case of a discretised velocity distribution.
+where $\beta = \vmin/v$. We have also checked using Monte Carlo calculations that these are the correct forms of the forward and backward integrated Radon transforms in the case of a discretised velocity distribution.
 
-We now wish to compare these approximate Radon transforms with the Radon transforms obtained from the full (non-discretised) velocity distribution. To do this, we select a benchmark velocity distribution (such as the SHM) and calculate $f_{1,2}$ according to Eq.~\ref{eq:directional:N2} by averaging over the $\cos\theta'$ in the forward and backward directions. This discretised velocity distribution is shown in Fig.~\ref{fig:directional:fN2}. We then insert these into Eq.~\ref{eq:directional:N2result} to obtain the forward and backward Radon transform. For comparison, we use the full velocity distribution of Eq.~\ref{eq:directional:SHM} to obtain the \textit{true} forward and backward Radon transforms by integrating over $\cos\theta$. 
 
-\note{Fix the notation - $f_1(v)$ doesn't mean what I think it means!!!}
+We now wish to compare these approximate Radon transforms with the Radon transforms obtained from the full (non-discretised) velocity distribution. To do this, we select a benchmark velocity distribution (such as the SHM) and calculate the $f^{1,2}$ of Eq.~\ref{eq:directional:N2} by averaging over $\cos\theta'$ in the forward and backward directions as in Fig.~\ref{fig:directional:Discrete}. We then insert these into Eq.~\ref{eq:directional:N2result} to obtain the forward and backward Radon transform. We refer to these as the \textit{approximate} forward and backward Radon transforms. For comparison, we use the full Radon transform of Eq.~\ref{eq:directional:SHM} to obtain the \textit{exact} forward and backward Radon transforms by integrating over $\cos\theta$. 
 
-\note{Check the normalisation of the plots - I think I need a factor of $pi$ for integration round half of $\phi$...}
 
-\note{Relabel the angular plots as $f(v,\theta)$...}
+The results of this comparison for an SHM model with $v_\textrm{lag} = 220 \kms$ and $\sigma_v = 156 \kms$ are shown in Fig.~\ref{fig:directional:radonN2_SHM}. While the general features are reproduced, there are some discrepancies. In particular, the forward Radon transform obtained using the approximate method is roughly 80\% of the correct result, while the backward Radon transform is up to 100\% larger using the approximate method. The reason for this is clear from Fig.~\ref{fig:directional:Discrete}, which shows that the discretised velocity distribution has a greater fraction of WIMPs with velocities at right angles to the forward direction ($\theta' = 0$). Thus, the discretised velocity distribution has a greater chance of producing scatters in the backward direction. Overall, the discretised distribution is less focused in the forward direction, resulting in a reduced asymmetry between the forward and backward scattering rates. 
 
-\begin{figure}[t]
-\label{fig:directional:fN2}
+\begin{figure}[ht!]
+
   \centering
-  \includegraphics[width=1\textwidth]{Directional/SHMpolar.pdf}
+  \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/SHM_N2_1.pdf}
+  \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/SHM_N2_2.pdf}
 
-  \includegraphics[width=1\textwidth]{Directional/SHMpolarN2.pdf}
+\caption[Exact and approximate integrated Radon transforms for $N=2$ components in the SHM]{Exact and approximate forward and backward Radon transforms, $\hat{f}^1$ and $\hat{f}^2$, for the SHM. The approximate Radon transforms are obtained by discretising the full velocity distribution into N = 2 angular bins. The vector $\textbf{v}_\textrm{lag}$ is aligned along $\theta' = 0$.}
+\label{fig:directional:radonN2_SHM}
+\end{figure}
 
-\caption[Discretised velocity distribution for $N=2$ components]{Polar plots in $(v,\theta')$ for two velocity distributions. Shown are the SHM velocity distribution for $v_\textrm{lag} = 220 \kms$ and $\sigma_v = 156 \kms$ (top) and the discretised SHM distribution obtained by averaging in the forward and backward directions (bottom). The vector $\textbf{v}_\textrm{lag}$ is aligned along $\theta' = 0$. Note the different color scales in the two plots. \note{Put in units!!!}}
+We show in Fig.~\ref{fig:directional:radonN2_STREAM} the forward and backward Radon transforms for a stream distribution function, with $v_\textrm{lag} = 400 \kms$ and $\sigma_v = 20 \kms$. The discrepancy between the approximate and exact results is significantly worse in this case. This is because the stream is highly directional and a simple $N=2$ discretisation of the velocity distribution is not sufficient to capture the angular features of the stream
+
+\begin{figure}[ht!]
+
+  \centering
+  \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/STREAM_N2_1.pdf}
+  \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/STREAM_N2_2.pdf}
+
+\caption[Exact and approximate integrated Radon transforms for $N=2$ components for a stream distribution function]{As Fig.~\ref{fig:directional:radonN2_SHM}, but for a stream distribution with $v_\textrm{lag} = 400 \kms$ and $\sigma_v = 20 \kms$.}
+\label{fig:directional:radonN2_STREAM}
 \end{figure}
 
 
-The results of this comparison for a SHM model with $v_\textrm{lag} = 220 \kms$ and $\sigma_v = 156 \kms$ are shown in Fig.~\ref{fig:directional:radonN2}. While the general features are reproduced, there are some discrepancies. In particular, the forward Radon transform obtained using the approximate method is roughly 80\% of the correct result, while the backward Radon transform is up to 100\% larger using the approximate method. The reason for this is clear from Fig.~\ref{fig:directional:fN2}, which shows that the discretised velocity distribution has a greater fraction of WIMPs with velocities at right angles to the forward direction ($\theta' = 0$). Thus, the discretised velocity distribution has a greater chance of producing scatters in the backward direction. Overall, the discretised distribution is less focused in the forward direction, resulting in a reduced asymmetry between the forward and backward scattering rates. 
 
-\begin{figure}[t]
-\label{fig:directional:radonN2}
-  \centering
-  \includegraphics[trim={2cm 8cm 2cm 8cm},clip,width=0.80\textwidth]{Directional/N2-forward.pdf}
+%These discrepancies between the true and approximate recoil spectra may prove problematic when this method is employed in parameter estimation and the reconstruction of $f(\textbf{v})$. However, these discrepancies should be redued when the finite angular resolution of detectors is taken into account. \todo{Mention finite angular resolution...Do some plots...}
 
-  \includegraphics[trim={2cm 8cm 2cm 8cm},clip,width=0.80\textwidth]{Directional/N2-backward.pdf}
-
-\caption[True and approximate Radon transforms for $N=2$ components]{True and approximate forward and backward radon transforms when the full velocity distribution is discretised into N = 2 directional pieces. \note{Finish}}
-\end{figure}
-
-
-
-These discrepancies between the true and approximate recoil spectra may prove problematic when this method is employed in parameter estimation and the reconstruction of $f(\textbf{v})$. However, these discrepancies should be redued when the finite angular resolution of detectors is taken into account. \todo{Mention finite angular resolution...Do some plots...}
-
-\todo{Consider a more radical distribution - such as a stream and show that it doesn't work so well...}
+%\todo{Consider a more radical distribution - such as a stream and show that it doesn't work so well...}
 
 \subsection{$N=3$ discretisation}
 
-Given the discrepancies in the $N=2$ case, we will now consider the $N=3$ discretisation, which should improve the fit between the true and approximate distribution. In addition, the $N=3$ will allow us to employ this methodology to the case where sense discrimination of recoils is not possible. Without sense discrimination, the forward and backward directions cannot be distinguished and the $N=2$ discretisation provides no directional sensitivity. As we shall see shortly, directional sensitivity is possible in the $N=3$ case.
+Given the discrepancies in the $N=2$ case, we will now consider the $N=3$ discretisation, which should improve the fit between the true and approximate transforms. In addition, $N=3$ will allow us to employ this methodology to the case where sense discrimination of recoils is not possible. Without sense discrimination, the forward and backward directions cannot be distinguished and the $N=2$ discretisation provides no directional sensitivity. As we shall see shortly, directional sensitivity is possible in the $N=3$ case.
 
 We write the velocity distribution in discretised form as
 
@@ -411,38 +366,38 @@ We write the velocity distribution in discretised form as
 \label{eq:directional:N3}
 f(\mathbf{v}) =
 \begin{cases}
-f_1(v) & \textrm{if } \theta' \in [0, \pi/3] \\
-f_2(v) & \textrm{if } \theta' \in [\pi/3, 2\pi/3] \\
-f_3(v) & \textrm{if } \theta' \in [2\pi/3, \pi]\,.
+f^1(v) & \textrm{for } \theta' \in [0, \pi/3] \\
+f^2(v) & \textrm{for } \theta' \in [\pi/3, 2\pi/3] \\
+f^3(v) & \textrm{for } \theta' \in [2\pi/3, \pi]\,.
 \end{cases}
 \end{equation}
 
-If we interpret this discretisation as an averaging of the underlying velocity distribution, as before, we obtain the distribution in the bottom panel of Fig.~\ref{fig:directional:fN3} (the full SHM distribution is shown in the top panel for reference). Following the same procedure as for the $N=2$ case, we can obtain the corresponding forward, backward and transverse Radon transforms. The exact form of these is complicated (and not particularly instructive). However, this form can be generated using the algorithm described in Sec.~\ref{}, in which we treat the case of general $N$. 
+If we interpret this discretisation as an averaging of the underlying velocity distribution, as before, we obtain the distribution in the bottom panel of Fig.~\ref{fig:directional:Discrete} for the SHM. Following the same procedure as for the $N=2$ case, we can obtain the corresponding forward, backward and transverse integrated Radon transforms. The exact form of these is complicated (and not particularly instructive), so we do not include it in full here. However, as in the $N=2$ case, we can test these approximate transforms against the exact forms. 
 
-\begin{figure}[t]
-\label{fig:directional:fN3}
+The results for the SHM are shown in Fig.~\ref{fig:directional:radonN3_SHM}. Compared to the $N=2$ case, the Radon transforms are reproduced much more closely, with a discrepancy of at most 15\% between the true and approximate distributions. As can be seen in the bottom panel of Fig.~\ref{fig:directional:Discrete}, the $N=3$ discretised velocity distribution is more focused in the forward direction and fewer particles have velocities perpendicular $\textbf{v}_\textrm{lag}$. In Fig.~\ref{fig:directional:radonN3_STREAM}, we show the corresponding results for the stream distribution. These show a slight improvement over the $N=2$ case (particularly in the backward rate). However, there are still significant differences between the exact and approximate Radon transforms.
+
+\begin{figure}[ht!]
+
   \centering
-  \includegraphics[width=1\textwidth]{Directional/SHMpolar.pdf}
+  \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/SHM_N3_1.pdf}
+  \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/SHM_N3_2.pdf}
 
-  \includegraphics[width=1\textwidth]{Directional/SHMpolarN3.pdf}
+  \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/SHM_N3_3.pdf}
 
-\caption[Discretised velocity distribution for $N=3$ components]{Polar plots in $(v,\theta')$ for two velocity distributions. Shown are the SHM velocity distribution for $v_\textrm{lag} = 220 \kms$ and $\sigma_v = 156 \kms$ (top) and the discretised SHM distribution obtained by averaging in the forward, backward and transverse directions (bottom). The vector $\textbf{v}_\textrm{lag}$ is aligned along $\theta' = 0$. Note the different color scales in the two plots.}
+\caption[Exact and approximate integrated Radon transforms for $N=3$ components in the SHM]{Exact and approximate forward, transverse and backward Radon transforms, $\hat{f}^1$, $\hat{f}^2$ and $\hat{f}^3$, for the SHM. The approximate Radon transforms are obtained by discretising the full velocity distribution into $N=3$ angular bins. The vector $\textbf{v}_\textrm{lag}$ is aligned along $\theta' = 0$.}
+\label{fig:directional:radonN3_SHM}
 \end{figure}
 
-Again, we wish to test how closely the $N=3$ discretised distribution can reproduce the true forward-, backward- and transverse-averaged Radon transforms. The results are shown in Fig.~\ref{fig:directional:radonN2}. Compared to the $N=2$ case, the recoil spectra are reproduced much more closely, with a discrepancy of at most 15\% \note{check} between the true and approximate distributions.
+\begin{figure}[ht!]
 
-\note{Emphasise that we haven't included the form factors...}
-
-\begin{figure}[t]
-\label{fig:directional:radonN3}
   \centering
-  \includegraphics[trim={2cm 8cm 2cm 8cm},clip,width=0.80\textwidth]{Directional/N3-forward.pdf}
+  \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/STREAM_N3_1.pdf}
+  \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/STREAM_N3_2.pdf}
 
-  \includegraphics[trim={2cm 8cm 2cm 8cm},clip,width=0.80\textwidth]{Directional/N3-backward.pdf}
+  \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/STREAM_N3_3.pdf}
 
-  \includegraphics[trim={2cm 8cm 2cm 8cm},clip,width=0.80\textwidth]{Directional/N3-transverse.pdf}
-
-\caption[True and approximate Radon transforms $N=3$ components]{True and approximate transforms when the full velocity distribution is discretised into N = 3 directional pieces. In the `forward' case $\cos\theta \in [1/2,1]$, in the `backward' case $\cos\theta \in [-1, -1/2]$, and in the `transverse case' $\cos\theta \in [-1/2, 1/2]$.}
+\caption[Exact and approximate integrated Radon transforms for $N=3$ components for a stream distribution function]{As Fig.~\ref{fig:directional:radonN3_SHM}, but for a stream distribution with $v_\textrm{lag} = 400 \kms$ and $\sigma_v = 20 \kms$.}
+\label{fig:directional:radonN3_STREAM}
 \end{figure}
 
 \subsubsection{The folded distribution}
@@ -452,51 +407,51 @@ As discussed in Sec.~\ref{sec:directional:experiments}, sense discrimination bet
 \begin{equation}
 \frac{\mathrm{d}R}{\mathrm{d}E_R\mathrm{d}|\cos\theta|} = \frac{\mathrm{d}R}{\mathrm{d}E_R\mathrm{d}\cos\theta} + \frac{\mathrm{d}R}{\mathrm{d}E_R\mathrm{d}(-\cos\theta)}\,.
 \end{equation}
-As a result, we are concerned not will the full Radon transform of $f(\textbf{v})$, but the folded Radon transform $\hat{f}(v_q, |\cos\theta|)$. In the case of $N=2$ discretisation, this folded Radon transform would have no directional information (because the forward and backward scattering rates differ only in the sign of $\cos\theta$). However, in the $N=3$ case, the transverse Radon transform, given by \note{define this earlier in the text...}
+As a result, we are concerned not with the full Radon transform of $f(\textbf{v})$, but the folded Radon transform $\hat{f}(\vmin, |\cos\theta|)$. In the case of $N=2$ discretisation, this folded Radon transform would have no directional information (because the forward and backward scattering rates differ only in the sign of $\cos\theta$). However, in the $N=3$ case, the transverse Radon transform, given by
 
 \begin{equation}
-\hat{f}_T(v_q) = \hat{f}_2(v_q) = \int_{-1/2}^{1/2} \hat{f}(v_q, \cos\theta) \,\mathrm{d}\cos\theta\,,
+\hat{f}^T(\vmin) = \hat{f}^2(\vmin) = \int_{-1/2}^{1/2} \hat{f}(\vmin, \cos\theta) \,\mathrm{d}\cos\theta\,,
 \end{equation}
-is invariant under $\hat{f}(v_q, \cos\theta) \rightarrow \hat{f}(v_q, |\cos\theta|)$ (apart from an overall factor of 2). That is, the transverse event rate `folds' back onto itself. Thus, even without sense discrimination, directional experiments will still be sensitive to this transverse scattering rate. By comparison, if the forward and backward directions cannot be distinguished, the remaining two averaged Radon transforms (the top two panels in Fig.~\ref{fig:directional:radonN3}) are folded together, to obtain the longitudinal rate
+is invariant under $\hat{f}(\vmin, \cos\theta) \rightarrow \hat{f}(\vmin, -\cos\theta)$. That is, the transverse event rate `folds' back onto itself. Thus, even without sense discrimination, directional experiments will still be sensitive to this transverse scattering rate. By comparison, if the forward and backward directions cannot be distinguished, the remaining two integrated Radon transforms (the top left and bottom panels in Fig.~\ref{fig:directional:radonN3_SHM}) are folded together, to obtain the longitudinal rate
 \begin{equation}
-\hat{f}_L(v_q) = \int_{-1}^{-1/2} \hat{f}(v_q, \cos\theta) \,\mathrm{d}\cos\theta + \int_{1/2}^{1} \hat{f}(v_q, \cos\theta) \,\mathrm{d}\cos\theta\,.
+\hat{f}^L(\vmin) = \int_{-1}^{-1/2} \hat{f}(\vmin, \cos\theta) \,\mathrm{d}\cos\theta + \int_{1/2}^{1} \hat{f}(\vmin, \cos\theta) \,\mathrm{d}\cos\theta\,.
 \end{equation}
 
-We plot the transverse and longitudinal averaged in Fig.~\ref{fig:directional:radonN3folded}. \note{Need a factor of 2 in the transverse bit...?} As expected, the two rates are now more similar in shape as we have lost some directional information. The approximate Radon transforms, obtained from the discretisation, match the true transforms closely for speeds above $v_q\approx 200 \kms$. \note{Why the discrepancy at low $v$?} For realistic experiments, these low speeds will be below the threshold energy of the experiment and the bias introduced by this discrepancy should be minimal \note{find some numbers for this...}. 
+We plot the transverse and longitudinal integrated Radon transforms in Fig.~\ref{fig:directional:radonN3folded} for the SHM. As expected, the two rates are now more similar in shape as we have lost some directional information. The approximate Radon transforms, obtained from the discretisation, match the true transforms closely for speeds above $\vmin\approx 200 \kms$. For a Fluorine target with a 20 keV energy threshold \cite{Daw:2011}, these low speeds will be below the threshold energy for all WIMP masses and the bias introduced by this discrepancy should be minimal. 
 
 \begin{figure}[t]
-\label{fig:directional:radonN3folded}
+
   \centering
-  \includegraphics[trim={2cm 8cm 2cm 8cm},clip,width=0.80\textwidth]{Directional/N3-longitudinal.pdf}
 
-  \includegraphics[trim={2cm 8cm 2cm 8cm},clip,width=0.80\textwidth]{Directional/N3-transverse.pdf}
+  \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/SHMfolded_N3_L.pdf}
+  \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/SHMfolded_N3_T.pdf}
 
-\caption[True and approximate folded Radon transforms for $N=3$ components]{True and approximate folded transforms when the full velocity distribution is discretised into N = 3 directional pieces. In the `longitudinal' case $|\cos\theta| \in [1/2,1]$ while in the `transverse case' $|\cos\theta| \in [0, 1/2]$.}
+\caption[True and approximate folded Radon transforms for $N=3$ components in the SHM]{Exact and approximate folded transforms when the full SHM velocity distribution is discretised into $N = 3$ directional pieces. In the `longitudinal' case ($\hat{f}^L$) $|\cos\theta| \in [1/2,1]$ while in the `transverse case' ($\hat{f}^T$) $|\cos\theta| \in [0, 1/2]$. The vector $\textbf{v}_\textrm{lag}$ is aligned along $\theta' = 0$.}
+\label{fig:directional:radonN3folded}
 \end{figure}
 
-We note that in this folded case, we would fit to two functions, corresponding to the longitudinal and transverse event rates. However, our original discretisation required 3 free functions of $v$: $f_{1,2,3}(v)$. However, due to the properties of the Radon transform \note{(which are...?)}, the longitudinal rate is not a function of $f_1(v)$ and $f_3(v)$ but of the sum $f_1(v) + f_3(v) \equiv f_L(v)$. Thus, we have only two free functions to fit $f_{L,T}(v)$. 
+We note that in this folded case, we would fit to two data sets, corresponding to the longitudinal and transverse event rates. However, our original discretisation required 3 free functions of $v$: $f^{1,2,3}(v)$. However, due to the properties of the Radon transform, the longitudinal rate is not a function of $f^1(v)$ and $f^3(v)$ but of the sum $f^1(v) + f^3(v) \equiv f_L(v)$. Thus, we have only two free functions $f^{L,T}(v)$ to fit. 
 
-\todo{-Fix captions on figures...}
 
-\todo{-Discuss a dark disk case...}
+\section{Discussion}
 
-\todo{-Discuss the poorly aligned - off axis case...}
+We have demonstrated that for smooth SHM-like distributions, the discretised velocity distribution allows us to obtain a good approximation to the discretised Radon transform. This means that we should be able to parametrise the speed distributions in each angular bin $f^k(v)$ and account for astrophysical uncertainties without introducing a large error in the recoil spectrum. 
+An additional dark disk contribution would further reduce the error between the exact and approximate Radon transforms, as the dark disk is expected to approximately corotate with the Earth and would thus appear more isotropic than the SHM. However, strongly peaked velocity distributions, such as the stream studied in the previous sections, would introduce a much larger error in the Radon transform. While such distributions are not considered likely (see Sec.~\ref{sec:DD:astrounc}), we should bear in mind that a larger value of $N$ may be required for these more extreme distributions.
 
-\note{Definitely need to discuss the off axis case...}
+The decomposition we have presented in this chapter is coordinate dependent (as is a spherical harmonic decomposition). That is, we must specify which direction corresponds to $\theta' = 0$. In a real experiment, we would want to choose this direction to maximise the directional signal, in order to obtain the most information from the data. Therefore, we would ideally like to choose $\theta' = 0$ along the direction of the mean WIMP velocity. In the SHM, this is parallel to $\mathbf{v}_\textrm{lag}$, which corresponds to the direction of the Earth's motion in the Galactic frame, which has been calculated \cite{McCabe:2014}. It might also be possible to use the median recoil direction to determine the mean WIMP velocity and thereby fix $\theta'$. We note that for the results presented in this chapter we have fixed $\theta' = 0$ parallel to $\mathbf{v}_\textrm{lag}$. If we instead choose a different direction for $\theta'= 0$, this would decrease the forward-backward asymmetry of the discretised velocity distribution, reducing the error between the exact and approximate Radon transforms. Thus, the results presented would not be spoiled by a different choice of $\theta'$.
 
-\section{Discretisation for general $N$}
+Another consideration we have not yet address is the fact that in an experiment, we measure the directional recoil spectrum, not the Radon transform. Thus, we must multiply by the appropriate form factor and apply realistic thresholds in order to apply the methods presented here to directional data. Perhaps more important, however, is finite angular resolution. As discussed in Sec.~\ref{sec:directional:experiments}, directional detectors have angular resolutions of 20$\,^{\circ}$-80$\,^{\circ}$. In future work, this should be taken into account to determine the true directional recoil spectrum measured in an experiment. This angular smoothing will make the measured spectrum less anisotropic which again should reduce the error induced by considering a discretised velocity distribution.
 
-The procedure which has been described above can be extended to any number $N$ of angular bins. Significantly, for any value of $N$, the resulting Radon transform remains a sum of elementary, analytic functions multiplied by one dimensional functions $f_k(v)$. This means that no angular integration must be performed in order to obtain the Radon transform and at most $N$ one-dimensional integrals over the velocity $v$ must be performed, one for each of the $\hat{f}_k(v_q)$. 
+Finally, in order to accommodate more strongly peaked distribution functions (or to obtain more directional information as the amount of data increases), it will be necessary to considered discretised distributions with $N > 3$. In future, we must develop an algorithm for generating the discrete Radon transforms from discrete velocity distributions of arbitrary $N$. As outlined in Appendix~\ref{ch:RadonCalc}, the angular integrals can be performed explicitly for any value of $N$, leaving only a series of 1-dimensional integrals over elementary functions of the WIMP speed $v$. Thus, it should be possible to extend this framework to arbitrary $N$ without requiring any (potentially slow) numerical integration over the angular variables.
 
-While the details of the calculation can be found in Appendix~\ref{app}, we show below the full algorithm for calculating the averaged Radon transforms from a velocity distribution discretised into $N$ angular pieces...
-
-\note{FINISH}
-
-\note{`Coordinate dependent'}
-
-\note{What good is measuring the speed/velocity distribution...?}
 \section{Conclusion}
 
-\todo{Check consistency with vmin and vq..., be careful about f's with subscript 1}
-\todo{Check notation consistency with lefts( and rights)}
-\note{We can even combine this with the non-directional experiments...}
+Directional direct detection experiments should allow us to probe the full WIMP velocity distribution. However, as in the non-directional case, this introduces significant uncertainties into the analysis of data. Parametrising the velocity distribution and therefore reconstructing its structure requires a very large number of parameters, as $f(\mathbf{v})$ is a function of the 3-dimensional vector $\mathbf{v}$. It is therefore necessary to decompose $f(\mathbf{v})$ into some angular basis and parametrise the corresponding coefficients. Previous attempts in this direction have required equilibrium assumptions about the Galactic halo, or have made use of a spherical harmonic basis. An expansion in this basis does not necessarily lead to a physical distribution function, as it does not ensure that $f(\textbf{v})$ is everywhere positive.
+
+We have presented an alternative decomposition of $f(\textbf{v})$ into angular bins. Over each bin, the velocity distribution has no angular dependence. As long as the parametrisation for the radial part of $f(\mathbf{v})$ is everywhere positive, so too will be full velocity distribution. We have demonstrated how the corresponding binned Radon transforms can be calculated for the case of $N=1,2,3$ and compared these with the exact Radon transforms obtained from the full distribution.
+
+In the $N=2$ case, the discretised approximation underestimates the forward rate and overestimates the backward rate. However, this is improved in going to the $N=3$ case, for which the exact and approximate Radon transforms agree to within 10-15\%. For $N=3$, it should also be possible to extract directional information even when sense recognition is not possible. For a more sharply peaked distribution, such as a stream, the error induced by using the discretised velocity distribution is significant. It would therefore be necessary to go to higher values of $N$ in order to capture the strongly anisotropic features of such a distribution.
+
+We have presented here a framework for parametrising the directional part of the velocity distribution. In future, it will be necessary to test this method using mock data from directional detectors in order to determine how well the WIMP parameters and the distribution itself can be reconstructed. This will require us to determine the mean WIMP direction, as well as to include realistic experimental effects, such as angular resolution. However, we have argued that the good agreement between the exact and approximate rates for the case of smooth distributions should not be spoiled by these effects. Finally, it will be necessary to extend this framework to higher values of $N$ to capture more angular information if larger numbers of events are observed at directional detectors.
+
+
