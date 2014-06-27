@@ -216,8 +216,9 @@ f_S = \frac{N_\textrm{signal}}{N_\textrm{signal} + N_\textrm{background}}\,,
 \end{equation}
 and from the background with probability $f_{BG} = 1-f_S$. Thus, we obtain the full likelihood
 \begin{equation}
-\mathcal{L}(\mathcal{D}|\boldtheta) = \frac{N_e^{N_0}}{N_0!}e^{-N_e}\prod_{i = 1,N_e} \left(P_S(E_i)\right)^{f_S}  \left(P_{BG}(E_i)\right)^{f_{BG}} \,.
+\mathcal{L}(\mathcal{D}|\boldtheta) = \frac{N_e^{N_0}}{N_0!}e^{-N_e}\prod_{i = 1,N_e} (f_S P_S(E_i) + f_{BG} P_{BG}(E_i)) \,.
 \end{equation}
+\note{Check...}
 Here, $N_e$ and $N_o$ are the total number of expected events including both signal and background. We must also take into account the normalised spectra of the signal $P_S(E)$ and the background $P_{BG}(E)$ seperately, multiplying the contributions of both.
 
 For multiple experiments, the total likelihood is then the product of the individual likelihoods for each experiment. When using the binned likelihood, experiments with more bins receive a greater weight in the likelihood. Therefore, we may want to reweight the bins such that each experiment receives equal weight. We write the likelihood contribution of the $i^\textrm{th}$ bin in experiment $n$ as $(\mathcal{L}_n^i)^{w_n}$, where $w_n$ is the weight for bins in experiment $n$. This weight is calculated as
