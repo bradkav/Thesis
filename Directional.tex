@@ -426,7 +426,7 @@ We plot the transverse and longitudinal integrated Radon transforms in Fig.~\ref
   \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/SHMfolded_N3_L.pdf}
   \includegraphics[trim={3.5cm 2cm 7.5cm 17cm},clip,width=0.49\textwidth]{Directional/SHMfolded_N3_T.pdf}
 
-\caption[True and approximate folded Radon transforms for $N=3$ components in the SHM]{Exact and approximate folded transforms when the full SHM velocity distribution is discretised into $N = 3$ directional pieces. In the `longitudinal' case ($\hat{f}^L$) $|\cos\theta| \in [1/2,1]$ while in the `transverse case' ($\hat{f}^T$) $|\cos\theta| \in [0, 1/2]$. The vector $\textbf{v}_\textrm{lag}$ is aligned along $\theta' = 0$.}
+\caption[Exact and approximate folded Radon transforms for $N=3$ components in the SHM]{Exact and approximate folded transforms when the full SHM velocity distribution is discretised into $N = 3$ directional pieces. In the `longitudinal' case ($\hat{f}^L$) $|\cos\theta| \in [1/2,1]$ while in the `transverse case' ($\hat{f}^T$) $|\cos\theta| \in [0, 1/2]$. The vector $\textbf{v}_\textrm{lag}$ is aligned along $\theta' = 0$.}
 \label{fig:directional:radonN3folded}
 \end{figure}
 
@@ -444,7 +444,7 @@ Another consideration we have not yet address is the fact that in an experiment,
 
 Finally, in order to accommodate more strongly peaked distribution functions (or to obtain more directional information as the amount of data increases), it will be necessary to considered discretised distributions with $N > 3$. In future, we must develop an algorithm for generating the discrete Radon transforms from discrete velocity distributions of arbitrary $N$. As outlined in Appendix~\ref{ch:RadonCalc}, the angular integrals can be performed explicitly for any value of $N$, leaving only a series of 1-dimensional integrals over elementary functions of the WIMP speed $v$. Thus, it should be possible to extend this framework to arbitrary $N$ without requiring any (potentially slow) numerical integration over the angular variables.
 
-\section{Conclusion}
+\section{Conclusions}
 
 Directional direct detection experiments should allow us to probe the full WIMP velocity distribution. However, as in the non-directional case, this introduces significant uncertainties into the analysis of data. Parametrising the velocity distribution and therefore reconstructing its structure requires a very large number of parameters, as $f(\mathbf{v})$ is a function of the 3-dimensional vector $\mathbf{v}$. It is therefore necessary to decompose $f(\mathbf{v})$ into some angular basis and parametrise the corresponding coefficients. Previous attempts in this direction have required equilibrium assumptions about the Galactic halo, or have made use of a spherical harmonic basis. An expansion in this basis does not necessarily lead to a physical distribution function, as it does not ensure that $f(\textbf{v})$ is everywhere positive.
 

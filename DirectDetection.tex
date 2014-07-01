@@ -3,11 +3,11 @@
 
 %\chapterprecishere{We introduce the formalism for the direct detection of dark matter (DM). In particular, we describe the calculation of spin-independent and spin-dependent scattering cross sections for DM particles on nuclei. We summarise the current technology which is used to detect these scattering events, discussing the tentative hints of a signal which has been observed by several experiments as well as the prospects for future detection. There remain a number of uncertainties associated with the direct detection event rate, stemming from astrophysics, particle physics and nuclear physics considerations. We focus on astrophysical uncertainties and summarise the current understanding of the local DM density and speed distribution.}
 
-\section{Introduction}
+%\section{Introduction}
 
 The idea that particle dark matter (DM) may be observed in terrestrial detectors was first proposed by Goodman and Witten in 1985 \cite{Goodman:1985} and by Drukier, Freese and Spergel in 1986 \cite{Drukier:1986}. If DM can interact with particles of the Standard Model, the flux of DM from the halo of the Milky Way may be large enough to cause measureable scattering from nuclei. If the subsequent recoils can be detected and their energy spectrum measured, it should be possible to infer some properties of the DM particles.
 
-However, the expected event rate for keV-scale recoils at such a detector would be of the order of $10^{-5}$ events per kg of detector material per day per keV recoil energy \cite{Cerdeno:2010}. With such a low event rate, it is imperative that backgrounds can be reduced as much as possible. In addition, detectors should be as large as possible and sensitive to as wide a range of recoil energies as possible, in order to maximise the total number of events observed. Thus, specialised detectors are required to shield the active detector material from backgrounds and to discriminate between these backgrounds and signal events.
+However, the expected event rate for keV-scale recoils at such a detector would be of the order of $10^{-5}$ events per kg of detector material per day per keV recoil energy \cite{Cerdeno:2010}. With such a low event rate, it is imperative that backgrounds are reduced as much as possible. In addition, detectors should be as large as possible and sensitive to as wide a range of recoil energies as possible, in order to maximise the total number of events observed. Thus, specialised detectors are required to shield the active detector material from backgrounds and to discriminate between these backgrounds and signal events.
 
 There exist at present a wide range of detectors using a variety of different sophisticated techniques for detecting such a weak signal against ubiquitous backgrounds, each probing a slightly different range of DM parameter space. Several of these experiments - such as DAMA/LIBRA \cite{Bernabei:2010}, CoGeNT \cite{Aalseth:2011a, Aalseth:2011b} and CRESST-II \cite{Stodolsky:2012} - claim to have observed a signal indicative of a WIMP with mass $\sim 10$ GeV. However, a number of other experiments have reported null results creating tension for a dark matter interpretation of these tentative signals. It remains to be seen whether this discrepancy is an experimental effect or a hint of new physics.
 
@@ -24,7 +24,7 @@ We wish to obtain the rate of nuclear recoils per unit detector mass due to elas
 \begin{equation}
 \dbd{R}{E_R} = N_T \Phi_\chi \dbd{\sigma}{E_R}\,,
 \end{equation}
-for recoils of energy $E_R$, $N_T$ target particles, a DM flux of $\Phi_\chi$ and a differential scattering cross section of $\mathrm{d}\sigma/\mathrm{d}E_R$. Per unit detector mass, the number of target particles is simply $N_T = 1/m_N$, for nuclei of mass $m_N$. The DM flux for particles with speed in the range $v \rightarrow v + \mathrm{d}v$ in the laboratory frame is $\Phi_\chi = n_\chi v f_1(v) \,\mathrm{d}v$. Here, $n_\chi$ is the number density of dark matter particles $\chi$ and $f_1(v)$ is the speed distribution for the dark matter. The orbit of the Earth means that its velocity is time-varying, producing an annual modulation in $f_1(v)$ and therefore in the direct detection event rate \cite{Freese:1988}. However, this modulation is expected to be a percent-level effect and we consider here only the time averaged distribution.
+for recoils of energy $E_R$, $N_T$ target particles, a DM flux $\Phi_\chi$ and a differential scattering cross section $\mathrm{d}\sigma/\mathrm{d}E_R$. Per unit detector mass, the number of target particles is simply $N_T = 1/m_N$, for nuclei of mass $m_N$. The DM flux for particles with speed in the range $v \rightarrow v + \mathrm{d}v$ in the laboratory frame is $\Phi_\chi = n_\chi v f_1(v) \,\mathrm{d}v$. Here, $n_\chi$ is the number density of dark matter particles $\chi$ and $f_1(v)$ is the speed distribution for the dark matter. The orbit of the Earth means that its velocity is time-varying, producing an annual modulation in $f_1(v)$ and therefore in the direct detection event rate \cite{Freese:1988}. However, this modulation is expected to be a percent-level effect and we consider here only the time averaged distribution.
 
 We can convert from the number density to the mass density $\rho_0$ by dividing by the DM particle mass $m_\chi$: $n_\chi = \rho_0/m_\chi$. By integrating over all DM speeds, we therefore obtain
 
@@ -37,6 +37,7 @@ where $v_\textrm{min}$ is the minimum speed required to excite a nuclear recoil 
 \label{eq:DD:vmin}
 v_\textrm{min} = \sqrt{\frac{m_N E_R}{2 \mu_{\chi N}^2}}\,.
 \end{equation}
+Here, we have written the reduced mass of the WIMP-nucleus system as $\mu_{\chi N} = m_\chi m_N/(m_\chi + m_N)$.
 
 The differential scattering cross section per solid angle in the zero-momentum frame (ZMF), \(\Omega^*\), is given by:
 \begin{equation}
@@ -76,41 +77,38 @@ Spin-independent interactions are generated predominantly by scalar terms in the
 
 \begin{equation}
 \label{eq:ScalarInt}
-\mathcal{L} \supset \alpha_S^{(q)} \bar{\chi} \chi \bar{q} q \,,
+\mathcal{L} \supset \alpha_S^{q} \bar{\chi} \chi \bar{q} q \,,
 \end{equation}
-for interactions with a quark species $q$ with coupling $\alpha_S^{(q)}$. The operator $\bar{q} q$ is simply the quark number operator, which couples to the quark density. However, we should recall that the quarks are in nucleon bound states. We consider first the contributions from neutrons $|n\rangle$, so we should evaluate $\langle n|\bar{q}q|n\rangle$, adding coherently the contributions from both valence and sea quarks. These matrix elements are obtained from chiral perturbation theory \cite{Alarcon:2012} or Lattice QCD \cite{Bali:2012} and can be parametrised in terms of their contribution to the nucleon mass in the form:
+for interactions with a quark species $q$ with coupling $\alpha_S^{q}$. The operator $\bar{q} q$ is simply the quark number operator, which couples to the quark density. However, we should recall that the quarks are in nucleon bound states. We consider first the contributions from neutrons $|n\rangle$, so we should evaluate $\langle n|\bar{q}q|n\rangle$, adding coherently the contributions from both valence and sea quarks. These matrix elements are obtained from chiral perturbation theory \cite{Alarcon:2012} or Lattice QCD \cite{Bali:2012} and can be parametrised in terms of their contribution to the nucleon mass in the form:
 
 \begin{equation}
 m_n f_{Tq}^n \equiv \langle n|m_q\bar{q}q|n \rangle \,.
 \end{equation}
 
-Adding the contributions of the light quarks, as well as the heavy quarks and gluons (which contribute through the chiral anomaly \cite{Shifman:1978}), we obtain
+Adding the contributions of the light quarks $q$, as well as the heavy quarks $Q$ and gluons $g$ (which contribute through the chiral anomaly \cite{Shifman:1978}), the following expression is obtained:
 
 \begin{equation}
-\langle n| \sum_{q,Q,g} \bar{q} q |n \rangle  = \left(\sum_{q=u,d,s}\frac{m_n}{m_q} f_{Tq}^n \alpha_S^q + \frac{2}{27} f_{TQ}^n \sum_{q = c,b,t} \frac{m_n}{m_q} \alpha_S^q\right) \equiv f^n\,.
+\langle n| \sum_{q,Q,g} \bar{q} q |n \rangle  = \left(\sum_{q=u,d,s}\frac{m_n}{m_q} f_{Tq}^n \alpha_S^q + \frac{2}{27} f_{TQ}^n \sum_{Q = c,b,t} \frac{m_n}{m_q} \alpha_S^Q\right) \equiv f^n\,.
 \end{equation}
 The parameters describing the contributions of the different quarks to the nucleon mass must be determined experimentally. The uncertainties this produces will be discussed shortly in Sec.~\ref{sec:DD:nuclearunc}.
-\todo{Need to double check this expression and exactly what it's equal to...}
 
-\note{The form factor doesn't depend on the vector $\textbf{q}$ but on the scalar q...}
-
-We now consider the matrix elements of the nucleon operators within a nuclear state, $|\Psi_N\rangle$:$\langle \Psi_N|f^n \bar{n}n|\Psi_N\rangle$. These operators now simply count the number of nucleons in the nucleus $N_n$, along with a momentum-dependent form factor, $F(\textbf{q})$, corresponding to the Fourier transform of the nucleon density. This takes into account the loss of coherence for nuclear scattering due to the fact that the nucleus is not point-like. We therefore obtain:
+We now consider the matrix elements of the nucleon operators within a nuclear state, $|\Psi_N\rangle$: $\langle \Psi_N|f^n \bar{n}n|\Psi_N\rangle$. These operators now simply count the number of nucleons in the nucleus $N_n$, along with a momentum-dependent form factor, $F(q)$. This depends on the momentum transfer $q$ and corresponds to the Fourier transform of the nucleon density. This takes into account the loss of coherence for nuclear scattering due to the fact that the nucleus is not point-like. We therefore obtain:
 \begin{equation}
-\langle \Psi_N|f^n \bar{n}n|\Psi_N\rangle = \langle \Psi_N|\Psi_N\rangle f^n N_n F_n(\textbf{q}) = 2m_N f^n N_n F_n(\textbf{q})\,,
+\langle \Psi_N|f^n \bar{n}n|\Psi_N\rangle = \langle \Psi_N|\Psi_N\rangle f^n N_n F_n(q) = 2m_N f^n N_n F_n(q)\,,
 \end{equation}
 where we note that we require the wavefunctions to be normalised to \(2E \approx 2m_N\) for a nucleus of mass \(m_N\). We now add the contribution from protons to the matrix element, noting that \(F_n \approx F_p = F\) (see Sec.~\ref{sec:DD:nuclearunc})
 \begin{equation}
-\langle \Psi_N|f^n \bar{n}n + f^p \bar{p}p|\Psi_N\rangle = 2m_N (f^n N_n + f^p N_p) F(\textbf{q})\,,
+\langle \Psi_N|f^n \bar{n}n + f^p \bar{p}p|\Psi_N\rangle = 2m_N (f^n N_n + f^p N_p) F(q)\,,
 \end{equation}
 where now $N_n$ and $N_p$ are the neutron and proton numbers of the nucleus respectively.
 
-The corresponding matrix element for the scalar WIMP operator $\bar{\chi}\chi$ is simple in the non-relativistic limit, evaluating to $2 m_\chi$ \cite{Jungman:1995}. Combining these, we obtain the scalar matrix element
+The corresponding matrix element for the scalar WIMP operator $\bar{\chi}\chi$ is simple in the non-relativistic limit, evaluating to $2 m_\chi$ \cite{Jungman:1995, Cirelli:2013}. Combining these, we obtain the scalar matrix element
 \begin{equation}
-|\mathcal{M}_S|^2 = 16 m_\chi^2 m_N^2 \left|f^p Z + f^n (A-Z)\right|^2 F_{SI}^2(\textbf{q})\,,
+|\mathcal{M}_S|^2 = 16 m_\chi^2 m_N^2 \left|f^p Z + f^n (A-Z)\right|^2 F_{SI}^2(q)\,,
 \end{equation}
 and the SI cross section
 \begin{equation}
-\dbd{\sigma_{SI}}{E_R} = \frac{m_N}{ 2 \pi v^2} \left|f^p Z + f^n (A-Z)\right|^2 F^2(\textbf{q})\,,
+\dbd{\sigma_{SI}}{E_R} = \frac{m_N}{ 2 \pi v^2} \left|f^p Z + f^n (A-Z)\right|^2 F^2(q)\,,
 \end{equation}
 where we have used the atomic number $Z$ and mass number $A$ to describe the composition of the nucleus. It is conventional to write this in terms of the WIMP-proton SI cross section, which does not depend on the particular $(A,Z)$ of the target nucleus and thus allows easy comparison between experiments. This cross section is given by
 
@@ -120,7 +118,7 @@ where we have used the atomic number $Z$ and mass number $A$ to describe the com
 meaning that
 
 \begin{equation}
-\dbd{\sigma_{SI}}{E_R} = \frac{m_N}{ 2 \mu_{\chi p}^2 v^2} \left|Z + (f^n/f^p) (A-Z)\right|^2 F^2(E_R)\,.
+\dbd{\sigma_{SI}}{E_R} = \frac{m_N \sigmapsi}{ 2 \mu_{\chi p}^2 v^2} \left|Z + (f^n/f^p) (A-Z)\right|^2 F^2(E_R)\,.
 \end{equation}
 
 \subsection{SD interactions}
@@ -129,7 +127,7 @@ The spin-dependent interaction is typically sourced by axial-vector currents of 
 
 \begin{equation}
 \label{eq:AVInt}
-\mathcal{L} \supset \alpha_{AV}^{(q)} (\bar{\chi} \gamma^\mu \gamma_5 \chi) (\bar{q} \gamma_\mu \gamma_5 q)\,.
+\mathcal{L} \supset \alpha_{AV}^{q} (\bar{\chi} \gamma^\mu \gamma_5 \chi) (\bar{q} \gamma_\mu \gamma_5 q)\,.
 \end{equation}
 These result in a coupling of the spins of the WIMP and nucleus. In analogy with the SI case, we can write the neutron quark matrix elements in the form \cite{Engel:1991, Engel:1992}
 
@@ -139,26 +137,27 @@ These result in a coupling of the spins of the WIMP and nucleus. In analogy with
 where $s_\mu$ is the spin 4-vector and $\Delta_q$ parametrises the contribution of quark $q$ to this total spin. Adding the contributions of the different quarks, we can define
 
 \begin{equation}
-a_{p,n} = \sum_{q = u,d,s} \frac{\alpha_{AV}^{(q)}}{\sqrt{2}G_F} \Delta_q^{p,n}\,,
+a_{p,n} = \sum_{q = u,d,s} \frac{\alpha_{AV}^{q}}{\sqrt{2}G_F} \Delta_q^{p,n}\,,
 \end{equation}
 which are the effective proton and neutron spin couplings.
 
-The full nuclear matrix elements can then be written in the form \todo{This expression isn't quite right - I'm missing a $\mu$ index - might need a factor of $s_\mu$ - I'll sort it out at some point...}
+Including the contribution from the WIMP axial-vector current, the nuclear matrix element can then be written \cite{Ressel:1993}
+
+\begin{align}
+&\langle \Psi_N | \sum_{q=u,d,s} a_{AV}^q (\bar{\chi} \gamma^\mu \gamma_5 \chi) (\bar{q} \gamma_\mu \gamma_5 q) | \Psi_N \rangle \nonumber \\
+&\qquad= 8\sqrt{2} G_F m_\chi \langle \Psi_N |a_p S_\mu^p + a_n S_\mu^n | \Psi_N \rangle s_\chi^\mu F_{SD}(q)\,,
+\end{align}
+where $s_\chi^\mu$ is the WIMP spin, $S^{p,n}$ are the total proton and neutron spin in the nucleus and $F_{SD}(q)$ is a form factor, as in the SI case, which is determined by the internal spin structure of the nucleus. From this, the full SD cross section is \cite{Cerdeno:2010}
 
 \begin{equation}
-\langle \Psi_N | \sum_{q=u,d,s} \bar{q} \gamma_\mu \gamma_5 q | \Psi_N \rangle = 2 \sqrt{2} G_F \frac{a_p \langle S_p \rangle + a_n \langle S_N \rangle}{J} \langle \Psi_N | \hat{J} | \Psi_N \rangle F_{SD}^2(E_R)
+\dbd{\sigma_{SD}}{E_R} = \frac{16 m_N}{\pi v^2} G_F^2 \frac{J+1}{J} \left| a_p \langle S_p \rangle + a_n \langle S_n \rangle \right|^2 F_{SD}^2(E_R)\,,
 \end{equation}
-where $J$ is the total nuclear spin, $\langle S_{p,n} \rangle$ the expectation value of the total proton and neutron spin in the nucleus and $F_{SD}^2$ is a form factor, as in the SI case, which is determined by the internal spin structure of the nucleus. Noting that $\langle \Psi_N | \hat{J} | \Psi_N \rangle = 2J(J+1)m_N$, we obtain for the SD cross section
-%NOTE: CHECK FACTORS OF 2 and ROOT-2
-
-\begin{equation}
-\dbd{\sigma_{SD}}{E_R} = \frac{4 m_N}{\pi v^2} G_F^2 \frac{J + 1}{J} \left| a_p \langle S_p \rangle + a_n \langle S_n \rangle \right|^2 F_{SD}^2(E_R)\,.
-\end{equation}
+where $J$ is the total nuclear spin and $\langle S_{p,n} \rangle$ are the expectation values for the proton and neutron spin in the nucleus.
 
 Again, as in the SI case, it is convenient to rewrite this expression in terms of the proton cross section $\sigma_{SD}^p$, which is given by %NOTE: CHECK THE CROSS SECTION!!!
 
 \begin{equation}
-\sigma_{SD}^{p} = \frac{6 G_F^2}{\pi} \mu_{\chi p}^2 (a_p)^2\,.
+\sigma_{SD}^{p} = \frac{24 G_F^2}{\pi} \mu_{\chi p}^2 (a_p)^2\,.
 \end{equation}
 This leads to the final expression for the SD cross section
 
@@ -190,7 +189,7 @@ We can now incorporate these into the full event rate:
 
 The shape of the differential event rate then depends on a number of factors: the DM and target nuclear masses, the ratios of the proton and neutron couplings and the shape of the speed distribution $f_1(v)$. This distribution is typically assumed to have a simple form, the so-called Standard Halo Model (SHM). The SHM describes the velocity distribution in the Galactic frame as a Maxwell-Boltzmann distribution, truncated at the Galactic escape speed $v_\textrm{esc} \approx 544 \kms$ \cite{RAVE:2007, RAVE:2014}. We discuss the SHM in more detail in Sec.~\ref{sec:DD:astrounc}. We show in Fig.~\ref{fig:DD:spectra} the SI differential event rate for Xenon (solid blue), Germanium (dashed green) and Argon (dot-dashed red) targets and several WIMP masses, assuming equal couplings to protons and neutrons.
 
-As we increase the mass of the target nucleus, we see an increase in the low energy event rate. This is a result of the $A^2$ enhancement for SI interactions, resulting in the Xenon ($A \approx 131)$ spectrum being a factor of around 10 higher than the Argon ($A \approx 40$) spectrum at low energies. As we consider higher energies, however, we observe that the spectrum for heavier targets decays more quickly. This is due to a more sharply falling form factor; the larger size of the nucleus results in a more rapid loss of coherence as the recoil energy is increased. The minimum in the Xenon rate observed in the bottom panel of Fig.~\ref{fig:DD:spectra} is a also feature of the Xenon SI form factor.
+As we increase the mass of the target nucleus, we see an increase in the low energy event rate. This is a result of the $A^2$ enhancement for SI interactions, resulting in the Xenon ($A \approx 131)$ spectrum being a factor of around 10 higher than the Argon ($A \approx 40$) spectrum at low energies. As we consider higher energies, however, we observe that the spectrum for heavier targets decays more quickly. This is due to a more sharply falling form factor; the larger size of the nucleus results in a more rapid loss of coherence as the recoil energy is increased. The minimum in the Xenon rate observed in the bottom panel of Fig.~\ref{fig:DD:spectra} is also a feature of the Xenon SI form factor.
 
 As we increase the WIMP mass, the recoil spectrum becomes flatter. This is primarily due to the dependence of $\vmin$ on $m_\chi$ (shown in Eq.~\ref{eq:DD:vmin}). As we increase $m_\chi$, the reduced mass $\mu_{\chi N}$ increases, meaning that $\vmin$ varies more slowly with energy. This means that the integral over the speed distribution also varies more slowly with energy. Physically, low mass WIMPs require a larger speed to impart the same recoil energy and as we increase the recoil energy this required speed grows quickly. The rapid cut-off in the spectrum observed in the $m_\chi = 10$ GeV case (top panel of Fig.~\ref{fig:DD:spectra}) occurs when there are no more WIMPs below the Galactic escape speed which have sufficient speed to produce recoils of the desired energy.
 
@@ -221,7 +220,7 @@ N_e = m_\textrm{det} t_\textrm{exp} \int_{E_\textrm{min}}^{E_\textrm{max}}\epsil
 \end{equation}
 For the case of a more realistic experiment in which the measurement of energy has only a finite resolution $\sigma(E_R)$, we convolve the event rate with a resolution function (which we assume to have a Gaussian form) to obtain the observed recoil spectrum $\mathrm{d}\tilde{R}/\mathrm{d}E_R$,
 \begin{equation}
-\dbd{\tilde{R}}{E_R}(E) = \int_{E' = 0}^{\infty} \frac{\mathrm{e}^{-(E - E')^2/(2\sigma(E'))}}{\sqrt{2\pi}\sigma(E')} \dbd{R}{E_R}(E') \, \mathrm{d}E'\,.
+\dbd{\tilde{R}}{E_R}(E_R) = \int_{E_R' = 0}^{\infty} \frac{\mathrm{e}^{-(E_R - E_R')^2/2\sigma^2(E_R)}}{\sqrt{2\pi}\sigma(E_R)} \dbd{R}{E_R}(E_R') \, \mathrm{d}E_R'\,.
 \end{equation}
 
 We now turn our attention to the discussion of such `realistic experiments' and the current state of dark matter direct searches.
@@ -234,11 +233,13 @@ We now turn our attention to the discussion of such `realistic experiments' and 
 
 
 
-In order to measure the event spectrum, a range of obstacles must be overcome. One possible source of backgrounds are high energy cosmic rays. For this reason, direct detection experiments are typically operated underground, such as at the Gran Sasso laboratory in Italy or the Boulby laboratory in the UK, in order to reduce the penetration of these cosmic rays. However, cosmogenic muons and neutrons can still penetrate the experiments, leading to the need for active shields which can detect these particles and provide a veto for any nuclear recoils they produce. It is also possible to veto events which produce multiple-scatters in the detector as WIMPs are expected to scatter only once. Passive shielding also reduces the neutron flux from surrounding rock and other sources. For a detailed analysis of neutron sources at dark matter experiments, see Ref.~\cite{Scholl:2012} (CRESST-II) and Ref.~\cite{Aprile:2013b} (XENON100).
+In order to measure the event spectrum, a range of obstacles must be overcome. A number of backgrounds can cause nuclear recoils and therefore mimic a WIMP signal. Furthermore, electron recoils can also deposit energy in the detector and must be distinguished from nuclear recoils caused by WIMP interactions. We now summarise some of these backgrounds and how they can be mitigated. We then discuss some of the different technologies which are used to discriminate electron from nuclear recoils and to measure the recoil energy itself.
+
+One possible source of backgrounds are high energy cosmic rays. For this reason, direct detection experiments are typically operated underground, such as at the Gran Sasso laboratory in Italy or the Boulby laboratory in the UK, in order to reduce the penetration of these cosmic rays. However, cosmogenic muons and neutrons can still penetrate the experiments, leading to the need for active shields which can detect these particles and provide a veto for any nuclear recoils they produce. It is also possible to veto events which produce multiple-scatters in the detector as WIMPs are expected to scatter only once. Passive shielding also reduces the neutron flux from surrounding rock and other sources. For a detailed analysis of neutron sources at dark matter experiments, see Ref.~\cite{Scholl:2012} (CRESST-II) and Ref.~\cite{Aprile:2013b} (XENON100).
 
 Radioactive decays due to naturally occuring isotopes may cause keV energy nuclear recoils in the detector, meaning that care must be taken to reduce their impact. The radiopurity of the target material is therefore of utmost importance (see for example Ref.~\cite{Munster:2014}), as well as the radiopurity of detector equipment itself \cite{Bernabei:2008b,Kuzniak:2012}. In some cases, the naturally occurring target material is contaminated with a particular radioisotope, such as $^{39}$Ar contamination in Argon. In these cases, special sources of the material must be found \cite{Galbiati:2008}, or the amount of contamination must be carefully monitored and reduced \cite{Abe:2009,Aprile:2013a}.
 
-A major source of backgrounds is also electron recoils, which deposit energy in the detector and must be distinguished from nuclear recoils caused by WIMP interactions. Depending on the design of the detector, different methods are used to discriminate electron from nuclear recoils and to measure the recoil energy itself. We will now summarise some of the techniques which are used.
+%A major source of backgrounds is also electron recoils, which deposit energy in the detector and must be distinguished from nuclear recoils caused by WIMP interactions.  We will now summarise some of the techniques which are used.
 
 %\note{Use \href{http://cdms.phy.queensu.ca/Public_Docs/DirectDetection.html}{this list}...}
 %\todo{Say something about energy calibration and NR and EE...}
@@ -248,24 +249,24 @@ Cryogenic experiments, such as CDMS \cite{Ahmed:2009b,Ahmed:2009, Ahmed:2011,Agn
 
 Noble liquid experiments use liquid (or two-phase) noble elements such as Xenon and Argon as target materials. Completed or operational Xenon detectors include ZEPLIN \cite{Akimov:2012}, XENON \cite{Aprile:2011} and LUX \cite{Akerib:2014}. In these detectors, Xenon recoils produce a scintillation signal (S1) which can be observed directly using photomultiplier tubes. Ionisation electrons are also produced, which drift in an applied electric field, producing an electroluminescence signal (S2) in the gas phase. The sum of these signals can be used to reconstruct the total recoil energy, while the ratio S1/S2 is used to discriminate electron from nuclear recoils. The two signals can also be used to localise the event within the detectors. A fiducial volume is then defined within the detector - only events inside this volume are considered in data analysis. This allows liquid Noble detectors to be self-shielding; the fiducial volume is shielded by the remaining detector volume. Experiments utilising Argon \cite{Marchionni:2011, Badertscher:2013} and Neon \cite{Boulay:2008} are currently under development, using either the scintillation to ionisation signal as a discriminant or using timing of the scintillation signal (pulse shape discrimination).
 
-Superheated liquid detectors such as COUPP \cite{Behnke:2011}, SIMPLE \cite{Felizardo:2012} and PICASSO \cite{Archambault:2012} use a detector volume filled with droplets of superheated liquid such as $\textrm{C}_4\textrm{F}_{10}$. The deposition of kinetic energy by a WIMP will induce the nucleation of a bubble producing an acoustic signal which is detected by piezoelectric transducers. Energy deposition by other particles such as muons and $\gamma$- and $\beta$-radiation typically occurs over longer length scales and thus does not register a signal. The temperature and pressure of the detector can be tuned to specify the threshold energy, the minimum energy which must be deposited before nucleation occurs. As such, superheated liquid detectors cannot measure the energy of specific events but rather the total event rate above the energy threshold. However, by ramping up the energy threshold, the recoil spectrum can effectively be measured. Due to the light targets such as Fluorine used by these experiments, they are typically more sensitive to light WIMPs with SD interactions.
+Superheated liquid detectors such as COUPP \cite{Behnke:2011,Behnke:2012}, SIMPLE \cite{Felizardo:2012} and PICASSO \cite{Archambault:2012} use a detector volume filled with droplets of superheated liquid such as $\textrm{C}_4\textrm{F}_{10}$. The deposition of kinetic energy by a WIMP will induce the nucleation of a bubble producing an acoustic signal which is detected by piezoelectric transducers. Energy deposition by other particles such as muons and $\gamma$- and $\beta$-radiation typically occurs over longer length scales and thus does not register a signal. The temperature and pressure of the detector can be tuned to specify the threshold energy, the minimum energy which must be deposited before nucleation occurs. As such, superheated liquid detectors cannot measure the energy of specific events but rather the total event rate above the energy threshold. However, by ramping up the energy threshold, the recoil spectrum can effectively be measured. Due to the light targets such as Fluorine used by these experiments, they are typically more sensitive to light WIMPs with SD interactions.
 
 Crystal scintillator experiments \cite{Kim:2010} such as DAMA/LIBRA \cite{Bernabei:2008a,Bernabei:2010,Bernabei:2013} and KIMS \cite{Lee:2007} use crystals such as Thallium-doped Sodium Iodide (NaI(Tl)) as the detector material. When a nuclear recoil occurs with the nuclei in the crystal, scintillation occurs. The light is collected by photomultiplier tubes, with the total recoil energy being related to the amount of scintillation light produced. In the case of DAMA/LIBRA, electron-nuclear recoil discrimination is not employed. Instead, the experiment aims to observe the annual modulation of the signal which is expected due to the periodic motion of the Earth through the WIMP halo. In other cases, such as NAIAD \cite{Ahmed:2003}, pulse shape discrimination has been used to distinguish nuclear and electronic recoils.
 
-A final class of direct detection experiments are known as `directional' direct detection experiments. These aim to measure not only the energy deposited by WIMP scattering events but also the direction of the nuclear recoils. It is hoped that a recoil spectrum peaked in the direction opposite to the Earth's motion will provide strong evidence for a DM origin for the recoils. One possibility for this is the use of specialised gas time projection chambers (TPCs), which allow measurable track lengths from which the recoil direction can be determined. The directional detection of dark matter is the subject of Chapter~\ref{ch:Directional} and we defer a more detailed discussion of directional experiments until then.
+A final class of direct detection experiments are known as `directional' direct detection experiments. These aim to measure not only the energy deposited by WIMP scattering events but also the direction of the nuclear recoils. It is hoped that a recoil spectrum peaked in the direction opposite to the Earth's motion will provide strong evidence for a DM origin for the recoils. One possibility for this is the use of specialised gas time projection chambers (TPCs), which allow measurable track lengths from which the recoil direction can be determined. The directional detection of dark matter is the subject of Chapter~\ref{ch:directional} and we defer a more detailed discussion of directional experiments until then.
 
 \subsection{Current limits and results}
 
 The first major dark matter detection to be reported was that of DAMA/NaI \cite{Bernabei:2003} and its successor DAMA/LIBRA. The experiments observed an annual modulation over 13 annual cycles, with a phase matching that expected from a dark matter signal. The detection of the annual modulation has been reported at the $8.9\sigma$ confidence level over an energy range of 2-6 keV. The modulation signal was only found in single-hit events at low energies, again suggesting a dark matter origin for the signal. It has been suggested that the signal may be explained by a dark matter particle of mass $m_\chi \sim 10 \textrm{ GeV}$ and SI cross section $\sigma_{SI} \sim 10^{-41} \textrm{ cm}^2$ \cite{Belli:2011} scattering off Sodium (or a heavier WIMP around 80 GeV scattering off Iodine \cite{Savage:2009}). An annual modulation signal was also observed in the CoGeNT experiment \cite{Aalseth:2011b, Aalseth:2014a}. In this case too, the period and phase are consistent with expectations, though, the amplitude of the annual modulation is approximately 5 times larger than expected.
 
-Excesses above the expected backgrounds have also been observed in a number of experiments.%including CoGeNT, CRESST-II and CDMS-Si.
+Excesses above the expected backgrounds have also been observed in a number of experiments. %including CoGeNT, CRESST-II and CDMS-Si.
 The CoGeNT experiment observed an exponentially rising excess of events at low energies, down to $0.5 \textrm{ keV}_{ee}$. A maximum likelihood analysis \cite{Aalseth:2014b} pointed towards a $10 \textrm{ GeV}$ WIMP interpretation, with a cross section of around $\sigma_{SI} \sim 5 \times 10^{-42} \textrm{ cm}^2$, though the significance of the `signal' lies at only 2.9$\sigma$. CRESST-II \cite{Angloher:2012} observe 67 events in the nuclear recoil signal region but expect a background of only one event due to leakage of electron recoils into this window. Taking into account other backgrounds, the CRESST-II collaboration estimate that 25-30 of these events may be due to a WIMP signal. A fit to the data produces two minima in the likelihood function: one at $m_\chi \approx 25 \textrm{ GeV}$ (in which scattering from Tungsten is appreciable) and another at $m_\chi \approx 12 \GeV$ (where Tungsten recoils lie below the energy threshold). In both cases, the fitted cross section is in the range $\sigma_{SI} \approx 10^{-42} - 5 \times 10^{-41} \textrm{ cm}^2$. Finally, a recent analysis of the Silicon detector data from CDMS-II  \cite{Agnese:2013} finds 3 events in the signal region. However, the very low expected backgrounds mean that this small number of events may be significant. The probability of the known backgrounds producing these three events has been calculated at 5.4\% and a likelihood analysis shows consistency with a WIMP with $m_\chi \approx 9 \GeV$ and $\sigma_{SI} \approx 2 \times 10^{-41} \cmsq$.
 
-While it appears that a reasonably consistent picture of a low mass WIMP is emerging from several experiments \cite{Hooper:2010}, a large number of competing experiments have reported null results. Results from CDMS-II (Ge), XENON100, LUX, SuperCDMS \cite{Agnese:2014} and others set upper limits on the standard WIMP cross section several orders of magnitude lower than the claimed signal. Several explanations for this discrepancy have been offered. One possibility is background contamination of the experiments claiming to have observed a signal, which has been suggested in the case of CRESST-II \cite{Kuzniak:2012}. A recent analysis of the CoGeNT excess \cite{Davis:2014} finds evidence for DM at less than $1\sigma$ using an improved method for rejecting surface events. In the case of DAMA/LIBRA, it has been suggested that ion-channeling in the detector crystals may affect the collected ionisation signal and therefore alter the signal \cite{Bozorgnia:2010}. The DAMA/LIBRA signal has also been attributed to an annually modulated muon signal \cite{Blum:2011,Bernabei:2012}.
+While it appears that a reasonably consistent picture of a low mass WIMP is emerging from several experiments \cite{Hooper:2010}, a large number of competing experiments have reported null results. Results from CDMS-II (Ge), XENON100, LUX, SuperCDMS \cite{Agnese:2014} and others set upper limits on the standard WIMP cross section several orders of magnitude lower than the claimed signal. Several explanations for this discrepancy have been offered. One possibility is background contamination of the experiments claiming to have observed a signal, which has been suggested in the case of CRESST-II \cite{Kuzniak:2012}. A recent analysis of the CoGeNT excess \cite{Davis:2014} finds evidence for DM at less than $1\sigma$ using an improved method for rejecting surface events. In the case of DAMA/LIBRA, it has been suggested that ion-channeling in the detector crystals may affect the collected ionisation signal and therefore alter the signal \cite{Bozorgnia:2010}. It has also been suggested that the DAMA/LIBRA signal may be caused by an annually modulated muon signal \cite{Blum:2011,Bernabei:2012}.
 
 An alternative explanation is that the claimed signals \textit{are} due to a dark matter particle, but that its properties are not as simple as in the canonical case, explaining why it has not been observed in all experiments. One possibility is that the astrophysical distribution of dark matter does not match the standard assumptions. We will discuss this astrophysical distribution in more detail shortly in Sec.~\ref{sec:DD:astrounc}. However, it appears that even with this additional freedom, the different results cannot be reconciled \cite{Fairbairn:2009,Herrero-Garcia:2012,Fox:2011b,Frandsen:2012}. A number of particle physics models have also been considered to explain the results, including spin-dependent interactions \cite{Buckley:2013}, isospin violating dark matter (for which $f^p \neq f^n$) \cite{Feng:2011}, inelastic dark matter \cite{Smith:2001} and mirror dark matter \cite{Foot:2013}. However, a consistent picture which reconciles all experimental datasets remains elusive \cite{Schwetz:2011}. %\note{IVDM is invoked to reduce sensitivity to a particular experiment...}
 
-We summarise some of the completed and current direct detection experiments in Table~\ref{DD:tab:ExptSummary}. The most stringent limits on the SI WIMP-proton cross section are set by LUX \cite{Akerib:2014}, who find a limit of $\sigma_{SI}^p \leq 7.6 \times 10^{-46} \cmsq$ at a mass of $m_\chi = 33 \GeV$. The best limit for the SD cross section is set by XENON100 \cite{Aprile:2013c}: $\sigma_{SD}^p \leq 3.5 \times 10^{-40} \cmsq$. The confirmation or falsification of the signals which have been claimed thus far may have to wait for the next generation of dark matter experiments, or for corroboration from collider or indirect searches.
+We summarise some of the completed and current direct detection experiments in Table~\ref{DD:tab:ExptSummary}. Some of the limits set by these experiments are shown in Fig.~\ref{fig:DD:SIlimits} for SI scattering and Fig.~\ref{fig:DD:SDlimits} for SD scattering. The most stringent limits on the SI WIMP-proton cross section are set by LUX \cite{Akerib:2014}, who find a limit of $\sigma_{SI}^p \leq 7.6 \times 10^{-46} \cmsq$ at a mass of $m_\chi = 33 \GeV$. The best limit for the SD WIMP-proton cross section is set by COUPP \cite{Behnke:2012}: $\sigma_{SD}^p \leq 3 \times 10^{-39} \cmsq$.  The confirmation or falsification of the signals which have been claimed thus far may have to wait for the next generation of dark matter experiments, or for corroboration from collider or indirect searches.
 
 
 \begin{table}
@@ -285,7 +286,7 @@ We summarise some of the completed and current direct detection experiments in T
                 LUX \cite{Akerib:2014} & Xe & Null result \\
 		PICASSO \cite{Archambault:2012} & \(\textrm{C}_4\textrm{F}_{10}\) & Null result \\
 		SIMPLE-II \cite{Felizardo:2012} & \(\textrm{C}_2 \textrm{ClF}_5\) & Null result \\
-		COUPP \cite{Behnke:2011} & CF\(_3\)I & Null result \\
+		COUPP \cite{Behnke:2011,Behnke:2012} & CF\(_3\)I & Null result \\
 		DAMA/LIBRA \cite{Bernabei:2008a,Bernabei:2010,Bernabei:2013} &  NaI(Tl) & Annual modulation\\
                 NAIAD \cite{Ahmed:2003} & NaI(Tl) & Null result \\
 		KIMS \cite{Lee:2007} & CsI(Tl) & Null result \\
@@ -295,28 +296,30 @@ We summarise some of the completed and current direct detection experiments in T
 	\label{DD:tab:ExptSummary}
 \end{table}
 
-\todo{I could potentially add in a plot of some limits, depending on space/time.}
-
 %\todo{TEXONO \cite{Li:2013}}
 
 %\todo{Give some typical values for thresholds and efficiencies..?}
 
-\begin{comment}
-\begin{figure}[h]
+
+\begin{figure}[p]
   \centering
-  \includegraphics[width=0.75\textwidth]{DirectDetection/SIlimits.pdf}
-  \includegraphics[width=0.75\textwidth]{DirectDetection/SDlimits.pdf}
-  \caption[]{}
-  \label{fig:DD:CurrentLimits}
+  \includegraphics[width=0.7\textwidth]{DirectDetection/SIlimits_plot.eps}
+  %\includegraphics[width=0.75\textwidth]{DirectDetection/SDlimits.pdf}
+  \caption[Current limits on the WIMP-proton spin-independent cross section]{Current limits on the WIMP-proton spin-independent cross section. The most stringent 90\% limits are set by LUX (solid blue) \cite{Akerib:2014}. We also show 90\% limits from SuperCDMS (dashed black) \cite{Agnese:2014} and Xenon100 (dashed red) \cite{Aprile:2012b}. The 90\% preferred regions from DAMA/LIBRA \cite{Bernabei:2013} (yellow contour), CDMS-Si (purple contour) \cite{Agnese:2013}, CoGeNT (light blue contour) \cite{Aalseth:2014b} and CRESST-II (green contour) \cite{Angloher:2012} are also shown. Generated using the DMTools Plotter \cite{DMTools}.}
+  \label{fig:DD:SIlimits}
+
+  \includegraphics[width=0.7\textwidth]{DirectDetection/SDlimits_plot.eps}
+  %\includegraphics[width=0.75\textwidth]{DirectDetection/SDlimits.pdf}
+  \caption[Current limits on the WIMP-proton spin-dependent cross section]{Current limits on the WIMP-proton spin-dependent cross section. The most stringent 90\% limits are set by COUPP (solid green) \cite{Behnke:2012}. We also show 90\% limits from Xenon100 (dashed red) \cite{Aprile:2013c}, PICASSO (dashed light blue) \cite{Archambault:2012} and SIMPLE (dashed blue) \cite{Felizardo:2012}. Generated using the DMTools Plotter \cite{DMTools}.}
+  \label{fig:DD:SDlimits}
 \end{figure}
-\end{comment}
 
 \subsection{Future experiments}
 
-Experiments which are planned or under construction typically aim to scale up the size of current detectors and reduce unwanted backgrounds (in order to increase the sensitivity to lower cross sections) or decrease the energy threshold (which increases sensitivity to lower masses). There are a number of ton scale detectors either in operation or planned, including XENON1T \cite{Aprile:2012a}, DEAP-3600 \cite{Gorel:2014}, LZ \cite{Malling:2011}, EURECA \cite{Kraus:2007,Roth:2009} and DARWIN \cite{Baudis:2012}. With this next generation of detectors, the aim is to achieve sensitivity to the SI WIMP-proton cross section down to $\sigma_{SI}^p = 10^{-48} \cmsq$. Below this value, irreducible backgrounds from neutrinos (predominantly from the Sun) become important and the identification of a DM signal becomes more difficult \cite{Monroe:2007,Billard:2014}.
+Experiments which are planned or under construction typically aim to scale up the size of current detectors and reduce unwanted backgrounds (in order to increase the sensitivity to lower cross sections) or decrease the energy threshold (which increases sensitivity to lower masses). There are a number of ton scale detectors either in operation or planned, including XENON1T \cite{Aprile:2012a}, DEAP-3600 \cite{Gorel:2014}, LZ \cite{Malling:2011}, EURECA \cite{Kraus:2007,Roth:2009} and DARWIN \cite{Baudis:2012}. With this next generation of detectors, the aim is to achieve sensitivity to the SI WIMP-proton cross section down to $\sigma_{SI}^p = 10^{-48} \cmsq$. Below this value, irreducible backgrounds from Solar and atmospheric neutrinos become important and the identification of a DM signal becomes more difficult \cite{Monroe:2007,Billard:2014}.
 
 
-There have also been a number of proposals for novel methods of directly detecting dark matter. These include using DNA-based detectors to provide high spatial resolution \cite{Drukier:2012}, using nano-scale explosives \cite{Lopez:2014} or charged-coupled devices \cite{Aguilar-Arevalo:2013} to achieve very low energy thresholds and using proton-beam experiments as a source for dark matter source for direct detection experiments \cite{deNiverville:2012}. It has also been suggested the direct detection experiments could be used to search for DM interactions with electrons, rather than nuclei (see e.g.~Refs.~\cite{Essig:2012a,Essig:2012b}). Clearly, there are a range of approaches being pursued both in refining current technologies and developing new ones.
+There have also been a number of proposals for novel methods of directly detecting dark matter. These include using DNA-based detectors to provide high spatial resolution \cite{Drukier:2012}, using nano-scale explosives \cite{Lopez:2014} or charged-coupled devices \cite{Aguilar-Arevalo:2013} to achieve very low energy thresholds and using proton-beam experiments as a source of dark matter for direct detection experiments \cite{deNiverville:2012}. It has also been suggested the direct detection experiments could be used to search for DM interactions with electrons, rather than nuclei (see e.g.~Refs.~\cite{Essig:2012a,Essig:2012b}). Clearly, there are a range of approaches being pursued both in refining current technologies and developing new ones.
 
 %\todo{Mini-conclusion...}
 
@@ -358,7 +361,7 @@ c & = 1.23A^{1/3} - 0.60 \mathrm{ fm}, \\
 a & = 0.52 \mathrm{ fm}, \\
 s & = 0.9 \mathrm{ fm} \,.
 \end{align}
-Muon spectroscopy and electron scattering data \cite{Duda:2007} are used as a probe of the \textit{charge} distribution in the nucleus. However, detailed Hartree-Fock calculations indicate that the charge distribution can be used as a good proxy for the nucleon distribution (especially in the case $f_p \approx f_n$) and that using the approximate Helm form factor introduces an error of less than $\sim$5\% in the total event rate \cite{Co:2012}. Studies also indicate that errors due to distortions in nuclear shape away from sphericity are negligible \cite{Ya-Zheng:2012}.
+Muon spectroscopy and electron scattering data \cite{Duda:2007} are typically used as a probe of the \textit{charge} distribution in the nucleus. However, detailed Hartree-Fock calculations indicate that the charge distribution can be used as a good proxy for the nucleon distribution (especially in the case $f_p \approx f_n$) and that using the approximate Helm form factor introduces an error of less than $\sim$5\% in the total event rate \cite{Co:2012}. Studies also indicate that errors due to distortions in nuclear shape away from sphericity are negligible \cite{Ya-Zheng:2012}.
 
 %\todo{Include a table of Sp and Sn values - or values for N, alpha, beta - table in \cite{Jungman:1995}}
 In the SD case, however, the situation is more complicated. In order to calculate the SD cross section, we require the proton and neutron spin content $\langle S_{p,n} \rangle$ as well as the form factor $F_{SD}^2$. The form factor can be written in the form
@@ -375,7 +378,7 @@ where $a_0 = a_p + a_n$ is the isoscalar coupling and $a_1 = a_p - a_n$ is the i
 \begin{equation}
 S(0) = \frac{2J + 1}{\pi} \frac{J+1}{J} \left|a_p\langle S_p \rangle + a_n \langle S_n \rangle\right|^2\,.
 \end{equation}
-We can therefore rearrange the SD cross section of Eq.~\ref{DD:eq:sigsd} as
+We can therefore write the SD cross section of Eq.~\ref{DD:eq:sigsd} as
 
 \begin{equation}
 \dbd{\sigma_{SD}}{E_R} = \frac{2\pi}{3} \frac{m_N \sigma_{SD}^p}{\mu_{\chi p}^2 v^2} \frac{1}{2J+1} \frac{S(E_R)}{(a_p)^2}\,.
@@ -409,7 +412,7 @@ The DM mass density sets the overall scale of the scattering rate. As we shall d
 
 An alternative method is to use local stellar kinematic data to constrain the gravitational potential near the Sun and thus obtain an estimate of $\rho_0$. Using kinematic data from roughly 2000 K-dwarfs, Garbari \etal \cite{Garbari:2012} obtain the value \(\rho_0 = 0.85_{-0.50}^{+0.57} \textrm{ GeV cm}^{-3}\) while Zhang \etal, using a larger sample of 9000 K-dwarfs, obtain $0.28\pm0.08 \textrm{ GeV cm}^{-3}$. Including microlensing data, the range of allowed values at $1\sigma$ is $\rho_0 = 0.20-0.56 \textrm{ GeV cm}^{-3}$ \cite{Iocco:2011}. A further model independent method was proposed by \cite{Salucci:2010}. The advantage of such approaches is that one does not need to assume a particular form for the DM halo density profile. However, they may be more sensitive to assumptions about local equilibrium near the Sun's position.
 
-In 2012, Moni Bidin \etal \cite{Moni-Bidin:2012} used the dynamics of thick disk stars to constrain the DM density, finding a result consistent with no dark matter at the Sun's radius. However, a subsequent reanalysis by Bovy and Tremaine \cite{Bovy:2012} showed that this result derived from a poor assumption about the velocity of stellar tracers as a function of Galactic radius. Using the same data with more reasonable assumptions, the value $0.3 \pm 0.1 \textrm{ GeV cm}^{-3}$ was obtained.
+In 2012, Moni Bidin \etal \cite{Moni-Bidin:2012} used the dynamics of thick disk stars to constrain the DM density, finding a result consistent with no dark matter at the Sun's radius. However, a subsequent reanalysis by Bovy and Tremaine \cite{Bovy:2012} showed that this result derived from a poor assumption about the velocity of stellar tracers as a function of Galactic radius. Using the same data with more reasonable assumptions, the value $0.3 \pm 0.1 \textrm{ GeV cm}^{-3}$ was obtained \cite{Bovy:2012}.
 
 In spite of the large number of determinations, no consistent value appears to be emerging, with values ranging from $0.2 - 0.85 \textrm{ GeV cm}^{-3}$. There also remain a number of uncertainties in these determinations, including the shape of the DM halo and assumptions about the local equilibrium of the Galaxy (for a recent review, see Ref.~\cite{Read:2014}). The `standard' value assumed in the analysis of direct detection experiments is $0.3 \textrm{ GeV cm}^{-3}$, though the exact origin of this number is unclear \cite{Green:2012}.
 
@@ -424,7 +427,7 @@ The speed distribution enters into the direct detection rate in the integral,
 which is referred to as the `velocity integral' or the `mean inverse speed'. Direct detection experiments are traditionally analyzed within the framework of the Standard Halo Model (SHM), in which WIMPs are assumed to have a Maxwell-Boltzmann velocity distribution in the Galactic frame. In the Earth's frame, this takes the form
 
 \begin{equation}
-\label{eq:gaussian}
+\label{eq:DD:gaussian}
 f_{\textrm{SHM}}(\textbf{v}) = N \exp\left(-\frac{(\textbf{v} - \textbf{v}_\textrm{lag})^2}{2\sigma_v^2}\right) \Theta(v_\textrm{esc} - |\textbf{v} - \textbf{v}_\textrm{lag}|)\,,
 \end{equation}
 where $\textbf{v}_\textrm{lag}$ specifies the velocity of the Earth frame with respect to the Galactic rest frame and $\sigma_v$ the velocity dispersion. The SHM distribution is obtained assuming a spherical, isothermal DM halo with density profile $\rho \sim r^{-2}$ and results in the relation $\sigma_v = v_\textrm{lag}/\sqrt{2}$. The distribution is truncated above the escape speed $v_\textrm{esc}$ in the Galactic frame and the factor $N$ is required to satisfy the normalization condition:
@@ -439,18 +442,20 @@ By integrating over directions we obtain $f(v)$ and the speed distribution is th
 f_1(v) = f(v) v^2 = \int f(\textbf{v}) v^2 \, \mathrm{d}\Omega_v\,.
 \end{equation}
 
-Within the SHM, there is some uncertainty on the parameters describing $f_1(v)$. The parameter $v_\textrm{lag}$ is given by the local circular speed $v_c = 218 \pm 7 \kms$ \cite{Kerr:1986,Feast:1997} plus a contribution from the peculiar motion of the Sun and the Earth's orbital motion. This lag speed is typically assumed to be close to the local circular speed, though more recent determinations of the solar velocity point towards higher values \cite{Schonrich:2012,Bovy:2012a} of $240-250 \kms$. The Galactic escape velocity can be estimated from the radial velocities of MW stars; the RAVE survey obtain the range $v_\textrm{esc} = 533_{-41}^{+54} \kms$ at 90\% confidence \cite{RAVE:2007, RAVE:2014}. Moreover, the relation $\sigma_v =  v_\textrm{lag}/\sqrt{2}$ is obtained from solving the Jeans equation assuming $\rho \sim r^{-2}$ \cite{Binney:2008}. Relaxing this assumption means that this relation no longer holds and that $\sigma_v$ is no longer as well constrained.
+Within the SHM, there is some uncertainty on the parameters describing $f_1(v)$. The parameter $v_\textrm{lag}$ is given by the local circular speed $v_c = 218 \pm 7 \kms$ \cite{Kerr:1986,Feast:1997} plus a contribution from the peculiar motion of the Sun and the Earth's orbital motion. This lag speed is typically assumed to be close to the local circular speed, though more recent determinations of the solar velocity point towards higher values \cite{Schonrich:2012,Bovy:2012a} of $240-250 \kms$. There is also uncertainty in the value of $\sigma_v$. The relation $\sigma_v =  v_\textrm{lag}/\sqrt{2}$ is obtained from solving the Jeans equation assuming $\rho \sim r^{-2}$ \cite{Binney:2008}. Relaxing this assumption means that this relation no longer holds and that $\sigma_v$ is no longer as well constrained. Finally, the Galactic escape speed can be estimated from the radial velocities of MW stars; the RAVE survey obtain the range $v_\textrm{esc} = 533_{-41}^{+54} \kms$ at 90\% confidence \cite{RAVE:2007, RAVE:2014}. 
 
 Even taking into account these uncertainties, the SHM is unlikely to be an accurate representation of the DM halo. Observations and N-body simulations indicate that the halo should deviate from a $1/r^2$ profile and may not be spherically symmetric. As a result alternative models have been proposed. Speed distributions associated with triaxial halos \cite{Evans:2000} or with more realistic density profiles \cite{Widrow:2000} have been suggested, as well as analytic parametrisations which should provide more realistic behaviour at low and high speeds \cite{Lisanti:2010}. Self-consistent distribution functions reconstructed from the potential of the Milky Way have also been obtained \cite{Bhattacharjee:2012,Fornasa:2013}.
 
-It is also possible to extract the speed distribution from N-body simulations. Such distribution functions tend \cite{Vogelsberger:2009, Kuhlen:2010, Mao:2012} to peak at lower speeds than the SHM and have a more populated high speed tail. There are also indications that DM substructure may be significant, causing `bumps' in the speed distribution, or that DM which has not completely phase-mixed - so-called `debris flows' - may have a contribution \cite{Kuhlen:2012}. \todo{May include one of these in Fig.~\ref{fig:DD:SpeedDists}}.
+It is also possible to extract the speed distribution from N-body simulations. Such distribution functions tend to peak at lower speeds than the SHM and have a more populated high speed tail \cite{Vogelsberger:2009, Kuhlen:2010, Mao:2012}. There are also indications that DM substructure may be significant, causing `bumps' in the speed distribution, or that DM which has not completely phase-mixed - so-called `debris flows' - may have a contribution \cite{Kuhlen:2012}. 
 
- It should be noted that N-body simulations do not probe down to the sub-milliparsec scales which are probed by direct detection experiments. There may be a concern then that the local dark matter distribution could be dominated by localised subhaloes or streams which are not captured by these simulations and which may affect the interpretation of direct detection experiments \cite{Freese:2004}. However, an analysis of N-body simulations has found that no individual subhalos should dominate the local distribution \cite{Helmi:2002}. Vogelsberger \etal \cite{Vogelsberger:2007} study the geodesic deviation of individual particles in N-body simulations, giving access to information about the ultra-local DM distribution. They find that the local distribution should be made up of a large number of streams ($\sim 10^5$), meaning that it can effectively be treated as smooth.
+%\todo{May include one of these in Fig.~\ref{fig:DD:SpeedDists}}.
+
+It should be noted that N-body simulations do not probe down to the sub-milliparsec scales which are probed by direct detection experiments. There may be a concern then that the local dark matter distribution could be dominated by localised subhalos or streams which are not captured by these simulations and which may affect the interpretation of direct detection experiments \cite{Freese:2004}. However, an analysis of N-body simulations has found that no individual subhalos should dominate the local distribution \cite{Helmi:2002}. Vogelsberger \etal \cite{Vogelsberger:2007} study the geodesic deviation of individual particles in N-body simulations, giving access to information about the ultra-local DM distribution. They find that the local distribution should be made up of a large number of streams ($\sim 10^5$), meaning that it can effectively be treated as smooth.
 
 %This means that N-body speed distributions are averaged over large volumes in order to obtain sufficient statistics. The effect of probing the speed distribution over such large length scales (rather than on the ultra local scale of experiments) is not known.
 %So far, we have assumed that dark matter in the Sun's vicinity is smoothly distributed. The possibility that some of the DM density is contributed by localised subhaloes or streams which have not reached equilibrium may affect the interpretation of direct detection experiments \cite{Freese:2004}. However, an analysis of N-body simulations has found that no individual subhalos should dominate the local distribution \cite{Helmi:2002}. Vogelsberger \etal \cite{Vogelsberger:2007} study the geodesic deviation of individual particles in N-body simulations, allowing them to access information about the ultra-local DM distribution. They find that the local distribution should be made up of a large number of streams ($\sim 10^5$) and can effectively be treated as smooth.
 
-Another result obtained from N-body simulations is the possibility of a dark disk. When baryons are included in simulations of galaxy formation, this results in the tidal distruption of DM subhaloes which are then preferentially dragged into the disk plane \cite{Read:2009, Read:2010}. The resulting dark disk corotates with approximately the same speed as the baryonic matter, though with a smaller velocity dispersion $\sigma_v^{DD} \sim 50 \kms$. This dark disk is expected to contribute an additional density 0.2-1.0 times the density of the halo. However, this value is dependent on the merger history of the Milky Way, with more massive and numerous mergers leading to an enhance disk density. The more recent ERIS results \cite{Pillepich:2014}, comparing hydrodynamic and DM-only simulations, report a relatively quiet merger history for a Milky Way-like galaxy. The result is a smaller dark disk density of just 10\% that of the DM halo.
+Another result obtained from simulations is the possibility of a dark disk. When baryons are included in simulations of galaxy formation, this can result in DM subhalos being preferentially dragged into the disk plane where they are tidally stripped \cite{Read:2009, Read:2010}. The resulting dark disk corotates with approximately the same speed as the baryonic matter, though with a smaller velocity dispersion $\sigma_v^{DD} \sim 50 \kms$. This dark disk is expected to contribute an additional density 0.2-1.0 times the density of the halo. However, this value is dependent on the merger history of the Milky Way, with more massive and numerous mergers leading to an enhanced disk density. The more recent ERIS results \cite{Pillepich:2014}, comparing hydrodynamic and DM-only simulations, report a relatively quiet merger history for a Milky Way-like galaxy. The result is a smaller dark disk density of just 10\% that of the DM halo.
 
 
 \begin{figure}[p!]
@@ -463,7 +468,7 @@ Another result obtained from N-body simulations is the possibility of a dark dis
 \end{figure}
 
 
-In Fig.~\ref{fig:DD:SpeedDists}, we show some examples of possible dark matter speed distributions in the Earth frame. We show the directionally averaged velocity distribution $f(v)$ in the top panel, the speed distribution $f_1(v)$ in the middle panel and the corresponding $\eta(v)$ in the bottom panel. The population of low speed WIMPs in the SHM + dark disk (dashed green) distribution causes the mean inverse speed (and therefore the event rate) to rise more rapidly at low speeds than the SHM alone (solid blue). A sharp stream distribution function (dotted magenta) leads to step-like form for $\eta$; for $\vmin$ above the speed of the stream almost no WIMPs can contribution to the scattering, while for $\vmin$ below the speed of the stream almost all can. Each of these possible distributions will produce a distinct event spectrum in a detector.
+In Fig.~\ref{fig:DD:SpeedDists}, we show some examples of possible dark matter speed distributions in the Earth frame. We show the directionally averaged velocity distribution $f(v)$ in the top panel, the speed distribution $f_1(v)$ in the middle panel and the corresponding $\eta(v)$ in the bottom panel. The population of low speed WIMPs in the SHM + dark disk (dashed green) distribution causes the mean inverse speed (and therefore the event rate) to rise more rapidly at low speeds than the SHM alone (solid blue). A sharp stream distribution function (dotted magenta) leads to step-like form for $\eta$; for $\vmin$ above the speed of the stream almost no WIMPs can contribution to the scattering, while for $\vmin$ below the speed of the stream all WIMPs can. Each of these possible distributions will produce a distinct event spectrum in a detector.
 
 
 The impact of such uncertainties in the WIMP speed distribution has been much studied (see e.g.\ Refs.~\cite{Green:2010, Peter:2011, Fairbairn:2012}) and it has been shown that poor assumptions about the speed distribution may result in biased reconstructions of the DM mass and cross sections from future direct detection data. Peter attempted to reconstruct the WIMP mass and SI cross section from mock data sets based on future direct detection experiments \cite{Peter:2011}. In order to generate the data, an SHM distribution function with an additional contribution from a dark disk was assumed. However, the posterior distribution for \mchi and \sigmapsi was obtained assuming that $f_1(v)$ could be well described by a single Maxwell-Boltzmann (MB) distribution (with average speed and speed dispersion included as nuisance parameters). The resulting marginalised 68\% and 95\% contours for \mchi and \sigmapsi are shown in Fig.~\ref{fig:Speed:PeterRecon}, with the true parameter values given by the black crosses.
@@ -495,11 +500,11 @@ Finally, a method for analysing existing data has been developed by various auth
 
 \end{comment}
 
-\section{Conclusion}
+\section{Conclusions}
 
 We have discussed the dark matter direct detection formalism, focusing on the contribution from scalar and axial-vector contact interactions. The non-relativistic speeds involved means that the event rate can be divided into a spin-dependent and spin-independent contribution. A number of sophisticated experiments have been and continue to be developed which should allow the rare nuclear recoils produced by these interactions to be detected. The use of different channels such as scintillation, ionisation and phonons not only allows the energy of these events to be measured but also aids discrimination against electronic recoils which can act as a significant background.
 
-Tentative hints of a signal from the DAMA/LIBRA, CRESST-II and CoGeNT experiments have been interpreted as evidence for a WIMP with mass $m_\chi \sim 10 \GeV$ and cross section $\sigma_{SI} \sim 10^{-41} \cmsq$. However, null results from XENON, CDMS and other experiments are in tensions with this claimed signal. The origin of this discrepancy may lie in unidentified backgrounds or in an unconventional model for DM; corroboration from indirect and collider experiments may be needed before such a signal can be confirmed.
+Tentative hints of a signal from the DAMA/LIBRA, CRESST-II and CoGeNT experiments have been interpreted as evidence for a WIMP with mass $m_\chi \sim 10 \GeV$ and cross section $\sigma_{SI} \sim 10^{-41} \cmsq$. However, null results from XENON, CDMS and other experiments are in tension with this claimed signal. The origin of this discrepancy may lie in unidentified backgrounds or in an unconventional model for DM; corroboration from indirect and collider experiments may be needed before such a signal can be confirmed.
 
 Finally, there are a number of uncertainties associated with calculating direct detection event rates and therefore with interpreting data from these experiments. Nuclear uncertainties are typically more important for the SD rate than for the SI, though the method of Cerde\~{n}o \etal may be able to reduce the impact of such uncertainties. Particle physics uncertainties are significant, though the standard contact operator approach should be a good first approximation and effective field theories extending beyond this standard approach are being developed. Uncertainties in the \textit{number} of dark matter particles, embodied in the local DM density $\rho_0$, lead to a factor of roughly 2 uncertainty in the total direct detection rate.
 

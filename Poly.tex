@@ -1,10 +1,10 @@
-\chapter{A polynomial parametrisation of the speed distribution}
+\chapter[A polynomial parametrisation of the speed distribution][A polynomial parametrisation]{A polynomial parametrisation of the speed distribution}
 \label{ch:Poly}
 
 
 In an attempt to mitigate astrophysical uncertainties in the analysis of direct detection experiments, a number of parametrisations for the WIMP speed distribution have been proposed. In Chapter~\ref{ch:Speed}, we explored two such empirical parametrisation which aim to fit the WIMP distribution without making any \textit{a priori} assumptions about its form. These methods involved writing the WIMP speed and momentum distributions as a series of constant bins.
 
-However, the introduction of a fixed scale, in the form of the bin width, results in a bias in the reconstruction of the WIMP mass. While binning the momentum rather than speed distribution helps to reduce this problem, there may remain residual bias. Furthermore, the method is expected to fail for low mass WIMPs and the choice of momentum range to parametrise may not always be clear.
+However, the introduction of a fixed scale, in the form of the bin width, results in a bias in the reconstruction of the WIMP mass. While binning the momentum rather than speed distribution helps to reduce this problem, residual bias may remain. Furthermore, the method is expected to fail for low mass WIMPs and the choice of momentum range to parametrise may not always be clear.
 
 In this chapter, we propose an alternative parametrisation for the speed distribution which is smooth and can fit a wide range of possible functional forms of $f(v)$. This method involves parametrising the \textit{logarithm} of $f(v)$ as a polynomial in the WIMP speed $v$. We describe the parametrisation in detail in Sec.~\ref{sec:Poly:parametrisation}.
 
@@ -15,7 +15,7 @@ Finally, in Sec.~\ref{sec:Poly:Recon}, we show how the speed distribution can be
 \section{Parametrising the logarithm of $f(v)$}
 \label{sec:Poly:parametrisation}
 
-We would like to write down a general parametrisation, treating $f(v)$ as a the free function. However, the speed distribution is subject to two constraints in order to qualify as a physical distribution function:
+We would like to write down a general parametrisation, treating $f(v)$ as a free function. However, the speed distribution is subject to two constraints in order to qualify as a physical distribution function:
 \begin{enumerate}[(i)]
 \item it must be normalised (or at least should be capable of being normalised), and
 \item it must be everywhere greater than or equal to zero.
@@ -35,7 +35,7 @@ where we use $N$ polynomial basis functions $P_k(v)$, multiplied by the coeffice
 \begin{equation}
 \textrm{ln}f(v) \approx a_0 + a_1 v + a_2 v^2 + a_3 v^3 + ...\,,
 \end{equation}
-is not practical for the purposes of parameter estimation. Higher powers of $v$ will have rapidly growing contributions to $\textrm{ln} f$, meaning that the associated coefficients must be rapidly decreasing in order to suppress these contributions. Fitting to the SHM using just 5 terms, the range of values for the $a_k$ in the case of a simple power series would span around 13 orders of magnitude. Ideally, we would like to specify an identical prior on each of the coefficients. However, in this scenario this would result in a highly inefficient exploration of the parameter space when some of the terms are so small.
+is not practical for the purposes of parameter estimation. Higher powers of $v$ will have rapidly growing contributions to $\ln f(v)$, meaning that the associated coefficients must be rapidly decreasing in order to suppress these contributions. Fitting to the SHM using just 5 terms, the range of values for the $a_k$ in the case of a simple power series would span around 13 orders of magnitude. Ideally, we would like to specify an identical prior on each of the coefficients. However, in this scenario this would result in a highly inefficient exploration of the parameter space when some of the terms are so small.
 
 This problem can be significantly improved by rescaling $v$. We choose to rescale by a factor of $v_\textrm{max} = 1000 \kms$ and cut off the distribution function at $v_\textrm{max}$. We should choose $v_\textrm{max}$ to ensure that $f_1(v)$ is negligible above the cut off. However, too high a choice of $v_\textrm{max}$ will result in $f_1(v)$ being close to zero over a large range of the parametrization, making fitting more difficult. We use the value $v_\textrm{max} = 1000 \kms$, which lies significantly above the Galactic escape speed, as discussed in Chapter~\ref{ch:Speed}. The basis functions $(v/v_\textrm{max})^k$ are now less than unity by construction and the coefficients $a_k$ are now dimensionless:
 
@@ -43,7 +43,7 @@ This problem can be significantly improved by rescaling $v$. We choose to rescal
 \textrm{ln}f(v) \approx a_0 + a_1 (v/v_\textrm{max}) + a_2 (v/v_\textrm{max})^2 + a_3 (v/v_\textrm{max})^3 + ...\,.
 \end{equation}
 
-We now address the problem of \textit{conditioning} of the polynomial basis (see e.g.\ Refs.~\cite{Gautschi:1978, Wilkinson:1984}). Conditioning is a measure of how much the value of a polynomial changes, given a small change in the coefficients. For a well-conditioned polynomial, small changes in the coefficient are expected to lead to small changes in the value of the polynomial. This is ideal for parameter estimation as it leads to a more efficient exploration of the parameter space. Orthogonal polynomial basis functions typically have improved conditioning \cite{Gautschi:1978} and we consider two specific choices: the Legendre polynomials and the Chebyshev polynomials. The Legendre polynomials are a familiar series of orthogonal basis functions. The Chebyshev polynomials are used extensively in polynomial approximation theory \cite{Mason:2002} and are expected to be well conditioned \cite{Gautschi:1978}. We examine both which polynomials perform best and how many basis functions are required in Sec.~\ref{sec:Poly:test}.
+We now address the problem of \textit{conditioning} of the polynomial basis (see e.g.\ Refs.~\cite{Gautschi:1978, Wilkinson:1984}). Conditioning is a measure of how much the value of a polynomial changes, given a small change in the coefficients. For a well-conditioned polynomial, small changes in the coefficient are expected to lead to small changes in the value of the polynomial. This is ideal for parameter estimation as it leads to a more efficient exploration of the parameter space. Orthogonal polynomial basis functions typically have good conditioning \cite{Gautschi:1978} and we consider two specific choices: the Legendre polynomials and the Chebyshev polynomials. The Legendre polynomials are a familiar series of orthogonal basis functions. The Chebyshev polynomials are used extensively in polynomial approximation theory \cite{Mason:2002} and are expected to be well conditioned \cite{Gautschi:1978}. We examine both which polynomials perform best and how many basis functions are required in Sec.~\ref{sec:Poly:test}.
 
 We plot in Fig.~\ref{fig:Poly:examples} some examples of distribution functions which can be described by the polynomial $\ln f(v)$ parametrisation with $N=5$ basis functions. These examples were generated by randomly picking values for the $\left\{a_i\right\}$ values. Clearly this parametrisation can reproduce a wide range of shapes, peaking at different values of $v$. However, we wish to determine how well we can \textit{fit} these parameters, along with the WIMP mass and cross section, to data. As in the case of the binned distribution of Chapter~\ref{ch:Speed}, we now define a series of theoretical and experimental benchmarks which we use to generate mock data sets and test the parametrisation. 
 
@@ -75,21 +75,21 @@ In order to generate mock data sets, we consider three idealized mock experiment
 	\end{tabular}
 %\end{sideways}
   \end{center}
-\caption[Parameter values used for the three mock experiments used in Chapter \ref{ch:Poly}]{Summary of experimental parameters used in this work, defined in Sec.~\ref{sec:Poly:experiments}. An exposure of $t_\textrm{exp} = 2 \textrm{ years}$ is used for all 3 experiments.}
+\caption[Parameter values used for the mock experiments used in Chapter \ref{ch:Poly}]{Summary of experimental parameters used in this work, defined in Sec.~\ref{sec:Poly:experiments}. An exposure of $t_\textrm{exp} = 2 \textrm{ years}$ is used for all 3 experiments.}
 \label{tab:Poly:experiments}
 \end{table}
 
 %The exact parameter values we used in this work do not strongly impact the results we present. However, it is important to note that the total mass and exposure of the experiments will affect the total number of events observed. This in turn will affect the precision of the reconstructions. For example, we have chosen a total Argon mass of 1000 kg. This is the stated target for Argon-based experiments which are in development (e.g. Ref.~\cite{Badertscher:2013}), though at present typical fiducial masses for Argon prototypes are of the order of 100 kg \cite{Grandi:2005}. The data we have generated does not represent the `high-statistics' regime: across all three experiments the total number of events observed is roughly 200-300 with as few as 10 events in the Germanium detector for some scenarios. Using a smaller exposure (or equivalently a smaller interaction cross section) will reduce the precision of the results, but should not introduce any additional bias. We also briefly consider the impact of a \textit{larger} number of events in Sec.~\ref{sec:Poly:Recon}.
 
 
-As in Chapter~\ref{ch:Speed}, we assume that SI interactions dominate and use a single value of the interaction cross section $\sigmapsi = 10^{-45} \cmsq$. However, we will consider a range of WIMP masses from 10 GeV, below which the sensitivity of current direct detection experiments decreases dramatically, up to 1000 GeV above which sensitivity to the precise WIMP mass is lost.
+As in Chapter~\ref{ch:Speed}, we assume that SI interactions dominate and use a single value of the interaction cross section $\sigmapsi = 10^{-45} \cmsq$. However, we will consider a range of WIMP masses from 10 GeV, below which the sensitivity of current direct detection experiments decreases dramatically, up to 500 GeV. Sensitivity to the precise WIMP mass is lost for values of $m_\chi$ significantly heavier than the target nuclei masses, so we need not extend the analysis to very high $m_\chi$.
 
-We consider several benchmark speed distributions in this chapter, including the SHM and the SHM with the addition of a moderate dark disk which accounts for 23\% of the total WIMP density \cite{Pillepich:2014}. For the SHM, we assume a fixed DM density of $\rho_0 = 0.3 \textrm{ GeV cm}^{-3}$. However, we treat the dark disk as an overdensity contributing an \textit{additional} WIMP population, bringing the local density up to $\rho_0 = 0.39 \textrm{ GeV cm}^{-3}$. In addition, we also use the speed distribution of Lisanti et al.~\cite{Lisanti:2010}, which has the following form in the Earth's frame:
+We consider several benchmark speed distributions in this chapter, including the SHM and the SHM with the addition of a moderate dark disk which accounts for 23\% of the total WIMP density \cite{Bruch:2009}. For the SHM, we assume a fixed DM density of $\rho_0 = 0.3 \textrm{ GeV cm}^{-3}$. However, we treat the dark disk as an overdensity contributing an \textit{additional} WIMP population, bringing the local density up to $\rho_0 = 0.39 \textrm{ GeV cm}^{-3}$. In addition, we also use the speed distribution of Lisanti \etal \cite{Lisanti:2010}, which has the following form in the Earth's frame:
 \begin{equation}
 \label{eq:Poly:lisanti}
 f(\textbf{v}) = N \left[\exp\left(\frac{v_\textrm{esc}^2 - |\textbf{v} - \textbf{v}_0|^2}{k v_0^2}\right) -1\right]^k \Theta(v_\textrm{esc} - |\textbf{v} - \textbf{v}_0|)\,.
 \end{equation}
-We use the parameter values $k = 2$ and $v_0 = 220 \kms$ in this work. In all cases, we assume a fixed value of the escape speed $\vesc = 544 \kms$ (see Chapter~\ref{ch:DD}). We summarize in Tab.~\ref{tab:Poly:distributions} the different speed distributions considered. We also plot several of these in Fig.~\ref{fig:Poly:Ensemble_distributions} for reference.
+We use the parameter values $k = 2$ and $v_0 = 220 \kms$ in this work, which provide a good fit to results from N-body simulations \cite{Lisanti:2010}. In all cases, we assume a fixed value of the escape speed $\vesc = 544 \kms$ (see Chapter~\ref{ch:DD}). We summarize in Tab.~\ref{tab:Poly:distributions} the different speed distributions considered. We also plot several of these in Fig.~\ref{fig:Poly:Ensemble_distributions} for reference.
 
 \begin{table}[t]
   \setlength{\extrarowheight}{2pt}
@@ -112,26 +112,26 @@ We use the parameter values $k = 2$ and $v_0 = 220 \kms$ in this work. In all ca
 	\multirow{2}{*}{Double-peak} & 0.5 & 200 & 20 \\
 	& 0.5 & 400 & 20 \\
 	\hline
-	Lisanti et al. & & $v_0 = 220 \kms$ & $k = 2$ \\
+	Lisanti \etal & & $v_0 = 220 \kms$ & $k = 2$ \\
         \hline \hline
 	\end{tabular}
         
   \end{center}
-\caption[Summary of speed distribution benchmarks used in Chapter \ref{ch:Poly}]{Summary of speed distribution benchmarks used in this work. Some benchmarks are modelled as mixtures of two gaussian components, for which we give the fractional contribution of each component (labelled `Fraction'). The remaining parameters are defined in Sec.~\ref{sec:DD:astrounc}, as well as Eq.~\ref{eq:Poly:lisanti} and the accompanying text. The `bump' and `double-peak' distributions are discussed in Sec.~\ref{sec:Poly:test}. For each benchmark distribution, we fix $\vesc = 544 \kms$.}
+\caption[Summary of speed distribution benchmarks used in Chapter \ref{ch:Poly}]{Summary of speed distribution benchmarks used in this chapter. Some benchmarks are modelled as mixtures of two gaussian components, for which we give the fractional contribution of each component (labelled `Fraction'). The remaining parameters are defined in Sec.~\ref{sec:DD:astrounc}, as well as Eq.~\ref{eq:Poly:lisanti} and the accompanying text. The `bump' and `double-peak' distributions are discussed in Sec.~\ref{sec:Poly:test}. For each benchmark distribution, we fix $\vesc = 544 \kms$.}
 \label{tab:Poly:distributions}
 \end{table}
 
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/SpeedDistributions-Ensemble.pdf}
-  \caption[Several benchmark speed distributions used to test the polynomial $\ln f(v)$ method.]{Several of the benchmark speed distributions used in this chapter. They are defined in Eqs.~\ref{eq:gaussian} and \ref{eq:lisanti} with parameters from Tab.~\ref{tab:Poly:distributions}. These distributions are the SHM (solid blue), SHM+DD (dashed green), Lisanti et al. (dot-dashed red) and the stream (dotted magenta). Reproduced from Ref.~\cite{Kavanagh:2014}.}
+  \caption[Several benchmark speed distributions used to test the polynomial $\ln f(v)$ method.]{Several of the benchmark speed distributions used in this chapter. They are defined in Eqs.~\ref{eq:DD:gaussian} and \ref{eq:Poly:lisanti} with parameters from Tab.~\ref{tab:Poly:distributions}. These distributions are the SHM (solid blue), SHM+DD (dashed green), Lisanti \etal (dot-dashed red) and the stream (dotted magenta). Reproduced from Paper IV \cite{Kavanagh:2014}.}
   \label{fig:Poly:Ensemble_distributions}
 \end{figure}
 
 
 \subsection{Parameter sampling}
 \label{sec:Poly:ParamRecon}
-The parameter space of the polynomial $\ln f(v)$ parametrisation is much larger than for the binned method and is poorly explored using conventional MCMC methods. We therefore make parameter inferences using the publicly available \multinest nested sampling package \cite{Feroz:2007,Feroz:2008,Feroz:2014}. This allows us to map out both the likelihood $\mathcal{L}(\mathbf{\theta})$ and posterior probability distribution $\mathcal{P}(\mathbf{\theta})$ for the model parameters $\mathbf{\theta}$. We summarize in Tab.~\ref{tab:Poly:MultiNest} the \multinest sampling parameters used. We also summarize the priors used in this work in Tab.~\ref{tab:Poly:priors}. 
+The parameter space of the polynomial $\ln f(v)$ parametrisation is much larger than for the binned method and is poorly explored using conventional MCMC methods. We therefore make parameter inferences using the publicly available \multinest nested sampling package \cite{Feroz:2007,Feroz:2008,Feroz:2014}. This allows us to map out both the likelihood $\mathcal{L}(\mathbf{\theta})$ and posterior probability distribution $\mathcal{P}(\mathbf{\theta})$ for the model parameters $\mathbf{\theta}$. We summarize in Tab.~\ref{tab:Poly:MultiNest} the \multinest sampling parameters used. We also summarize the priors used in this work in Tab.~\ref{tab:Poly:priors}. The \multinest algorithm and the other statistical techniques used in this chapter are described in more detail in Appendix~\ref{ch:ParamRecon}.
 
 
 \begin{table}[t]
@@ -167,7 +167,7 @@ The parameter space of the polynomial $\ln f(v)$ parametrisation is much larger 
         \hline\hline
 	\end{tabular}
   \end{center}
-\caption[Summary of the priors on the parameters used in Chapter \ref{ch:Poly}]{Summary of the priors on the parameters used in this chapter. The background rate $R_{BG}$ is defined in Sec.~\ref{sec:Poly:mass} while the $\left\{a_k\right\}$ are the polynomial coefficients used in the parametrisation.}
+\caption[Summary of the priors on the parameters used in Chapter \ref{ch:Poly}]{Summary of the priors on the parameters used in this chapter. The background rate $R_{BG}$ is defined in Sec.~\ref{sec:Poly:mass} while the $\left\{a_k\right\}$ are the polynomial coefficients used in the parametrisation. The differential rate unit (dru) is defined as events/kg/day/keV.}
 \label{tab:Poly:priors}
 \end{table}
 
@@ -226,12 +226,12 @@ The results of this reconstruction are shown in Fig.~\ref{fig:Poly:2D}. There is
 \subsection{Testing the parametrisation}
 \label{sec:Poly:test}
 
-We now consider the two questions: \begin{inparaenum}[(i)] \item how many basis functions are required and \item which polynomial basis should be used? \end{inparaenum} In order to answer these questions, we use the two benchmark distribution functions illustrated in Fig.~\ref{fig:Poly:VaryingN_distributions}. We have chosen these benchmarks not because they are necessarily realistic distribution functions but because they should be difficult to fit using standard techniques and fitting functions (e.g.~\cite{Lisanti:2010}). The first distribution (referred to as `bump') is a SHM distribution with the addition of a small bump, which contributes just 3\% of the total WIMP population and could correspond to a small sub-halo or stream \cite{Vogelsberger:2009}. This should be difficult to fit because it represents only a very small deviation from the standard scenario. The second distribution (referred to as `double-peak') has a sharp and rapidly varying structure, which we anticipate should be difficult to capture using a small number of basis functions.
+We now consider the two questions: \begin{inparaenum}[(i)] \item how many basis functions are required and \item which polynomial basis should be used? \end{inparaenum} In order to answer these questions, we use the two benchmark distribution functions illustrated in Fig.~\ref{fig:Poly:VaryingN_distributions}. We have chosen these benchmarks not because they are necessarily realistic distribution functions but because they should be difficult to fit using standard techniques and fitting functions (e.g.~Ref.~\cite{Lisanti:2010}). The first distribution (referred to as `bump') is a SHM distribution with the addition of a small bump, which contributes just 3\% of the total WIMP population and could correspond to a small sub-halo or stream \cite{Vogelsberger:2009}. This should be difficult to fit because it represents only a very small deviation from the standard scenario. The second distribution (referred to as `double-peak') has a sharp and rapidly varying structure, which we anticipate should be difficult to capture using a small number of basis functions.
 
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/SpeedDistributions-VaryingN.pdf}
-  \caption{Benchmark speed distributions used in Sec.~\ref{sec:Poly:test} to test the performance of the parametrization as a function of the number and type of basis functions. Reproduced from Ref.~\cite{Kavanagh:2014}.}
+  \caption[Speed distributions used to test the number and type of polynomial basis functions]{Benchmark speed distributions used in Sec.~\ref{sec:Poly:test} to test the performance of the parametrization as a function of the number and type of basis functions. Reproduced from Paper IV \cite{Kavanagh:2014}.}
   \label{fig:Poly:VaryingN_distributions}
 \end{figure}
 
@@ -255,7 +255,7 @@ where $N_p$ is the number of free parameters, $N_m$ is the number of measurement
 \begin{figure}[t!]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/VaryingN_BUMP_LEG.pdf}
-  \caption[Bayesian information criterion and reconstructed WIMP mass as a function of the number of basis functions for a 50 GeV WIMP with `bump' distribution function]{Bayesian information criterion (BIC) as a function of the number of basis functions for an underlying `bump' distribution function, 50 GeV WIMP and using Legendre polynomial basis functions (upper panel). Also shown (lower panel) are the reconstructed WIMP mass (dashed blue line), 68\% confidence interval (shaded blue region) and underlying WIMP mass (solid horizontal black line). Reproduced from Ref.~\cite{Kavanagh:2014}.}
+  \caption[Bayesian information criterion and reconstructed WIMP mass as a function of the number of basis functions for a 50 GeV WIMP with `bump' distribution function]{Bayesian information criterion (BIC) as a function of the number of basis functions for an underlying `bump' distribution function, 50 GeV WIMP and using Legendre polynomial basis functions (upper panel). Also shown (lower panel) are the reconstructed WIMP mass (dashed blue line), 68\% confidence interval (shaded blue region) and underlying WIMP mass (solid horizontal black line). Reproduced from Paper IV \cite{Kavanagh:2014}.}
   \label{fig:Poly:BUMP_LEG}
 \end{figure}
 
@@ -264,7 +264,7 @@ The upper panel of Fig.~\ref{fig:Poly:BUMP_LEG} shows the BIC (in arbitrary unit
 \begin{figure}[t!]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/VaryingN_DP_LEG.pdf}
-  \caption{As Fig.~\ref{fig:Poly:BUMP_LEG} but for an underlying `double-peak' distribution function. Reproduced from Ref.~\cite{Kavanagh:2014}.}
+  \caption[As Fig.~\ref{fig:Poly:BUMP_LEG} but for an underlying `double-peak' distribution function]{As Fig.~\ref{fig:Poly:BUMP_LEG} but for an underlying `double-peak' distribution function. Reproduced from Paper IV \cite{Kavanagh:2014}.}
   \label{fig:Poly:DP_LEG}
 \end{figure}
 
@@ -279,11 +279,11 @@ We now consider the second question posed at the start of Sec.~\ref{sec:Poly:tes
 \begin{figure}[ht!]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/RunTimes.pdf}
-  \caption[Time taken for the reconstruction of the `bump' benchmark as a function of number of basis functions for both the Chebyshev and Legendre bases.]{Time taken (using 4 processors in parallel) for the reconstruction of the `bump' benchmark, as a function of number of basis functions. The time taken using the Chebyshev basis (blue squares) grows more slowly with $N$ than for the Legendre basis (red triangles). Reproduced from Ref.~\cite{Kavanagh:2014}.}
+  \caption[Time taken for the reconstruction of the `bump' benchmark as a function of number of basis functions for both the Chebyshev and Legendre bases]{Time taken (using 4 processors in parallel) for the reconstruction of the `bump' benchmark, as a function of number of basis functions. The time taken using the Chebyshev basis (blue squares) grows more slowly with $N$ than for the Legendre basis (red triangles). Reproduced from Paper IV \cite{Kavanagh:2014}.}
   \label{fig:Poly:times}
 \end{figure}
 
-\section{Varying $m_\chi$}
+\subsection{Varying $m_\chi$}
 \label{sec:Poly:mass}
 
 We now consider the performance of the parametrisation over a wide range of WIMP masses. We generate Asimov data for WIMP masses of 10, 20, 30, 40, 50, 75, 100, 200 and 500 GeV and reconstruct the best fit WIMP mass $m_\textrm{rec}$ and 68\% and 95\% confidence intervals from the profile likelihood. We use the SHM as a benchmark distribution function and use a fixed number of $N=5$ basis functions. The results are shown in Fig.~\ref{fig:Poly:VaryingM}, along with the line $m_\textrm{rec} = m_\chi$ for reference.
@@ -293,13 +293,12 @@ For large values of $m_\chi$, the shape of the event spectrum becomes independen
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/VaryingM.pdf}
-  \caption[Reconstructed WIMP mass as a function of input WIMP mass for ideal experiments]{Reconstructed WIMP mass $m_\textrm{rec}$ (central dashed blue line) as a function of input WIMP mass $m_\chi$ as well as 68\% and 95\% intervals (inner and outer blue dashed lines respectively). The line $m_\textrm{rec} = m_\chi$ (solid red line) is also plotted for reference. Reproduced from Ref.~\cite{Kavanagh:2014}.}
+  \caption[Reconstructed WIMP mass as a function of input WIMP mass for ideal experiments]{Reconstructed WIMP mass $m_\textrm{rec}$ (central dashed blue line) as a function of input WIMP mass $m_\chi$ as well as 68\% and 95\% intervals (inner and outer blue dashed lines respectively). The line $m_\textrm{rec} = m_\chi$ (solid red line) is also plotted for reference. Reproduced from Paper IV \cite{Kavanagh:2014}.}
   \label{fig:Poly:VaryingM}
 \end{figure}
 
 
-%%%PUT THIS IN THE DISCUSSION
-%As described in Chapter~\ref{ch:Speed}, for low mass WIMPs the momentum distribution may be very narrow, owing to their lower momenta. However, if we wish to parametrise the full momentum range to which the experiments are sensitive, this would be much wider. \note{Better explanation...?} The momentum parametrization method therefore performs poorly for low mass WIMPs. The parametrization presented in this chapter does not suffer from similar problems.
+
 
 So far, we have only considered idealized direct detection experiments. We now apply the method to more realistic mock detectors, taking into account the effects of finite energy resolution, as well as unrejected background events. We assume here that each experiment has a gaussian energy resolution with fixed width $\sigma_E = 1 \textrm{ keV}$ (see Sec.~\ref{sec:DD:finalrate} for details). We also assume a constant flat background rate for each experiment $R_\textrm{BG} = 10^{-6}$ events/kg/keV/day (which has been suggested as a possible background rate for Xenon1T \cite{Aprile:2010} and WArP-100L \cite{Grandi:2005}) when generating mock data sets. However, we allow the flat background rate in each experiment to vary as free parameters during the fit.
 
@@ -307,23 +306,23 @@ We have chosen relatively generic resolution and background parameters in this w
 
 Figure \ref{fig:Poly:VaryingM_real} shows the reconstructed mass as a function of input mass in this more realistic scenario. The 68\% and 95\% confidence intervals are now wider and the reconstructed mass does not appear to be as accurate. For input masses above $\sim$100 GeV, the uncertainties become very wide, with only a lower limit of $m_\textrm{rec} > 20 \textrm{ GeV}$ being placed on the WIMP mass.  Due to the poorer energy resolution the shape of the energy spectrum is less well-determined. In addition, a flat background contribution can mimic a higher mass WIMP, as it leads to a flatter spectrum. This leads to a strong degeneracy, as a wide range of mass values can provide a good fit to the data. For high input masses, the profile likelihood is approximately constant above $m_\textrm{rec} \sim 20 \textrm{ GeV}$, indicating that there is no sensitivity to the underlying WIMP mass.
 
-In spite of this, the true mass values still lie within the 68\% and 95\% confidence intervals. In addition, the poor values for the reconstructed mass for heavy WIMPs are a side effect of the loss of sensitivity. Because the profile likelihood is approximately flat, the maximum likelihood point is equally likely to be anywhere within the 68\% interval. These effects would be present even if we had considered a fixed form for the speed distribution. However, when we allow for a range of possible speed distributions, the effects become more pronounced. These results show that for more realistic experimental scenarios, the method presented in this paper remains reliable over a range of masses, though its precision may be significantly reduced.
+In spite of this, the true mass values still lie within the 68\% and 95\% confidence intervals. In addition, the poor values for the reconstructed mass for heavy WIMPs are a side effect of the loss of sensitivity. Because the profile likelihood is approximately flat, the maximum likelihood point is equally likely to be anywhere within the 68\% interval. These effects would be present even if we had considered a fixed form for the speed distribution. However, when we allow for a range of possible speed distributions, the effects become more pronounced. These results show that for more realistic experimental scenarios, the method presented in this work remains reliable over a range of masses, though its precision may be significantly reduced.
 
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/VaryingM_real.pdf}
-  \caption[Reconstructed WIMP mass as a function of input WIMP mass for experiments including the effects of finite backgrounds and energy resolution]{As fig.~\ref{fig:Poly:VaryingM} but including the effects of finite energy resolution and non-zero backgrounds, as described in the text. Reproduced from Ref.~\cite{Kavanagh:2014}.}
+  \caption[Reconstructed WIMP mass as a function of input WIMP mass for experiments including the effects of finite backgrounds and energy resolution]{As fig.~\ref{fig:Poly:VaryingM} but including the effects of finite energy resolution and non-zero backgrounds, as described in the text. Reproduced from Paper IV \cite{Kavanagh:2014}.}
   \label{fig:Poly:VaryingM_real}
 \end{figure}
 
-\section{Statistical properties}
+\subsection{Statistical properties}
 \label{sec:Poly:stats}
 
 %\todo{Include the coverage maps...}
 
 We now consider the impact of statistical fluctuations on the reconstruction of the WIMP mass. In reality, the number of events observed $N_o$ at a given experiment will be Poisson distributed about the expected value $N_e$, while the observed distribution of recoil energies will not exactly match that expected from the calculated event rate. The fundamental statistical limitations of future direct detection experiments have been studied in detail in Ref.~\cite{Strege:2012}. As in Chapter~\ref{ch:Speed}, we generate 250 realisations of data from the mock experiments described in Tab.~\ref{tab:Poly:experiments}.
 
-For each realisation, we then use the polynomial $\ln f(v)$ parametrisation (using $N = 5$ basis functions) to reconstruct the WIMP mass and 68\% and 95\% credible intervals. Figure~\ref{fig:Poly:Realisations} shows the distribution of reconstructed masses for an input mass of 50 GeV for three benchmark speed distributions: SHM, SHM+DD and Lisanti et al.\, as described in Sec.~\ref{sec:Poly:experiments}. In all three cases, the reconstructions are peaked close to the true value, regardless of the underlying distribution. 
+For each realisation, we then use the polynomial $\ln f(v)$ parametrisation (using $N = 5$ basis functions) to reconstruct the WIMP mass and 68\% and 95\% credible intervals. Figure~\ref{fig:Poly:Realisations} shows the distribution of reconstructed masses for an input mass of 50 GeV for three benchmark speed distributions: SHM, SHM+DD and Lisanti \etal, as described in Sec.~\ref{sec:Poly:experiments}. In all three cases, the reconstructions are peaked close to the true value, regardless of the underlying distribution. 
 
 %For the SHM+DD distribution, the spread of reconstructions is slightly wider (with more reconstructions extending up to higher masses). This is because the 
 
@@ -344,7 +343,7 @@ We compare the logarithms of the mass values because we have used logarithmicall
   \includegraphics[trim=0cm 1cm 0cm 0.5cm,clip=true,width=0.75\textwidth]{Poly/SHM_ensemble.pdf}
   \includegraphics[trim=0cm 1cm 0cm 0.5cm,clip=true,width=0.75\textwidth]{Poly/DD_ensemble.pdf}
   \includegraphics[trim=0cm 1cm 0cm 0.5cm,clip=true,width=0.75\textwidth]{Poly/LIS_ensemble.pdf}
-  \caption[Distribution of the reconstructed mass using a 50 GeV WIMP and SHM, SHM+DD and Lisanti et al. distribution functions]{Distribution of the reconstructed mass $m_\textrm{rec}$ for 250 mock data sets generated using several benchmark speed distributions, defined in Sec.~\ref{sec:Poly:benchmarks}. These are the SHM (top), SHM+DD (middle) and Lisanti et al.\ (bottom) distributions. The input WIMP mass of $m_\chi = 50 \textrm{ GeV}$ is shown as a vertical dashed red line. Reproduced from Ref.~\cite{Kavanagh:2014}.} 
+  \caption[Distribution of the reconstructed mass using a 50 GeV WIMP and SHM, SHM+DD and Lisanti \etal distribution functions]{Distribution of the reconstructed mass $m_\textrm{rec}$ for 250 mock data sets generated using several benchmark speed distributions, defined in Sec.~\ref{sec:Poly:experiments}. These are the SHM (top), SHM+DD (middle) and Lisanti \etal (bottom) distributions. The input WIMP mass of $m_\chi = 50 \textrm{ GeV}$ is shown as a vertical dashed red line. Reproduced from Paper IV \cite{Kavanagh:2014}.} 
   \label{fig:Poly:Realisations}
 \end{figure}
 
@@ -358,7 +357,7 @@ We compare the logarithms of the mass values because we have used logarithmicall
 	\hline
 	SHM & 0.002 $\pm$ 0.008 \\
 	SHM+DD & 0.005 $\pm$ 0.007 \\
-	Lisanti et al. & 0.01 $\pm$ 0.01 \\
+	Lisanti \etal & 0.01 $\pm$ 0.01 \\
         \hline\hline
 	\end{tabular}
   \end{center}
@@ -378,7 +377,7 @@ We also test the \textit{coverage} of the credible intervals which have been con
 	\hline
 	SHM &  71 $\pm$ 3 \% & 94 $\pm$ 3 \%  \\
 	SHM+DD & 68 $\pm$ 3 \% & 91 $\pm$ 4 \%  \\
-	Lisanti et al. & 70 $\pm$ 3 \% & 95 $\pm$ 3 \%  \\
+	Lisanti\etal & 70 $\pm$ 3 \% & 95 $\pm$ 3 \%  \\
         \hline \hline
 	\end{tabular}
   \end{center}
@@ -396,7 +395,7 @@ As a first step, we can attempt to sample from $P(\textbf{a})$, in order to obta
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/f_SHM.pdf}
-  \caption[Reconstructed speed distribution for a single realisation of data using the polynomial $\ln f(v)$ parametrisation]{Reconstructed speed distribution for a single realisation of data, generated for a 50 GeV WIMP. 68\% and 95\% credible intervals are shown as dark and light shaded regions respectively, while the underlying SHM distribution function is shown as a solid blue line. Reproduced from Ref.~\cite{Kavanagh:2014}.}
+  \caption[Reconstructed speed distribution for a single realisation of data using the polynomial $\ln f(v)$ parametrisation]{Reconstructed speed distribution for a single realisation of data, generated for a 50 GeV WIMP. 68\% and 95\% credible intervals are shown as dark and light shaded regions respectively, while the underlying SHM distribution function is shown as a solid blue line. Reproduced from Paper IV \cite{Kavanagh:2014}.}
   \label{fig:Poly:f}
 \end{figure}
 
@@ -409,7 +408,7 @@ There remain several issues with this approach. In order to utilize this method,
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/f_SHM_scaled_line.pdf}
-  \caption[Reconstructed speed distribution for a single realisation of data using the polynomial $\ln f(v)$ parametrisation, normalised to unity above the threshold speed of the experiments]{Reconstructed speed distribution for the same realisation of data as Fig.~\ref{fig:Poly:f}. In this case, we have also normalized $f_1(v)$ to unity above $v_a \approx 171 \kms$ (vertical dashed line). This is the lowest speed accessible to the experiments for a WIMP of mass 50 GeV. 68\% and 95\% credible intervals are shown as dark and light shaded regions respectively, while the underlying SHM distribution function is shown as a solid blue line. Reproduced from Ref.~\cite{Kavanagh:2014}.}
+  \caption[Rescaled reconstructed speed distribution for a single realisation of data using the polynomial $\ln f(v)$ parametrisation]{Reconstructed speed distribution for the same realisation of data as Fig.~\ref{fig:Poly:f}. In this case, we have also normalized $f_1(v)$ to unity above $v_a \approx 171 \kms$ (vertical dashed line). This is the lowest speed accessible to the experiments for a WIMP of mass 50 GeV. 68\% and 95\% credible intervals are shown as dark and light shaded regions respectively, while the underlying SHM distribution function is shown as a solid blue line. Reproduced from Paper IV \cite{Kavanagh:2014}.}
   \label{fig:Poly:f_scaled}
 \end{figure}
 
@@ -426,7 +425,7 @@ In Fig.~\ref{fig:Poly:eta_stats}, we plot the mean reconstructed value of $\eta^
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/Eta.pdf}
-  \caption[Mean reconstructed values of the rescaled mean inverse speed over 250 realisations for a 50 GeV WIMP with SHM distribution function]{Mean reconstructed values of the rescaled mean inverse speed $\eta(v)/\alpha(v)$ at several values of $v$, calculated over 250 realisations of data using a 50 GeV WIMP and underlying SHM distribution function. Errorbars indicate the mean upper and lower limits of the 68\% credible intervals. The underlying form of $\eta(v)/\alpha(v)$ obtained from the SHM is shown as a solid blue line. Reproduced from Ref.~\cite{Kavanagh:2014}.}
+  \caption[Mean reconstructed values of the rescaled mean inverse speed for a 50 GeV WIMP with SHM distribution function]{Mean reconstructed values of the rescaled mean inverse speed $\eta(v)/\alpha(v)$ at several values of $v$, calculated over 250 realisations of data using a 50 GeV WIMP and underlying SHM distribution function. Errorbars indicate the mean upper and lower limits of the 68\% credible intervals. The underlying form of $\eta(v)/\alpha(v)$ obtained from the SHM is shown as a solid blue line. Reproduced from Paper IV \cite{Kavanagh:2014}.}
   \label{fig:Poly:eta_stats}
 \end{figure}
 
@@ -439,18 +438,18 @@ We can increase the discriminating power of this method by repeating this recons
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/SHM_lores.pdf}
-  \caption[Rescaled mean inverse speed for a single realisation of data for a 50 GeV WIMP with SHM distribution function, showing several benchmark speed distributions for comparison]{Rescaled mean inverse speed $\eta(v)/\alpha(v)$, reconstructed from a single realisation of data using a 50 GeV WIMP and underlying SHM distribution function. At each value of $v$ we calculate 68\%, 95\% and 99\% credible intervals (shown as shaded intervals). We also show the calculated values of $\eta(v)/\alpha(v)$ for several possible benchmark speed distributions: SHM (solid blue), SHM+DD (dashed green), Lisanti et al.\ (dot-dashed red) and stream (dotted magenta). The benchmark curves are truncated when the underlying distribution function goes to zero. Reproduced from Ref.~\cite{Kavanagh:2014}.}
+  \caption[Rescaled mean inverse speed for a single realisation of data for a 50 GeV WIMP with SHM distribution function, showing several benchmark speed distributions for comparison]{Rescaled mean inverse speed $\eta(v)/\alpha(v)$, reconstructed from a single realisation of data using a 50 GeV WIMP and underlying SHM distribution function. At each value of $v$ we calculate 68\%, 95\% and 99\% credible intervals (shown as shaded intervals). We also show the calculated values of $\eta(v)/\alpha(v)$ for several possible benchmark speed distributions: SHM (solid blue), SHM+DD (dashed green), Lisanti \etal (dot-dashed red) and stream (dotted magenta). The benchmark curves are truncated when the underlying distribution function goes to zero. Reproduced from Paper IV \cite{Kavanagh:2014}.}
   \label{fig:Poly:eta}
 \end{figure}
 
-The reconstructed intervals are consistent with a range of possible distribution functions. The SHM and SHM+DD distributions are identical over a wide range of speeds. This is because above $\sim 200 \kms$, the two distributions differ in normalization but not in shape. Differences appear between the two at low speeds where their shapes diverge. The Lisanti et al.\ distribution results in a larger deviation from the SHM, but not sufficiently large to differentiate between the two distributions given the size of the uncertainties. Finally, the stream distribution results in a significantly different form for $\eta^*(v)$. At approximately $400 \kms$, the curve for the stream distribution lies outside the reconstructed 99\% credible interval. We can therefore use this method to reject the stream distribution at the 99\% confidence level.
+The reconstructed intervals are consistent with a range of possible distribution functions. The SHM and SHM+DD distributions are identical over a wide range of speeds. This is because above $\sim 200 \kms$, the two distributions differ in normalization but not in shape. Differences appear between the two at low speeds where their shapes diverge. The Lisanti \etal distribution results in a larger deviation from the SHM, but not sufficiently large to differentiate between the two distributions given the size of the uncertainties. Finally, the stream distribution results in a significantly different form for $\eta^*(v)$. At approximately $400 \kms$, the curve for the stream distribution lies outside the reconstructed 99\% credible interval. We can therefore use this method to reject the stream distribution at the 99\% confidence level.
 
-Figure \ref{fig:Poly:eta_hires} shows the results of a reconstruction using a larger exposure. In this case, we generate data using the Lisanti et al.\ distribution and an exposure increased by a factor of $2.5$, resulting in approximately 1000 events across the three detectors. As expected, the resulting credible intervals are now substantially narrower. The stream distribution now lies significantly outside the 99\% interval. In Fig.~\ref{fig:Poly:eta_hires_zoom}, we show the same results, but focusing in on the region around $v \sim 400 \kms$. At certain points, the SHM and SHM+DD distributions now lie outside the 95\% credible interval, suggesting that with a number of events of the order of 1000, we may be able to reject these benchmarks.
+Figure \ref{fig:Poly:eta_hires} shows the results of a reconstruction using a larger exposure. In this case, we generate data using the Lisanti \etal distribution and an exposure increased by a factor of $2.5$, resulting in approximately 1000 events across the three detectors. As expected, the resulting credible intervals are now substantially narrower. The stream distribution now lies significantly outside the 99\% interval. In Fig.~\ref{fig:Poly:eta_hires_zoom}, we show the same results, but focusing in on the region around $v \sim 400 \kms$. At certain points, the SHM and SHM+DD distributions now lie outside the 95\% credible interval, suggesting that with a number of events of the order of 1000, we may be able to reject these benchmarks.
 
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/LIS_hires.pdf}
-  \caption{As Fig.~\ref{fig:Poly:eta}, but using as input a Lisanti et al.\ speed distribution and an exposure time which is 2.5 times longer. Reproduced from Ref.~\cite{Kavanagh:2014}.}
+  \caption[As Fig.~\ref{fig:Poly:eta}, but using as input a Lisanti \etal speed distribution and a longer exposure time]{As Fig.~\ref{fig:Poly:eta}, but using as input a Lisanti \etal speed distribution and an exposure time which is 2.5 times longer. Reproduced from Paper IV \cite{Kavanagh:2014}.}
   \label{fig:Poly:eta_hires}
 \end{figure}
 
@@ -458,21 +457,42 @@ Figure \ref{fig:Poly:eta_hires} shows the results of a reconstruction using a la
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.75\textwidth]{Poly/LIS_hires_zoom.pdf}
-  \caption[As Fig.~\ref{fig:Poly:eta_hires}, but focusing on the region around $v \sim 400 \kms$.]{As Fig.~\ref{fig:Poly:eta_hires}, but focusing on the region around $v \sim 400 \kms$. Notice that in the range $400-550 \kms$, both the SHM and SHM+DD curves lie at or below the lower limit of the 95\% credible interval. Reproduced from Ref.~\cite{Kavanagh:2014}.}
+  \caption[As Fig.~\ref{fig:Poly:eta_hires}, but focusing on the region around $v \sim 400 \kms$]{As Fig.~\ref{fig:Poly:eta_hires}, but focusing on the region around $v \sim 400 \kms$. Notice that in the range $400-550 \kms$, both the SHM and SHM+DD curves lie at or below the lower limit of the 95\% credible interval. Reproduced from Paper IV \cite{Kavanagh:2014}.}
   \label{fig:Poly:eta_hires_zoom}
 \end{figure}
 
 While the method displayed in Fig.~\ref{fig:Poly:f_scaled} allows the approximate shape of the speed distribution to be reconstructed, reconstructions of $\eta^*(v)$ allow more statistically robust statements to be made about the underlying speed distribution. In particular, Fig.~\ref{fig:Poly:eta_hires_zoom} illustrates that with larger exposures deviations from Maxwellian speed distributions can be detected in a model-independent fashion.
 
-\section{Discussion}
+\section{Comparison with previous methods}
 
-\todo{Is it worth having a comparison between this method and the speed binning and momentum binning methods? As in showing a table where I reconstruct the WIMP mass using all three? And then explain why (and in what ways) this one works better.}
+In this section, we will briefly compare the polynomial $\ln f(v)$ parametrisation with some of the methods discussed previously. We use a 50 GeV WIMP with a stream distribution function (defined in Table~\ref{tab:Poly:distributions}) and, using a single realisation of data, attempt to reconstruct the WIMP mass using several methods. As well as the logarithm parametrisation described in this chapter, we also use the binned speed and momentum parametrisations of Chapter~\ref{ch:Speed}. For all three methods we use the same number of distribution parameters (5 polynomial coefficients or bins). The results are shown in Table~\ref{tab:Poly:ReconstructedMass}. 
+
+\begin{table}[t]
+  \setlength{\extrarowheight}{5pt}
+  \begin{center}
+	\begin{tabular}{lc}
+         \hline\hline
+	 Parametrisation & Reconstructed mass (GeV) \\
+	 \hline
+	 Binned $f(v)$ & \(29.3^{+0.4}_{-1.0}\) \\
+	 Binned $\tilde{f}(p)$ & \(38.2^{+1.6}_{-2.3}\)\\
+	 Polynomial $\ln f(v)$ & \(44.7^{+6.9}_{-3.6}\) \\
+         \hline\hline
+	\end{tabular}
+  \end{center}
+  \caption[Comparison of WIMP mass reconstruction using the speed binning, momentum binning and polynomial $\ln f(v)$ parametrisations]{Reconstructed mass from a single realisation of data using the parametrisation presented in this chapter, as well as the the speed binning and momentum binning methods of Chapter~\ref{ch:Speed} for comparison. The benchmark used is a stream distribution function described in Table~\ref{tab:Poly:distributions} and a 50 GeV WIMP. In all cases, 5 speed distribution parameters (either bins or basis coefficients) are used.}
+\label{tab:Poly:ReconstructedMass}
+\end{table}
+
+The binned speed distribution results in a significant bias, with the uncertainties on $m_\chi$ being underestimated. The momentum binning method reduces this bias and gives slightly larger errors. However, the true WIMP mass still lies several $\sigma$ away from the reconstructed value. The polynomial $\ln f(v)$ method shows a clear improvement over the other two methods, with the true mass reconstructed to within $1\sigma$. Not only is the polynomial $\ln f(v)$ distribution smooth, removing the need for any fixed length scales, but it is also better able to capture the rapidly varying form of the stream distribution function, which is poorly reproduced by binned parametrisations.
+
+In addition, we have shown in Fig.~\ref{fig:Poly:VaryingM} that the polynomial $\ln f(v)$ parametrisation performs well down to WIMP masses of 10 GeV, approximately the limit of sensitivity of the direct detection experiments. By contrast, the momentum binning method is expected to fail for low mass WIMPs, where the range of momenta which must be parametrised is large. Furthermore, for the parametrisation described in this chapter, we do not need to specify (a potentially arbitrary) range of momenta over which to parametrise. Instead, the properties of the parametrisation are fixed, with the number of basis functions determined as in Sec.~\ref{sec:Poly:test}.
 
 \section{Conclusions}
 \label{sec:Poly:conclusions}
 
 
-We have studied in detail a new parametrization for the local dark matter speed distribution. This method involves writing the logarithm of the speed distribution as a polynomial in speed $v$ and fitting the polynomial coefficients (along with the WIMP mass and cross section) to the data. We have attempted to disentangle in this paper the influence of  different benchmark speed distributions, different benchmark WIMP masses and different forms for the parametrization. 
+We have studied in detail a new parametrization for the local dark matter speed distribution. This method involves writing the logarithm of the speed distribution as a polynomial in speed $v$ and fitting the polynomial coefficients (along with the WIMP mass and cross section) to the data. We have attempted to disentangle the influence of  different benchmark speed distributions, different benchmark WIMP masses and different forms for the parametrization. 
 
 We have shown how the number of basis functions in the parametrisation can be chosen in a systematic way by minimising the Bayesian Information Criterion. We have also shown that the results are insensitive to the precise choice of basis functions, but that the Chebyshev polynomials can be used to efficiently explore the parameter space and result in a faster reconstruction than other choices. 
 
@@ -480,5 +500,5 @@ We have demonstrated that the WIMP mass can be reconstructed without bias in thi
 
  We have presented several ways of displaying the reconstructed WIMP speed distribution using this method. In order to make robust statistical inferences about the speed distribution, we calculate the probability distribution of $\eta(v)/\alpha(v)$. This is the mean inverse speed $\eta(v)$, rescaled by the fraction of WIMPs $\alpha(v)$ above speed $v$. This can be used as a measure of the \textit{shape} of the distribution function, from which the unknown normalization has been factored out. We can then compare to the expected value of $\eta(v)/\alpha(v)$ from a given benchmark speed distribution, allowing us to distinguish between different underlying models.
 
-Unfortunately, due to the finite threshold energies of direct detection experiments, we cannot probe the low speed population of WIMPs. If we make no assumptions, we have no information about the form of $f(v)$ below threshold and therefore little information about the overall normalisation of $f(v)$. This translates to an unavoidable degeneracy in the WIMP interaction cross section \sigmapsi. In spite of this, the completely general parametrisation presented in this Chapter can be used both to reconstruct the WIMP mass and probe the shape of the speed distribution in an unbiased and robust way.
+Unfortunately, due to the finite threshold energies of direct detection experiments, we cannot probe the low speed population of WIMPs. If we make no assumptions, we have no information about the form of $f(v)$ below threshold and therefore little information about the overall normalisation of $f(v)$. This translates to an unavoidable degeneracy in the WIMP interaction cross section \sigmapsi. In spite of this, the completely general parametrisation presented in this chapter can be used both to reconstruct the WIMP mass and probe the shape of the speed distribution in an unbiased and robust way.
 

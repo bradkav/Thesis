@@ -1363,7 +1363,7 @@ FUNCTION {format.eprint}
         archivePrefix duplicate$ empty$ { pop$ "" } { ":" * } if$ *
         swap$ *
         primaryClass  duplicate$ empty$ { pop$ "" } { " [" swap$ * "]" * } if$ *
-        "{" swap$ * "} " *
+        "{" swap$ * "}" *
       *
       eprint.command swap$ *
     }
