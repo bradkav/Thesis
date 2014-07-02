@@ -6,7 +6,7 @@
 
 In this appendix, we address the problem of parameter reconstruction. Given a set of data $\mathcal{D}$, we would like to make some statement about the values of a set of model parameters $\boldtheta$. Due to statistical and systematic uncertainties, this will be a probabilistic statement about which values of $\boldtheta$ are more likely. Here, we consider what is meant by `more likely'. We then demonstrate how parameter estimates and uncertainty intervals are constructed and how the parameter space of $\boldtheta$ can be explored to obtain these estimates.
 
-In general, there are two approaches to parameter estimation. In \textit{frequentist} inference, there is only a single, fixed set of true values for the model parameters $\boldsymbol\theta$. We imagine that the experiment (which produced the data $\mathcal{D}$) can be repeated a large number of times, giving independent results each time. The `probability' associated with each set of parameters $\boldsymbol\theta$ is a measure of how frequently our experiment would produce data which looked similar to $\mathcal{D}$ if $\boldsymbol\theta$ is the true value. In a frequentist framework, the true model parameters are fixed but unknown and we make statements about how confident we are that these true parameters lie in a particular range.
+In general, there are two approaches to parameter estimation. In \textit{frequentist} inference, there is only a single, fixed set of true values for the model parameters $\boldsymbol\theta$. We imagine that the experiment (which produced the data $\mathcal{D}$) can be repeated a large number of times, giving independent results each time. The `probability' associated with each set of parameters $\boldsymbol\theta$ is a measure of how frequently our experiment would produce data which looked similar to $\mathcal{D}$ if $\boldsymbol\theta$ are the true parameter values. In a frequentist framework, the true model parameters are fixed but unknown and we make statements about how confident we are that these true parameters lie in a particular range.
 
 An alternative approach is \textit{Bayesian} inference. The true parameter value is treated as a random variable and we use Bayes' theorem to determine its probability distribution from the data:
 \begin{equation}
@@ -29,7 +29,7 @@ In doing so, we need to know $P(\boldsymbol\theta)$, known as the prior on the m
 
 In frequentist statistics, the most important quantity to consider is the \textit{likelihood} of a given point in parameter space, $\mathcal{L}(\boldsymbol\theta)$, defined as the probability of obtaining the data $\mathcal{D}$, assuming that $\boldsymbol\theta$ is the true parameter value. The likelihood often takes a very small value (because the probability of obtaining a particular data set out of all possible data sets is typically very small), and so it is convenient to work with the log-likelihood $l(\boldtheta) = \ln(\mathcal{L}(\boldtheta))$. The absolute value of $\mathcal{L}(\boldsymbol\theta)$ carries no significance. However, the likelihood value of a particular point, relative to another, can be interpreted as a measure of the relative goodness of fit of the points. While the likelihood is not a probability distribution, in the limit of a large number of samples $l(\boldtheta)$ follows a $\chi^2$ distribution (as we shall discuss shortly) and therefore can have a probabilistic interpretation.
 
-Often, we may not be interested in all of the parameters of $\boldtheta$. For example, we may partition the parameters into parameters of interests $\boldpsi$ and so-called nuisance parameters $\boldphi$: $\boldtheta = (\boldpsi, \boldphi)$. These nuisance parameters may be parameters which we are not directly interested in, but which must be included in the analysis to account for all the relevant uncertainties. We often want to reduce the dimensionality of $\boldtheta$ to consider only how the likelihood varies as a function of $\boldpsi$. 
+Often, we may not be interested in all of the parameters of $\boldtheta$. For example, we may partition the parameters into parameters of interests $\boldpsi$ and so-called nuisance parameters $\boldphi$: $\boldtheta = (\boldpsi, \boldphi)$. These nuisance parameters may be parameters which we are not directly interested in, but which must be included in the analysis to account for all the relevant uncertainties. We often want to reduce the dimensionality of $\boldtheta$ to consider only how the likelihood varies as a function of $\boldpsi$.
 
 One method of doing this is by maximizing the full likelihood function over the nuisance parameters:
 \begin{equation}
@@ -43,7 +43,7 @@ An alternative method of reducing the dimensionality of the full parameter space
 \label{eq:parameter:meanlikelihood}
 \mathcal{L}_m(\boldsymbol{\psi}) = \frac{\int \mathcal{L}(\boldpsi, \boldphi) \, \mathrm{d}\boldphi}{\int \, \mathrm{d}\boldphi}\,.
 \end{equation}
-The mean likelihood allows us to take into account the structure of the likelihood function in the nuisance directions. The profile likelihood simply selects the largest likelihood value at each value of $\boldpsi$, even if this value is only realised over a small range of values in $\boldphi$. By comparison, the mean likelihood receives a greater contribution from wide ranges of $\boldphi$ which have a moderate likelihood value.
+The mean likelihood allows us to take into account the structure of the likelihood function in the nuisance directions. The profile likelihood simply selects the largest likelihood value at each value of $\boldpsi$, even if this value is only realised over a small range of values in $\boldphi$. By comparison, the mean likelihood receives a greater contribution from wide ranges of $\boldphi$ which have a moderate likelihood value. The profile likelihood is more typically used in the literature.
 
 \subsection{Parameter estimates}
 \label{sec:ParamRecon:freqparams}
@@ -60,9 +60,9 @@ The logarithm is a monotonically increasing function and therefore the maximum o
 \begin{equation}
 -2l_r \sim \chi^2_k\,,
 \end{equation}
-where the number of degrees of freedom $k$ is equal to the dimensionality of the space $\boldpsi = \left(\psi_1,...,\psi_k\right)$. This asymptotic behaviour applies equally well for the full likelihood and the profile likelihood \cite{Biller:2014} and allows us to construct confidence intervals. 
+where the number of degrees of freedom $k$ is equal to the dimensionality of the space $\boldpsi = \left(\psi_1,...,\psi_k\right)$. This asymptotic behaviour applies equally well for the full likelihood and the profile likelihood \cite{Biller:2014} and allows us to construct confidence intervals.
 
-We construct a $p\%$ interval from all values of $\boldpsi$ for which 
+We construct a $p\%$ interval from all values of $\boldpsi$ for which
 \begin{equation}
 l_r(\boldpsi) \leq -\frac{1}{2} \gamma(p\%;k)\,,
 \end{equation}
@@ -74,7 +74,7 @@ and $P(\chi^2_k)$ is the $\chi^2_k$ probability distributon function. This is es
 \begin{equation}
 \mathcal{L}(\boldpsi) \geq \exp\left(-\frac{1}{2} \gamma(p\%;k)\right) \mathcal{L}(\hat{\boldpsi})\,.
 \end{equation}
-This is illustrated in Fig.~\ref{fig:parameter:likelihood} for the case of a single parameter of interest. 
+This is illustrated in Fig.~\ref{fig:parameter:likelihood} for the case of a single parameter of interest.
 
 \begin{figure}[t]
 \centering
@@ -115,12 +115,12 @@ In contrast to the frequentist case, there are several possibilities for a point
 \int_{-\infty}^{\theta_\textrm{median}} \mathcal{P}(\theta) \, \mathrm{d}\theta = \frac{1}{2}\,.
 \end{equation}
 This means that there is as much probability density below $\theta_\textrm{median}$ as above.
-\item[Mean] - the mean value $\langle \boldtheta \rangle$ is given by 
+\item[Mean] - the mean value $\langle \boldtheta \rangle$ is given by
 \begin{equation}
 \langle \boldtheta \rangle = \int \boldtheta \mathcal{P}(\boldtheta) \, \mathrm{d}\boldtheta\,.
 \end{equation}
 \end{description}
-Each of these will behave differently for different posterior probability distributions. The MAP estimate indicates where the greatest probability density is and may be useful when the posterior is sharpy peaked. The mean and median better reflect the global properties of the posterior probability, but may be misleading if the distribution is multimodal. 
+Each of these will behave differently for different posterior probability distributions. The MAP estimate indicates where the greatest probability density is and may be useful when the posterior is sharpy peaked. The mean and median better reflect the global properties of the posterior probability, but may be misleading if the distribution is multimodal.
 
 
 We also wish to make statements about the possible range of values for parameters. In a Bayesian framework, we define the p\% \textit{credible} interval $\mathcal{C}_{p}$ such that it encloses p\% of the probability distribution. Again, there are several possibilities for how to define $\mathcal{C}_{p} = [\mathcal{C}_{p}^\textrm{min}, \mathcal{C}_{p}^\textrm{max}]$, such as:
@@ -158,7 +158,7 @@ In the Markov chain monte carlo (MCMC) method \cite{Lewis:2009}, we generate a c
 \end{equation}
 Over a large number of points, the chain positions should converge to a stationary distribution. Eventually the number density of chain positions will be proportional to the posterior \(n(\boldtheta) \propto \mathcal{P}(\boldtheta)\) (assuming that the proposal distribution is symmetric). In addition, we will also have the value of the likelihood $\mathcal{L}(\boldtheta)$ evaluated at all of the points in the chain.
 
-Care must be taken to ensure that the chain has converged before the results can be interpreted. Typically some initial set of points is discarded as `burn-in', after which the chain is deemed to have converged. However, it is often unclear when convergence has been reached. Moreover, each chain position will depend slighly on the previous position. However, we want to obtain independent samples from the posterior distribution. Therefore, the chain is typically thinned (by some factor of order 25-50) \cite{Lewis:2002}, with only some of the positions being retained. Finally, we must select how many positions we want to obtain in the chain before we stop the random walk, in the hopes that the chain has adequately explored the parameter space.
+Care must be taken to ensure that the chain has converged before the results can be interpreted. Typically some initial set of points is discarded as `burn-in', after which the chain is deemed to have converged. However, it is often unclear when convergence has been reached. Moreover, each chain position will depend slighly on the previous position. However, we want to obtain independent samples from the posterior distribution. Therefore, the chain is typically thinned (by some factor of order 25-50) \cite{Lewis:2002}, with only some of the positions being retained. Finally, we must select how many positions we want to obtain in the chain before we stop the random walk, in the hope that the chain has adequately explored the parameter space.
 
 When $\mathcal{P}(\boldtheta)$ is multimodal, sharply peaked or has strong degeneracies among the parameters, exploration by the chain can be slow. It can be unclear whether convergence has been achieved, especially if the chain becomes trapped in one of the modes of the distribution. One way to improve the rate of convergence is to use high temperature MCMC \cite{Kirkpatrick:1983,Lewis:2009}. We employ a `heated' chain with temperature $T = 2$, meaning that we accept new points with probability
 \begin{equation}
@@ -184,11 +184,11 @@ The Bayesian evidence $\mathcal{Z} \equiv P(\mathcal{D})$ is obtained by summing
 
 In order to continue, we must be able to select points from the prior subject to the hard constraint $\mathcal{L}_i > \mathcal{L}_0$. As the algorithm moves to higher values of $\mathcal{L}_0$, points with a higher likelihood than this tend to become localised in very small regions of the parameter space. In addition, if the likelihood is multimodal or has pronounced degeneracies, the sampling of points subject to this constraint becomes highly inefficient. The \textsc{MultiNest} algorithm \cite{Feroz:2007,Feroz:2008,Feroz:2014} uses multimodal, ellipsoidal nested sampling to improve performance. As $\mathcal{L}_0$ increases during the calculation,  \textsc{MultiNest} uses the current live points to approximate the isolikelihood contour by a series of ellipsoidal surfaces. New points are drawn only from within these ellipsoids, increasing the efficiency of the sampling but still ensuring that the constraint $\mathcal{L}_i > \mathcal{L}_0$ is satisfied. The algorithm can also accommodate multiple modes in the posterior which can be explored independently.
 
-In utilising the MultiNest algorithm, we must decide how many live point to use $N_\textrm{live}$. This determines how closely the isolikelihood contours can be followed, how dense the posterior samples will be and, in the case where there are highly localised modes, how well explored the prior will be. We must also decide the tolerance of the algorithm, \texttt{tol}. This determines the precision with which $\mathcal{Z}$ should be determined and therefore how high up the likelihood surface the algorithm should explore. Finally, we can introduce an efficiency \texttt{eff}, which is the desired sampling efficiency. In order to (attempt to) achieve this, the algorithm rescales the volume of the bounding ellipsoids to incorporate more or less of the prior volume, as desired. 
+In utilising the MultiNest algorithm, we must decide how many live point to use $N_\textrm{live}$. This determines how closely the isolikelihood contours can be followed, how dense the posterior samples will be and, in the case where there are highly localised modes, how well explored the prior will be. We must also decide the tolerance of the algorithm, \texttt{tol}. This determines the precision with which $\mathcal{Z}$ should be determined and therefore how high up the likelihood surface the algorithm should explore. Finally, we can introduce an efficiency \texttt{eff}, which is the desired sampling efficiency. In order to (attempt to) achieve this, the algorithm rescales the volume of the bounding ellipsoids to incorporate more or less of the prior volume, as desired.
 
 \section{Likelihood examples}
 
-We have discussed how, given the likelihood and posterior, we can make parameter inferences. We have also explored methods by which these functions can be efficiently explored. Finally, we look at how to evaluate the likelihood for a given data set. 
+We have discussed how, given the likelihood and posterior, we can make parameter inferences. We have also explored methods by which these functions can be efficiently explored. Finally, we look at how to evaluate the likelihood for a given data set.
 
 The simplest signal which can be observed is a number of events $N_o$. We can calculate from the model parameters $\boldtheta$ the expected number of events $N_e$. The probability of obtaining the data given the model parameters is then given by the Poisson likelihood:
 
@@ -218,7 +218,7 @@ and from the background with probability $f_{BG} = 1-f_S$. Thus, we obtain the f
 \begin{equation}
 \mathcal{L}(\mathcal{D}|\boldtheta) = \frac{N_e^{N_0}}{N_0!}e^{-N_e}\prod_{i = 1,N_e} (f_S P_S(E_i) + f_{BG} P_{BG}(E_i)) \,.
 \end{equation}
-\note{Check...}
+
 Here, $N_e$ and $N_o$ are the total number of expected events including both signal and background. We must also take into account the normalised spectra of the signal $P_S(E)$ and the background $P_{BG}(E)$ seperately, multiplying the contributions of both.
 
 For multiple experiments, the total likelihood is then the product of the individual likelihoods for each experiment. When using the binned likelihood, experiments with more bins receive a greater weight in the likelihood. Therefore, we may want to reweight the bins such that each experiment receives equal weight. We write the likelihood contribution of the $i^\textrm{th}$ bin in experiment $n$ as $(\mathcal{L}_n^i)^{w_n}$, where $w_n$ is the weight for bins in experiment $n$. This weight is calculated as

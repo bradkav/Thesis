@@ -178,7 +178,7 @@ We generate 250 mock data sets using the experiments described above. Each reali
 \begin{enumerate}
 \item Calculate the number of expected events $N_e$, given $\left\{m_\chi, \sigmapsi, f(v)\right\}$, using Eq.~\ref{eq:DD:N_expected},
 \item Pick the number of observed events $N_o$ from a Poisson distribution with mean $N_e$,
-\item Pick recoil energies $\left\{E_1, E_2, ..., E_{N_o}\right\}$, from the distribution $P(E_R)$ 
+\item Pick recoil energies $\left\{E_1, E_2, ..., E_{N_o}\right\}$, from the distribution $P(E_R)$
 \begin{equation}
 P(E_R) = \frac{\epsilon m_\textrm{det} t_\textrm{exp}}{N_e}\dbd{R}{E_R}\,,
 \end{equation}
@@ -191,10 +191,10 @@ The likelihood function used to generate the Markov chains is the same unbinned 
 \begin{equation}
 \label{eq:Speed:unbinnedL}
 \mathcal{L}_1 = \frac{N_\textrm{e}^{N_\textrm{o}}\, \textrm{e}^{-N_\textrm{e}}}{N_\textrm{o}!} \, \prod_j^{N_\textrm{o}} P(E_j).
-\end{equation} 
+\end{equation}
 The full likelihood \(\mathcal{L}\) is then the product of the likelihoods for the three separate experiments.
 
-The distribution of MCMC chain positions gives the posterior probability distribution $\mathcal{P}(\mathbf{\theta})$ for the parameters $\mathbf{\theta}$. In order to obtain 1-dimensional parameter limits, we consider the marginalised posterior distribution $\mathcal{P}_m(\theta)$, which is obtained by integrating $\mathcal{P}(\mathbf{\theta})$ over all the parameters other than the parameter of interest. We take the mode of the marginalised distribution as a best estimate of the underlying parameter. We then construct highest-density credible intervals for the parameter of interest at the $p\%$ level. Further details of this procedure are given in Appendix~\ref{ch:ParamRecon}. 
+The distribution of MCMC chain positions gives the posterior probability distribution $\mathcal{P}(\mathbf{\theta})$ for the parameters $\mathbf{\theta}$. In order to obtain 1-dimensional parameter limits, we consider the marginalised posterior distribution $\mathcal{P}_m(\theta)$, which is obtained by integrating $\mathcal{P}(\mathbf{\theta})$ over all the parameters other than the parameter of interest. We take the mode of the marginalised distribution as a best estimate of the underlying parameter. We then construct highest-density credible intervals for the parameter of interest at the $p\%$ level. Further details of this procedure are given in Appendix~\ref{ch:ParamRecon}.
 
 \subsection{Results}
 Figure~\ref{fig:Speed:Speed_MassFit} shows the fitted values for the WIMP mass, \(m_\textrm{rec}\), obtained from 250 mock datasets. This distribution shows a peak around 45 GeV, as well as a significant number of datasets reconstructed at \(\sim 100 \textrm{ GeV}\). As pointed out by Ref.\ \cite{Strege:2012}, some mock datasets will not be representative of the underlying benchmark parameters, having more events at high energies than expected, for example. This can lead to `bad' reconstructions with a fitted WIMP mass higher than the benchmark value. Thus, the reconstructions near \(100 \textrm{ GeV}\) do not necessarily signify a failure of the reconstruction method.
@@ -354,7 +354,7 @@ In theory, any of the three experiments could have been chosen to define the mom
 %Different numbers of bins
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%----Think carefully about this - in particular, make sure the explanation is tip top - we want to keep the number of bins probed by each experiment constant (as we vary the WIMP mass). 
+%%%%%----Think carefully about this - in particular, make sure the explanation is tip top - we want to keep the number of bins probed by each experiment constant (as we vary the WIMP mass).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 By comparison, using the WArP-like Argon experiment allows us to parametrise only as much of the momentum space as required to accommodate data from all three experiments. In the speed parametrisation method, varying the WIMP mass altered the size and number of energy bins to which the experiments were sensitive. However, for a given range of reduced WIMP-Argon momenta, the corresponding energy range probed by each experiment depends less strongly on $m_\chi$ (and is independent of $m_\chi$ for the Argon experiment itself). This means that the number of bins probed by each experiment should not vary significantly as a function of WIMP mass. For a fixed bin width in momentum space, the bin width in energy space is also much less sensitive to the WIMP mass. This should help reduce the bias observed in the binned speed parametrisation.
@@ -432,7 +432,7 @@ For the 100 GeV benchmark, the SHM and VL-2 models show similar structures, with
  \begin{figure}[t]
 \centering
 \includegraphics[width=0.75\textwidth]{Speed/100GeV-1.eps}
-\caption[As Fig.~\ref{fig:Speed:recons50} for \(m_\chi = 100 \textrm{ GeV}\)]{As Fig.\ \ref{fig:Speed:recons50} for \(m_\chi = 100 \textrm{ GeV}\). Reproduced from Paper I \cite{Kavanagh:2012}.}
+\caption[As Fig.~\ref{fig:Speed:recons50}, but for \(m_\chi = 100 \textrm{ GeV}\)]{As Fig.\ \ref{fig:Speed:recons50}, but for \(m_\chi = 100 \textrm{ GeV}\). Reproduced from Paper I \cite{Kavanagh:2012}.}
   \label{fig:Speed:recons100}
 \end{figure}
 
@@ -517,7 +517,7 @@ For a fixed bin width in $p_{\chi Ar}$, the bin width in recoil energy now scale
 
 The momentum method also allows us to probe a more constrained range of speeds. This is done by parametrising $p_{\chi Ar}$ only over the range to which the experiments are sensitive. While this cannot be done exactly for more than one experiment, it means that as many of the momentum bin parameters as possible contribute to the rate. Varying the WIMP mass does not strongly impact the number of bins to which the experiments are sensitive, again reducing bias in the reconstructed value of $m_\chi$. This is similar to the method of Drees and Shan \cite{Drees:2008}, which uses an algorithm to attempt to match the sensitivity ranges of multiple experiments.
 
-Unfortunately, for low WIMP masses the range of speeds (and therefore momenta) probed by each experiment grows rapidly (see Fig.~\ref{fig:Speed:Access}). A significant portion of this range is expected to be significantly higher than the maximum expected WIMP speed of $\sim 800 \kms$. If we hope to parametrise the entire range of sensitivity of the experiments, this means that only a very small fraction of this range will be non-zero. A very large number of bins would be required to capture this `low' momentum population (as discussed briefly in Sec.~\ref{sec:Speed:MomentumMethod2} for the case of a Xenon experiment). Thus, the momentum binning method appears not to be feasible for low mass WIMPs. Even in the case of intermediate mass WIMPs, it may not always be clear what the optimum range of momenta will be. We have not proposed a method for determining the range of momenta to parametrise, given the experimental parameters. Instead, the momentum range must be chosen `by eye'. 
+Unfortunately, for low WIMP masses the range of speeds (and therefore momenta) probed by each experiment grows rapidly (see Fig.~\ref{fig:Speed:Access}). A significant portion of this range is expected to be significantly higher than the maximum expected WIMP speed of $\sim 800 \kms$. If we hope to parametrise the entire range of sensitivity of the experiments, this means that only a very small fraction of this range will be non-zero. A very large number of bins would be required to capture this `low' momentum population (as discussed briefly in Sec.~\ref{sec:Speed:MomentumMethod2} for the case of a Xenon experiment). Thus, the momentum binning method appears not to be feasible for low mass WIMPs. Even in the case of intermediate mass WIMPs, it may not always be clear what the optimum range of momenta will be. We have not proposed a method for determining the range of momenta to parametrise, given the experimental parameters. Instead, the momentum range must be chosen `by eye'.
 
 In Sec.~\ref{sec:Speed:RecoverSpeed}, we have attempted to reconstruct the WIMP speed distribution from the corresponding momentum distribution. In doing so, we fixed the WIMP mass to its reconstructed value, in order to avoid the strong correlations between $m_\chi$ and $\tilde{f}(p)$ associated with converting $p$ to $v$. However, in order to make robust statistical inferences about the speed distribution, it is necessary to take these correlations into account. This will be especially important when distinguishing between similar forms for $f(v)$, as in Fig.~\ref{fig:Speed:SHM50_all}. In future, it will be necessary to study these correlations in detail or find a parametrisation with which we can reconstruct $f(v)$ directly.
 

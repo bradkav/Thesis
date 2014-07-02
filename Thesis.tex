@@ -7,8 +7,8 @@
 
 %\usepackage{doi}%<----------
 
-
-
+\usepackage{datetime}
+\newdateformat{mydate}{\monthname[\THEMONTH] \THEYEAR}
 \usepackage{hyperref}
 \usepackage{memhfixc}
 \hypersetup{final}
@@ -105,8 +105,8 @@
 \pagenumbering{roman}
 \input{Papers.tex}
 
-\newpage
-\input{Acknowledgements.tex}
+%\newpage
+%\input{Acknowledgements.tex}
 
 \newpage
 %\begin{KeepFromToc}
@@ -120,9 +120,9 @@
 \listoftables
 \newpage
 
-\newpage
-\printnomenclature
-\newpage
+%\newpage
+%\printnomenclature
+%\newpage
 
 \pagenumbering{arabic}
 \input{Introduction.tex}

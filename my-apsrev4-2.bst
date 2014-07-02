@@ -1559,7 +1559,7 @@ FUNCTION {format.names}
         nameptr #1 > not
           {
             t *
-          } {          
+          } {
             nameptr #1
             #1 + =
             numnames #10
@@ -1576,10 +1576,6 @@ FUNCTION {format.names}
                 s nameptr "{ll}" format.name$ duplicate$ "others" =
                   { 't := }
                   { pop$ }
-                if$
-                numnames #2 >
-                  'names.punctuate
-                  'skip$
                 if$
                 t "others" =
                   {
@@ -1973,6 +1969,7 @@ FUNCTION {format.full.names}
     }
   while$
 }
+
 
 FUNCTION {make.full.names}
 {

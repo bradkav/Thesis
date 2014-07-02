@@ -7,7 +7,7 @@ In this appendix, we demonstrate how the Radon transform is calculated for a dis
 \label{eq:RadonCalc:fullRadon}
 \hat{f}(\vmin, \cos\theta) &= \int_0^{2\pi} \hat{f}(\vmin, \cos\theta, \phi) \, \mathrm{d}\phi \notag\\
 &= \int_0^{2\pi}\left( \int_{\mathbb{R}^3} f(\mathbf{v}) \delta\left(\mathbf{v}\cdot\hat{\mathbf{q}} - \vmin \right)\, \mathrm{d}^3\mathbf{v} \right) \mathrm{d}\phi \\
-&= \int_{\phi = 0}^{2\pi} \int_{v = 0}^{\infty} \oint v f(\textbf{v}) \delta\left(v_\textrm{min}/v - \hat{\textbf{v}}\cdot\hat{\textbf{q}}\right) \, \mathrm{d}\Omega_v \mathrm{d}v \mathrm{d}\phi \notag\,.
+&= \int_{\phi = 0}^{2\pi} \int_{v = 0}^{\infty} \oint \frac{1}{v} f(\textbf{v}) \delta\left(v_\textrm{min}/v - \hat{\textbf{v}}\cdot\hat{\textbf{q}}\right) \, \mathrm{d}\Omega_v \mathrm{d}v \mathrm{d}\phi \notag\,.
 \end{align}
 We recall that primed angles $(\theta',\phi')$ are associated with the direction of $\textbf{v}$, while unprimed angles $(\theta, \phi)$ are associated with the direction of $\hat{\textbf{q}}$. Thus, the $\phi$ integral in Eq.~\ref{eq:RadonCalc:fullRadon} applies only to the $\delta$-function. Expanding the dot product into angular coordinates, we write the $\phi$ integral as
 
@@ -38,23 +38,23 @@ We note that these solutions exist only for $\beta \in \left[0,1\right]$ (or equ
 
 For the derivative of $g(\phi)$ we obtain
 \begin{align}
-g'(\phi) = -v\sin\theta\sin\theta'\sin(\phi-\phi')\,.
+g'(\phi) = -\sin\theta\sin\theta'\sin(\phi-\phi')\,.
 \end{align}
 Substituting the values of $\phi_{1,2,3,4}$, we see that
 \begin{align}
-|g'(\phi_{1,2,3,4})| = v\sqrt{\left(\sin\theta\sin\theta'\right)^2 - \left(\beta - \cos\theta\cos\theta'\right)^2}\,.
+|g'(\phi_{1,2,3,4})| = \sqrt{\left(\sin\theta\sin\theta'\right)^2 - \left(\beta - \cos\theta\cos\theta'\right)^2}\,.
 \end{align}
 Each of the two $\delta$-functions therefore contributes the same amount to the integral, regardless of the value of $\phi'$. Performing the integral, we obtain
 
 \begin{equation}
-I(\vmin, \cos\theta, \mathbf{v}) = \frac{2 C(\gamma)}{v\sqrt{\left(\sin\theta\sin\theta'\right)^2 - \left(\beta - \cos\theta\cos\theta'\right)^2}}\Theta(v - \vmin)\,,
+I(\vmin, \cos\theta, \mathbf{v}) = \frac{2 C(\gamma)}{\sqrt{\left(\sin\theta\sin\theta'\right)^2 - \left(\beta - \cos\theta\cos\theta'\right)^2}}\Theta(v - \vmin)\,,
 \end{equation}
 where $C(\gamma) = 1$ for $\gamma \in [-1,1]$ and vanishes otherwise.
 
 We therefore obtain
 
 \begin{equation}
-\hat{f}(\vmin, \cos\theta) = \int_{-1}^{1} \int_{\vmin}^{\infty}  f(v, \cos\theta') I(\vmin, \cos\theta, v, \cos\theta')\, v^2 \mathrm{d}v\, \mathrm{d}\cos\theta'\,,
+\hat{f}(\vmin, \cos\theta) = \int_{-1}^{1} \int_{\vmin}^{\infty}  f(v, \cos\theta') I(\vmin, \cos\theta, v, \cos\theta')\, v \mathrm{d}v\, \mathrm{d}\cos\theta'\,,
 \end{equation}
 where we have performed the $\phi'$ integral over the velocity distribution,
 \begin{equation}
@@ -79,10 +79,10 @@ f^2(v) & \textrm{for } \theta' \in [\pi/2, \pi]\,.
 From these, we wish to obtain the integrated Radon transforms for the forward and backward directions. Specifically:
 
 \begin{align}
-\hat{f}_1 &= \int_{0}^1 \hat{f}(v_q,\cos\theta) \, \mathrm{d}\cos\theta \\
-\hat{f}_2 &= \int_{-1}^0 \hat{f}(v_q, \cos\theta) \, \mathrm{d}\cos\theta \,.
+\hat{f}^1 &= \int_{0}^1 \hat{f}(v_q,\cos\theta) \, \mathrm{d}\cos\theta \\
+\hat{f}^2 &= \int_{-1}^0 \hat{f}(v_q, \cos\theta) \, \mathrm{d}\cos\theta \,.
 \end{align}
-We will focus on the first of these, $\hat{f}_1$, as the other can be obtained simply by exchanging which directions are forward and backward (that is, by interchanging $f_1$ and $f_2$). From now on, we will therefore be working under the assumption that $\cos\theta \in [0,1]$.
+We will focus on the first of these, $\hat{f}^1$, as the other can be obtained simply by exchanging which directions are forward and backward (that is, by interchanging $f^1$ and $f^2$). From now on, we will therefore be working under the assumption that $\cos\theta \in [0,1]$.
 
 We start with the $\cos\theta'$ integral:
 
@@ -99,9 +99,9 @@ x_{\pm} = \beta\cos\theta \pm \sqrt{1-\beta^2}\sin\theta\,.
 We show $x_{\pm}$ as a function of $\cos\theta$ in Fig.~\ref{fig:RadonCalc:IntegLimits}. Focusing on $\cos\theta \in [0,1]$, we note that there are two distinct regimes. For $\cos\theta \in [0, \sqrt{1-\beta^2}]$, $x_+$ is positive, while $x_-$ is negative. For $\cos\theta \in [\sqrt{1-\beta^2},1]$, however, both $x_+$ and $x_-$ are positive. We therefore need to treat these two cases separately. Equation~\ref{eq:RadonCalc:J} then becomes
 
 \begin{align}
-J &= \int_{x_-}^{0} \frac{4\pi f^2(v) \, \mathrm{d}\cos\theta'}{v\sqrt{\left(\sin\theta\sin\theta'\right)^2 - \left(\beta - \cos\theta\cos\theta'\right)^2}}  \\
-& +\int_{0}^{x_+} \frac{4\pi f^1(v) \, \mathrm{d}\cos\theta'}{v\sqrt{\left(\sin\theta\sin\theta'\right)^2 - \left(\beta - \cos\theta\cos\theta'\right)^2}}, & \textrm{ for } \cos\theta \in [0,\sqrt{1-\beta^2}] \nonumber\\
-J &= \int_{x_-}^{x_+} \frac{4\pi f^1(v) \, \mathrm{d}\cos\theta'}{v\sqrt{\left(\sin\theta\sin\theta'\right)^2 - \left(\beta - \cos\theta\cos\theta'\right)^2}}, & \textrm{ for } \cos\theta \in [\sqrt{1-\beta^2},1]\,.
+J &= \int_{x_-}^{0} \frac{4\pi f^2(v) \, \mathrm{d}\cos\theta'}{\sqrt{\left(\sin\theta\sin\theta'\right)^2 - \left(\beta - \cos\theta\cos\theta'\right)^2}}  \\
+& +\int_{0}^{x_+} \frac{4\pi f^1(v) \, \mathrm{d}\cos\theta'}{\sqrt{\left(\sin\theta\sin\theta'\right)^2 - \left(\beta - \cos\theta\cos\theta'\right)^2}}, & \textrm{ for } \cos\theta \in [0,\sqrt{1-\beta^2}] \nonumber\\
+J &= \int_{x_-}^{x_+} \frac{4\pi f^1(v) \, \mathrm{d}\cos\theta'}{\sqrt{\left(\sin\theta\sin\theta'\right)^2 - \left(\beta - \cos\theta\cos\theta'\right)^2}}, & \textrm{ for } \cos\theta \in [\sqrt{1-\beta^2},1]\,.
 \end{align}
 
 \begin{figure}[tbh!]
@@ -118,15 +118,15 @@ We note that
 so that $J$ takes the form:
 
 \begin{align}
-J &= \frac{4\pi f^1(v)}{v}\left(\frac{\pi}{2} + \asin\left\{\frac{\beta\cos\theta}{\sqrt{1-\beta^2}\sin\theta}\right\}\right) \nonumber \\
-& + \frac{4\pi f^2(v)}{v}\left(\frac{\pi}{2} - \asin\left\{\frac{\beta\cos\theta}{\sqrt{1-\beta^2}\sin\theta}\right\}\right) & \textrm{ for } \cos\theta \in [0,\sqrt{1-\beta^2}] \nonumber \\
-J &= \frac{4\pi^2 f^1(v)}{v}, & \textrm{ for } \cos\theta \in [\sqrt{1-\beta^2},1]\,.
+J &= 4\pi f^1(v)\left(\frac{\pi}{2} + \asin\left\{\frac{\beta\cos\theta}{\sqrt{1-\beta^2}\sin\theta}\right\}\right) \nonumber \\
+& + 4\pi f^2(v)\left(\frac{\pi}{2} - \asin\left\{\frac{\beta\cos\theta}{\sqrt{1-\beta^2}\sin\theta}\right\}\right) & \textrm{ for } \cos\theta \in [0,\sqrt{1-\beta^2}] \nonumber \\
+J &= 4\pi^2 f^1(v), & \textrm{ for } \cos\theta \in [\sqrt{1-\beta^2},1]\,.
 \end{align}
 
 We finally perform the $\cos\theta$ integral:
 
 \begin{equation}
-\hat{f}^1 = \int_{0}^{1} \int_{\vmin}^{\infty}  J \, v^2 \mathrm{d}v \mathrm{d}\cos\theta\,.
+\hat{f}^1 = \int_{0}^{1} \int_{\vmin}^{\infty}  J \, v \mathrm{d}v \mathrm{d}\cos\theta\,.
 \end{equation}
 Noting that
 \begin{align}
@@ -138,8 +138,8 @@ we obtain
 
 \begin{align}
 \label{eq:RadonCalc:N2result}
-\hat{f}^1 &= 4\pi\int_{\vmin}^{\infty} v \left( \pi f^1(v) + \atan\left(\frac{\sqrt{1-\beta^2}}{\beta}\right)\left(f^2(v) - f^1(v)\right) \right) \, \mathrm{d}v \\
-\hat{f}^2 &= 4\pi\int_{\vmin}^{\infty} v \left( \pi f^2(v) + \atan\left(\frac{\sqrt{1-\beta^2}}{\beta}\right)\left(f^1(v) - f^2(v)\right) \right) \, \mathrm{d}v\,,
+\hat{f}^1 &= 4\pi\int_{\vmin}^{\infty} v \left( \pi f^1(v) + \atan\left(\frac{\sqrt{1-\beta^2}}{\beta}\right)\left[f^2(v) - f^1(v)\right] \right) \, \mathrm{d}v \\
+\hat{f}^2 &= 4\pi\int_{\vmin}^{\infty} v \left( \pi f^2(v) + \atan\left(\frac{\sqrt{1-\beta^2}}{\beta}\right)\left[f^1(v) - f^2(v)\right] \right) \, \mathrm{d}v\,,
 \end{align}
 where $\hat{f}^2$ is obtained by exchanging $f^1(v)$ and $f^2(v)$.
 
@@ -159,7 +159,7 @@ where it is understood that $K(x;y)$ is a function of $\beta$ and where
 \begin{equation}
 t = (1-x^2)(1-\beta^2) - (y - \beta x)^2\,.
 \end{equation}
-The full results are then in the form of 1-dimensional integrals over these sums of elementary functions. The fact that an analytic integral can be performed for any value of $y$ means that we can calculate the Radon transform for any values of the $\theta'$ bin edges and therefore extend the method up to any value of $N$. 
+The full results are then in the form of 1-dimensional integrals over these sums of elementary functions. The fact that an analytic integral can be performed for any value of $y$ means that we can calculate the Radon transform for any values of the $\theta'$ bin edges and therefore extend the method up to any value of $N$.
 
 \begin{comment}
 The result for the $N=3$ discretisation is then
